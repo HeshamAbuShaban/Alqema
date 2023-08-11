@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.creation_ui.account.AddAccountFragment">
+    <!--#############################################################-->
+
+    <!--GuidelinesStarts-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/_17sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_begin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/_17sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/_17sdp" />
+    <!--GuidelinesEnds-->
+
+    <!--#############################################################-->
+
+    <!--ScreenContainer-->
+    <LinearLayout
+        android:id="@+id/screenContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guide_end"
+        app:layout_constraintStart_toStartOf="@+id/guide_begin"
+        app:layout_constraintTop_toTopOf="@+id/guide_top">
+
+        <!--Title-->
+        <TextView
+            android:id="@+id/title"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="@dimen/_24ssp"
+            android:text="@string/add_account"
+            android:textStyle="bold" />
+
+        <!--ScrollerContainer-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/scroller_for_inputs">
+
+            <!--ScrollerContainer-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--Group1-->
+                <LinearLayout
+                    android:id="@+id/form_group1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--InnerTitle1-->
+                    <TextView
+                        android:id="@+id/inner_title_1"
+                        style="@style/AppText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:text="@string/account_details"
+                        android:textSize="@dimen/_18ssp"
+                        android:textStyle="bold" />
+                    <!--InputEditText1-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/AppTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="Enter Here" />
+                    <!--InputEditText2-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/AppTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="Enter Here" />
+                    <!--InputEditText3-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/AppTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="Enter Here" />
+
+
+                </LinearLayout>
+
+                <!--Group2-->
+                <LinearLayout
+                    android:id="@+id/form_group2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!--InnerTitle1-->
+                    <TextView
+                        android:id="@+id/inner_title_2"
+                        style="@style/AppText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/_18ssp"
+                        android:text="@string/categorize_account"
+                        android:textStyle="bold" />
+                    <!--InputEditText1-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/AppTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="Enter Here" />
+                    <!--InputEditText2-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/AppTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="Enter Here" />
+                    <!--InputEditText3-->
+                    <com.google.android.material.textfield.TextInputEditText
+                        style="@style/AppTextInputEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:hint="Enter Here" />
+
+
+                </LinearLayout>
+
+                <!--ConfirmButton-->
+                <com.google.android.material.button.MaterialButton
+                    style="@style/PrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="@string/confirm" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

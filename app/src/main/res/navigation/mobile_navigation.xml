@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_addAccount">
+
+    <fragment
+        android:id="@+id/navigation_addAccount"
+        android:name="com.alqema.ui.fragments.creation_ui.account.AddAccountFragment"
+        android:label="fragment_add_account"
+        tools:layout="@layout/fragment_add_account" />
+    <fragment
+        android:id="@+id/navigation_addCategory"
+        android:name="com.alqema.ui.fragments.creation_ui.category.AddCategoryFragment"
+        android:label="fragment_add_category"
+        tools:layout="@layout/fragment_add_category" />
+    <fragment
+        android:id="@+id/navigation_addUnit"
+        android:name="com.alqema.ui.fragments.creation_ui.unit.AddUnitFragment"
+        android:label="fragment_add_unit"
+        tools:layout="@layout/fragment_add_unit" />
+
+</navigation>

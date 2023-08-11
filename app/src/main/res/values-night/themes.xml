@@ -1,0 +1,30 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Alqema" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/night_window_background_color</item>
+
+        <!-- Customize your dark theme here. -->
+        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppLayout" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@color/grey</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppText" parent="ThemeOverlay.Material3.AutoCompleteTextView">
+        <item name="android:textColorHint">@color/less_white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppTextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:textColorHint">@color/less_white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>
