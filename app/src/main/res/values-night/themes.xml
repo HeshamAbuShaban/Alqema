@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Alqema" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/night_window_background_color</item>
@@ -22,9 +22,21 @@
 
     <!--  #############################################################  -->
 
-    <style name="AppTextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText">
-        <item name="android:textColorHint">@color/less_white</item>
+    <style name="AppTitleText" parent="ThemeOverlay.Material3.AutoCompleteTextView">
+        <!--        <item name="android:textColorHint">@color/less_black</item>-->
         <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <!--  #############################################################  -->
+
+    <style name="AppTextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText">
+        <item name="android:layout_marginTop">@dimen/_16sdp</item>
+        <item name="android:includeFontPadding">true</item>
+        <item name="android:padding">@dimen/_6sdp</item>
+        <item name="android:background">@drawable/shape_text_field_text_input</item>
+        <item name="android:textColorHint">@color/less_black</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
 </resources>

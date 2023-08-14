@@ -5,19 +5,18 @@ import android.content.SharedPreferences;
 
 import com.alqema.app_system.AppController;
 
-import org.jetbrains.annotations.Contract;
-
 import java.util.Objects;
 
 
 public class AppSharedPreferences {
     private enum SharedPreferencesKeys {
-        currentUserChattingUid,Value
+        Value
     }
 
     private static volatile AppSharedPreferences Instance;
     private final SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+
     private AppSharedPreferences(Context context) {
         sharedPreferences = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE);
     }
@@ -31,18 +30,18 @@ public class AppSharedPreferences {
 
     //.. VAlUE
     public String getValue() {
-        return sharedPreferences.getString(SharedPreferencesKeys.currentUserChattingUid.name(), "");
+        return sharedPreferences.getString(SharedPreferencesKeys.Value.name(), "");
     }
 
     public void setValue(String uid) {
         editor = sharedPreferences.edit();
-        editor.putString(SharedPreferencesKeys.currentUserChattingUid.name(), uid);
+        editor.putString(SharedPreferencesKeys.Value.name(), uid);
         editor.apply();
     }
 
     public void removeValue() {
         editor = sharedPreferences.edit();
-        editor.remove(SharedPreferencesKeys.currentUserChattingUid.name());
+        editor.remove(SharedPreferencesKeys.Value.name());
         editor.apply();
     }
 

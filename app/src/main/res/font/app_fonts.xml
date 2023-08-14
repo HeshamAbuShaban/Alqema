@@ -7,6 +7,11 @@
 
     <font
         app:fontStyle="normal"
+        app:font="@font/cairo_light"
+        app:fontWeight="700" />
+
+    <font
+        app:fontStyle="normal"
         app:font="@font/cairo_bold"
         app:fontWeight="700" />
 

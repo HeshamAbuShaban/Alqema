@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragments.creation_ui.category.AddCategoryFragment">
@@ -29,6 +30,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/_17sdp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/_17sdp" />
+
     <!--GuidelinesEnds-->
 
     <!--#############################################################-->
@@ -39,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/confirm_button"
         app:layout_constraintEnd_toStartOf="@+id/guide_end"
         app:layout_constraintStart_toStartOf="@+id/guide_begin"
         app:layout_constraintTop_toTopOf="@+id/guide_top">
@@ -50,10 +59,10 @@
             style="@style/AppText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/add_category"
             android:textAlignment="center"
             android:textSize="@dimen/_24ssp"
-            android:textStyle="bold"
-            android:text="@string/add_category" />
+            android:textStyle="bold" />
 
         <!--ScrollerContainer-->
         <ScrollView
@@ -72,23 +81,25 @@
                     android:id="@+id/form_group1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25sdp"
                     android:orientation="vertical">
 
                     <!--InnerTitle1-->
                     <TextView
                         android:id="@+id/inner_title_1"
-                        style="@style/AppText"
+                        style="@style/AppTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@string/category_details"
                         android:textAlignment="textStart"
                         android:textSize="@dimen/_18ssp"
-                        android:textStyle="bold"
-                        android:text="@string/category_details" />
+                        android:textStyle="bold" />
                     <!--InputEditText1-->
                     <com.google.android.material.textfield.TextInputEditText
                         style="@style/AppTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
                         tools:hint="Enter here" />
                     <!--InputEditText2-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -111,6 +122,7 @@
                     android:id="@+id/form_group2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
                     android:orientation="vertical">
 
                     <!--InnerTitle1-->
@@ -128,6 +140,7 @@
                         style="@style/AppTextInputEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
                         tools:hint="Enter here" />
                     <!--InputEditText2-->
                     <com.google.android.material.textfield.TextInputEditText
@@ -145,19 +158,24 @@
 
                 </LinearLayout>
 
-                <!--ConfirmButton-->
-                <com.google.android.material.button.MaterialButton
-                    style="@style/PrimaryButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="@string/confirm" />
 
             </LinearLayout>
 
         </ScrollView>
 
     </LinearLayout>
+
+    <!--ConfirmButton-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm_button"
+        style="@style/PrimaryButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/confirm"
+        app:layout_constraintBottom_toBottomOf="@id/guide_bottom"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_begin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
