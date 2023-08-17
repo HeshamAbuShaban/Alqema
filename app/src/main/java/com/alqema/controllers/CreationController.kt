@@ -2,62 +2,42 @@ package com.alqema.controllers
 
 import com.alqema.models.Account
 import com.alqema.models.Category
-import com.alqema.models.Unit
-import com.alqema.models.constants.AccountType
+import com.alqema.models.constants.account.AccountCurrency
+import com.alqema.models.constants.account.AccountDetails
+import com.alqema.models.constants.account.AccountNature
+import com.alqema.models.constants.account.AccountType
 
 class CreationController private constructor() {
 
+    //.. singleton
     companion object {
+        @Volatile
         private var creationController: CreationController? = null
 
         @JvmStatic
         fun getInstance(): CreationController {
-            if (creationController == null) {
-                creationController = CreationController()
+            return creationController ?: synchronized(this) {
+                creationController ?: CreationController()
             }
-            return creationController!!
         }
     }
 
     //.. create category
-
     fun createCategory(
-        itemNumber: Int, categoryName: String, barcodeNumber: Int,
-        mainUnit: Unit, sellingPrice: Double, purchasePrice: Double,
+        categoryNumber: Int, categoryName: String, barcodeNumber: Int,
+        mainUnit: String, sellingPrice: Double, purchasePrice: Double,
+        //.. appended this OldUnit .
+        unitName: String, quantityOfUnit: Double, unitPrice: Double,
+        unitBarcode: String,
     ): Category {
         return Category.Builder()
-            .withItemNumber(itemNumber)
+            .withCategoryNumber(categoryNumber)
             .withCategoryName(categoryName)
             .withBarcodeNumber(barcodeNumber)
             .withMainUnit(mainUnit)
             .withSellingPrice(sellingPrice)
             .withPurchasePrice(purchasePrice)
-            .build()
-    }
-
-    //.. create account
-
-    fun createAccount(
-        accountNumber: Int, accountName: String, accountType: AccountType,
-        address: String, mobileNumber: Int, belongsToAccount: Int,
-    ): Account {
-        return Account.Builder()
-            .withAccountNumber(accountNumber)
-            .withAccountName(accountName)
-            .withAccountType(accountType)
-            .withAddress(address)
-            .withMobileNumber(mobileNumber)
-            .withBelongsToAccount(belongsToAccount)
-            .build()
-    }
-    
-    //.. create unit
-
-    fun createUnit(
-         unitName: String,  quantityOfUnit: Int,  unitPrice: Double,
-         unitBarcode: String,
-    ): Unit {
-        return Unit.Builder()
+            // unit ues in the category
             .withUnitName(unitName)
             .withQuantityOfUnit(quantityOfUnit)
             .withUnitPrice(unitPrice)
@@ -65,5 +45,27 @@ class CreationController private constructor() {
             .build()
     }
 
+    //.. create account
+    fun createAccount(
+        accountNumber: Int, accountName: String, accountDetails: AccountDetails,
+        address: String, mobileNumber: String, belongsToAccount: Int,
+        //.. New
+        accountNature: AccountNature,
+        accountType: AccountType,
+        accountCurrency: AccountCurrency,
+    ): Account {
+        return Account.Builder()
+            .withAccountNumber(accountNumber)
+            .withAccountName(accountName)
+            .withAccountDetails(accountDetails)
+            .withAddress(address)
+            .withMobileNumber(mobileNumber)
+            .withBelongsToAccount(belongsToAccount)
+            // added recently
+            .withAccountNature(accountNature)
+            .withAccountType(accountType)
+            .withAccountCurrency(accountCurrency)
+            .build()
+    }
 
 }

@@ -14,4 +14,14 @@
     <string name="add_units">Add Units</string>
     <string name="first_unit">First Unit</string>
     <string name="second_unit">Second Unit</string>
+    <string name="category_unit">Category Unit</string>
+
+    <string name="creation_btn" translatable="false">Creation Btn</string>
+    <string name="display_btn" translatable="false">Display Btn</string>
+
+    <!--Display-->
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="address">Address</string>
 </resources>

@@ -3,8 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigation_addAccount">
+    app:startDestination="@id/navigation_home">
 
+    <!--HomePage-->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.alqema.ui.fragments.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_creationActivity"
+            app:destination="@id/navigation_creationActivity" />
+        <action
+            android:id="@+id/action_navigation_home_to_displayActivity"
+            app:destination="@id/navigation_displayActivity" />
+    </fragment>
+    <!--CreationActivity-->
+    <activity
+        android:id="@+id/navigation_creationActivity"
+        android:name="com.alqema.ui.screens.CreationActivity"
+        android:label="@string/creation"
+        tools:layout="@layout/activity_creation" />
+    <!--AddingFrags-->
     <fragment
         android:id="@+id/navigation_addAccount"
         android:name="com.alqema.ui.fragments.creation_ui.account.AddAccountFragment"
@@ -20,5 +40,21 @@
         android:name="com.alqema.ui.fragments.creation_ui.unit.AddUnitFragment"
         android:label="fragment_add_unit"
         tools:layout="@layout/fragment_add_unit" />
+    <!--DisplayActivity-->
+    <activity
+        android:id="@+id/navigation_displayActivity"
+        android:name="com.alqema.ui.screens.DisplayActivity"
+        android:label="DisplayActivity" />
+    <!--DisplayingFrags-->
+    <fragment
+        android:id="@+id/navigation_categoryDisplay"
+        android:name="com.alqema.ui.fragments.displaying_ui.category.CategoryDisplayFragment"
+        android:label="fragment_category_display"
+        tools:layout="@layout/fragment_category_display" />
+    <fragment
+        android:id="@+id/navigation_accountDisplay"
+        android:name="com.alqema.ui.fragments.displaying_ui.account.AccountDisplayFragment"
+        android:label="fragment_account_display"
+        tools:layout="@layout/fragment_account_display" />
 
 </navigation>

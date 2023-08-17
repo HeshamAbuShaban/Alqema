@@ -1,0 +1,10 @@
+/*
+if (instance == null) {
+                synchronized(AlqemaDB::class) {
+                    if (instance == null) {
+                        instance = buildDatabase(context.applicationContext)
+                    }
+                }
+            }
+            return instance!!
+            */

@@ -4,16 +4,18 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.alqema.adapters.view_pager.PagerAdapter
-import com.alqema.databinding.ActivityCreationBinding
+import com.alqema.databinding.ActivityDisplayBinding
 import com.alqema.ui.fragments.creation_ui.account.AddAccountFragment
 import com.alqema.ui.fragments.creation_ui.category.AddCategoryFragment
+import com.alqema.ui.fragments.displaying_ui.account.AccountDisplayFragment
+import com.alqema.ui.fragments.displaying_ui.category.CategoryDisplayFragment
 import com.google.android.material.tabs.TabLayoutMediator
 
-class CreationActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCreationBinding
+class DisplayActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDisplayBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCreationBinding.inflate(layoutInflater)
+        binding = ActivityDisplayBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
     }
@@ -25,11 +27,11 @@ class CreationActivity : AppCompatActivity() {
 
     private fun setupViewPager() {
         val fragmentList = ArrayList<Fragment>()
-        fragmentList.add(AddAccountFragment())
-        fragmentList.add(AddCategoryFragment())
+        fragmentList.add(AccountDisplayFragment())
+        fragmentList.add(CategoryDisplayFragment())
 
         with(binding.viewPager2) {
-            adapter = PagerAdapter(fragmentList, this@CreationActivity)
+            adapter = PagerAdapter(fragmentList, this@DisplayActivity)
             currentItem = 0
         }
 

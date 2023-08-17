@@ -1,18 +1,45 @@
 package com.alqema.models
 
-import com.alqema.models.constants.AccountType
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.alqema.models.constants.account.AccountCurrency
+import com.alqema.models.constants.account.AccountDetails
+import com.alqema.models.constants.account.AccountNature
+import com.alqema.models.constants.account.AccountType
 
+@Entity(tableName = "accounts")
 data class Account(
-    val accountNumber: Int, val accountName: String, val accountType: AccountType,
-    val address: String, val mobileNumber: Int, val belongsToAccount: Int,
-) {
+    @PrimaryKey
+    @ColumnInfo("Account ID")
+    val accountNumber: Int,
+    @ColumnInfo("Account Name")
+    val accountName: String,
+    @ColumnInfo("Account Details")
+    val accountDetails: String,
+    @ColumnInfo("Address")
+    val address: String,
+    @ColumnInfo("Mobile Number")
+    val mobileNumber: String,
+    @ColumnInfo("Belongs to account")
+    val belongsToAccount: Int,
+
+    //.. Add these
+    @ColumnInfo("Account Nature")
+    val accountNature: String,
+    @ColumnInfo("Account Type")
+    val accountType: String,
+    @ColumnInfo("Account Currency")
+    val accountCurrency: String,
+
+    ) {
     class Builder {
 
         private var accountNumber: Int = 1
         private var accountName: String = "default_"
-        private var accountType: AccountType = AccountType.Manager
+        private var accountDetails: String = AccountDetails.Dealers.value
         private var address: String = "default_"
-        private var mobileNumber: Int = 123
+        private var mobileNumber: String = "0"
         private var belongsToAccount: Int = 1
 
 
@@ -26,8 +53,8 @@ data class Account(
             return this
         }
 
-        fun withAccountType(accountType: AccountType): Builder {
-            this.accountType = accountType
+        fun withAccountDetails(accountDetails: AccountDetails): Builder {
+            this.accountDetails = accountDetails.value
             return this
         }
 
@@ -36,7 +63,7 @@ data class Account(
             return this
         }
 
-        fun withMobileNumber(mobileNumber: Int): Builder {
+        fun withMobileNumber(mobileNumber: String): Builder {
             this.mobileNumber = mobileNumber
             return this
         }
@@ -46,14 +73,39 @@ data class Account(
             return this
         }
 
+        //.. new fields
+
+        //.. Add these
+        private var accountNature: String = AccountNature.DebtorOnly.value
+        private var accountType: String = AccountType.BalanceSheet.value
+        private var accountCurrency: String = AccountCurrency.NIS.value
+
+        fun withAccountNature(accountNature: AccountNature): Builder {
+            this.accountNature = accountNature.value
+            return this
+        }
+
+        fun withAccountType(accountType: AccountType): Builder {
+            this.accountType = accountType.value
+            return this
+        }
+
+        fun withAccountCurrency(accountCurrency: AccountCurrency): Builder {
+            this.accountCurrency = accountCurrency.value
+            return this
+        }
+
         fun build(): Account =
             Account(
                 accountNumber,
                 accountName,
-                accountType,
+                accountDetails,
                 address,
                 mobileNumber,
-                belongsToAccount
+                belongsToAccount,
+                accountNature,
+                accountType,
+                accountCurrency
             )
 
     }

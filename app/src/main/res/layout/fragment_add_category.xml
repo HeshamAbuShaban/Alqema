@@ -128,13 +128,13 @@
                     <!--InnerTitle1-->
                     <TextView
                         android:id="@+id/inner_title_2"
-                        style="@style/AppText"
+                        style="@style/AppTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAlignment="textStart"
-                        android:textSize="@dimen/_24ssp"
-                        android:textStyle="bold"
-                        tools:text="Title" />
+                        android:textSize="@dimen/_18ssp"
+                        android:text="@string/category_unit"
+                        android:textStyle="bold" />
                     <!--InputEditText1-->
                     <com.google.android.material.textfield.TextInputEditText
                         style="@style/AppTextInputEditText"

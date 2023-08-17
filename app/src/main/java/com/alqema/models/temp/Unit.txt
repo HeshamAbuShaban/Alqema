@@ -1,6 +1,4 @@
-package com.alqema.models
-
-import com.alqema.models.constants.AccountType
+package com.alqema.models.temp
 
 data class Unit(
     val unitName: String, val quantityOfUnit: Int, val unitPrice: Double,

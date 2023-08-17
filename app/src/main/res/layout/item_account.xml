@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <HorizontalScrollView
+        android:background="@color/grey"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_15sdp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <!--ID-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+            <!--Name-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+            <!--Number-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountMobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+            <!--Address-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+            <!--Details-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+            <!--BelongsTo-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountBelongsTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</com.google.android.material.card.MaterialCardView>
