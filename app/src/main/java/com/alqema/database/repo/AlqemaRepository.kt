@@ -38,10 +38,14 @@ class AlqemaRepository(application: Application) {
 
     fun observeAccounts(): LiveData<List<Account>> = accountDao.observeAccounts()
 
+    fun observeAccounts(name: String): LiveData<List<Account>> {
+        return accountDao.observeAccounts(name)
+    }
+
     //.. Now Categories ----------------------------
 
 
-    fun insertCategory(category: Category) :Boolean {
+    fun insertCategory(category: Category): Boolean {
         AlqemaDB.databaseWriteExecutor.execute { categoryDao.insertCategory(category) }
         return true
     }
@@ -60,6 +64,9 @@ class AlqemaRepository(application: Application) {
 
     fun observeCategories(): LiveData<List<Category>> = categoryDao.observeCategories()
 
+    fun observeCategories(name: String): LiveData<List<Category>> {
+        return categoryDao.observeCategories(name)
+    }
 
     fun tearDown() {
         db.close()

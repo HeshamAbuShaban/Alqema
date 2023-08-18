@@ -1,6 +1,8 @@
 package com.alqema.ui.fragments.displaying_ui.category
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,22 +37,31 @@ class CategoryDisplayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListeners()
         displayCategory()
+    }
+
+    private fun setupListeners() {
+        binding.categoriesSearchBar.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(text: Editable?) {
+                /*searchQuery =*/  /*readSearchBarText()*/
+                dbViewModel.getAllCategories(text.toString()).observe(viewLifecycleOwner) {
+                    setupCategoryAdapter(it)
+                }
+            }
+        })
     }
 
     private fun displayCategory() {
         dbViewModel.allCategory.observe(viewLifecycleOwner) {
             setupCategoryAdapter(it)
         }
-
-        // first call the data
-        /*viewModel.fetchData()
-        // than read it
-        viewModel.categoryList.observe(viewLifecycleOwner) {
-            if (it != null) {
-                setupCategoryAdapter(it)
-            }
-        }*/
     }
 
     private fun setupCategoryAdapter(categoryList: List<Category>) {

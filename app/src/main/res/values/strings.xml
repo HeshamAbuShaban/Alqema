@@ -33,6 +33,9 @@
     <string name="account_nature">Account Nature</string>
     <string name="account_type">Account Type</string>
     <string name="account_currency">Account Currency</string>
+    <string name="search_accounts">Search Accounts</string>
+    <string name="search_categories">Search Categories</string>
+    <string name="search_by_names">Search by names</string>
 
     <!--SpinnerD-->
     <string-array name="AccountDetails">

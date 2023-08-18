@@ -6,11 +6,11 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+
 import com.alqema.database.repo.AlqemaRepository;
 import com.alqema.models.Account;
 import com.alqema.models.Category;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,8 +23,12 @@ public class DatabaseViewModel extends AndroidViewModel {
     }
 
     // Category
-    public LiveData<List<Category>> getAllCategory(){
+    public LiveData<List<Category>> getAllCategory() {
         return repository.observeCategories();
+    }
+
+    public LiveData<List<Category>> getAllCategories(String name) {
+        return repository.observeCategories(name);
     }
 
     public void insertCategory(Category reminder) {
@@ -37,8 +41,12 @@ public class DatabaseViewModel extends AndroidViewModel {
 
 
     // Account
-    public LiveData<List<Account>> getAllAccount(){
+    public LiveData<List<Account>> getAllAccount() {
         return repository.observeAccounts();
+    }
+
+    public LiveData<List<Account>> getAllAccount(String name) {
+        return repository.observeAccounts(name);
     }
 
     public void insertAccount(Category reminder) {

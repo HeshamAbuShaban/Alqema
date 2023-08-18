@@ -10,6 +10,11 @@ import com.alqema.models.Account
 class AccountAdapter(private val accountList: List<Account>) :
     RecyclerView.Adapter<AccountViewHolder>() {
 
+    /*fun setAccountList(accountList: List<Account>) {
+        this.accountList = accountList
+        notifyItemRangeInserted(0, accountList.size)
+    }*/
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountViewHolder {
         return AccountViewHolder(
             ItemAccountBinding.inflate(

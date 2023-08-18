@@ -1,6 +1,8 @@
 package com.alqema.ui.fragments.displaying_ui.account
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,8 @@ class AccountDisplayFragment : Fragment() {
 
     private lateinit var viewModel: AccountDisplayViewModel
     private lateinit var dbViewModel: DatabaseViewModel
+
+    /*private var searchQuery: String? = null*/
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,20 +38,36 @@ class AccountDisplayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupListeners()
         displayAccounts()
     }
 
+    private fun setupListeners() {
+        binding.accountsSearchBar.addTextChangedListener(object :TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(text: Editable?) {
+                /*searchQuery =*/  /*readSearchBarText()*/
+                dbViewModel.getAllAccount(text.toString()).observe(viewLifecycleOwner) {
+                    setupAccountAdapter(it)
+                }
+            }
+        })
+    }
+
+    /*private fun readSearchBarText(): String {
+        return binding.accountsSearchBar.text.toString()
+    }*/
+
     private fun displayAccounts() {
         // first call the data
-        dbViewModel.allAccount.observe(viewLifecycleOwner){
+        dbViewModel.allAccount.observe(viewLifecycleOwner) {
             setupAccountAdapter(it)
         }
-       /* // than read it
-        viewModel.accountList.observe(viewLifecycleOwner) {
-            if (it != null) {
-                setupAccountAdapter(it)
-            }
-        }*/
     }
 
     private fun setupAccountAdapter(accountList: List<Account>) {

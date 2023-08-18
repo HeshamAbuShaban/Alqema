@@ -12,7 +12,6 @@ class AccountViewHolder(private val binding: ItemAccountBinding) : RecyclerView.
             accountName.text = account.accountName
             accountAddress.text = account.address
             accountMobile.text = account.mobileNumber
-            accountDetails.text = account.accountDetails
         }
     }
 }

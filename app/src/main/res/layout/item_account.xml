@@ -6,67 +6,111 @@
     android:layout_height="wrap_content">
 
 
+    <!--new-->
+    <!--Container-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/_15sdp"
+        android:weightSum="2">
 
-        <!--ID-->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/accountId"
+        <!--Des-->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="#78909C"
-            android:textSize="20sp"
-            tools:text="Hello,World" />
-        <!--Name-->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/accountName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="#78909C"
-            android:textSize="20sp"
+            android:layout_weight="0.5"
+            android:orientation="vertical">
 
-            tools:text="Hello,World" />
-        <!--Number-->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/accountMobile"
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/id"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/name"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/mobile"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/address"
+                android:textAlignment="center"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+        <!--Values-->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="#78909C"
-            android:textSize="20sp"
-            tools:text="Hello,World" />
-        <!--Address-->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/accountAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="#78909C"
-            android:textSize="20sp"
-            tools:text="Hello,World" />
-        <!--Details-->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/accountDetails"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="#78909C"
-            android:textSize="20sp"
-            tools:text="Hello,World" />
-        <!--BelongsTo-->
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/accountBelongsTo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:textColor="#78909C"
-            android:textSize="20sp"
-            tools:text="Hello,World" />
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountId"
+                style="@style/AppText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountName"
+                style="@style/AppText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountMobile"
+                style="@style/AppText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accountAddress"
+                style="@style/AppText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:text="Hello,World" />
+        </LinearLayout>
 
     </LinearLayout>
+
 
 
 </com.google.android.material.card.MaterialCardView>

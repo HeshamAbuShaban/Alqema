@@ -7,104 +7,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.displaying_ui.account.AccountDisplayFragment">
 
-    <HorizontalScrollView
-        android:id="@+id/scrollerContainer"
+    <!--SearchBar-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/accounts_searchViewContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
-        android:padding="@dimen/_15sdp"
+        android:hint="@string/search_accounts"
+        app:helperText="@string/search_by_names"
+        app:layout_constraintBottom_toTopOf="@id/accounts_recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/accounts_searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#616161"
+            tools:ignore="TextContrastCheck" />
 
-            <!--ID-->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/id"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-            <!--Name-->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/name"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-            <!--Number-->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/mobile"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-            <!--Address-->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/address"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-            <!--Details-->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/address"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-            <!--BelongsTo-->
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/app_name"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-
-    </HorizontalScrollView>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
+    <!--RecycleViewData-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/accounts_recyclerView"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollerContainer">
-
-        <LinearLayout
-            android:background="@color/grey"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/accounts_recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/scrollerContainer"
-                tools:listitem="@layout/item_account" />
-
-        </LinearLayout>
-    </HorizontalScrollView>
+        app:layout_constraintTop_toBottomOf="@id/accounts_searchViewContainer"
+        tools:listitem="@layout/item_account" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
