@@ -60,7 +60,7 @@ class AccountViewModel : ViewModel() {
                     7 -> accountTypeVH = AccountType.Project
                 }
             }
-            with(spAccountNature) {
+            with(spAccountCurrency) {
                 when (selectedItemPosition) {
                     0 -> accountCurrencyVH = AccountCurrency.NIS
                     1 -> accountCurrencyVH = AccountCurrency.USD
