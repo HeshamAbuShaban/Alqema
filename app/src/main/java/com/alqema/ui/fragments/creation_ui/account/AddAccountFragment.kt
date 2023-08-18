@@ -5,14 +5,41 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.alqema.R
+import androidx.lifecycle.ViewModelProvider
+import com.alqema.databinding.FragmentAddAccountBinding
+import com.alqema.utils.GeneralUtils
 
-class AddAccountFragment : Fragment(){
+class AddAccountFragment : Fragment() {
+    private lateinit var binding: FragmentAddAccountBinding
+    private lateinit var viewModel: AccountViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelProvider(this)[AccountViewModel::class.java]
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
+        binding = FragmentAddAccountBinding.inflate(layoutInflater)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_account, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        with(binding) {
+            confirmButton.setOnClickListener {
+                viewModel.performCreation(binding) {
+                    GeneralUtils.getInstance().showSnackBar(binding.root,"Please check the Empty Fields")
+                }
+            }
+        }
+    }
+
 }

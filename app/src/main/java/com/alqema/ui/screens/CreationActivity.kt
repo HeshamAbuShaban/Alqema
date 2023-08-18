@@ -3,6 +3,7 @@ package com.alqema.ui.screens
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.alqema.R
 import com.alqema.adapters.view_pager.PagerAdapter
 import com.alqema.databinding.ActivityCreationBinding
 import com.alqema.ui.fragments.creation_ui.account.AddAccountFragment
@@ -41,8 +42,8 @@ class CreationActivity : AppCompatActivity() {
         ) { tab, position ->
 
             when (position) {
-                0 -> tab.text = "Account"
-                1 -> tab.text = "Category"
+                0 -> tab.text = getString(R.string.accounts)
+                1 -> tab.text = getString(R.string.categories)
                 else -> tab.text = "GoodShow"
             }
 

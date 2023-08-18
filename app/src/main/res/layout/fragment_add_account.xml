@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/_17sdp" />
+        app:layout_constraintGuide_begin="@dimen/_16sdp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_begin"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="@dimen/_17sdp" />
+        app:layout_constraintGuide_end="@dimen/_16sdp" />
 
     <!--GuidelinesEnds-->
 
@@ -47,9 +47,9 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/confirm_button"
         app:layout_constraintEnd_toStartOf="@+id/guide_end"
         app:layout_constraintStart_toEndOf="@+id/guide_begin"
-        app:layout_constraintBottom_toTopOf="@id/confirm_button"
         app:layout_constraintTop_toTopOf="@+id/guide_top">
 
         <!--Title-->
@@ -78,9 +78,9 @@
                 <!--Group1-->
                 <LinearLayout
                     android:id="@+id/form_group1"
-                    android:layout_marginTop="@dimen/_25sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25sdp"
                     android:orientation="vertical">
 
                     <!--InnerTitle1-->
@@ -93,35 +93,103 @@
                         android:textAlignment="textStart"
                         android:textSize="@dimen/_18ssp"
                         android:textStyle="bold" />
-                    <!--InputEditText1-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_6sdp"
-                        tools:hint="Enter Here" />
-                    <!--InputEditText2-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:hint="Enter Here" />
-                    <!--InputEditText3-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:hint="Enter Here" />
 
+                    <!--#################################################################-->
+                    <!--TextLayout1-ID-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="ID"
+                        app:helperText="@string/id"
+                        app:placeholderText="@string/id">
+                        <!--InputEditText1-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edAccountId"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout2-Name-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Name"
+                        app:helperText="@string/name"
+                        app:placeholderText="@string/name">
+                        <!--InputEditText2-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edAccountName"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout4-Address-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Address"
+                        app:helperText="@string/address"
+                        app:placeholderText="@string/address">
+                        <!--InputEditText4-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edAccountAddress"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout5-MobileNumber-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Mobile Number"
+                        app:helperText="@string/mobile"
+                        app:placeholderText="@string/mobile">
+                        <!--InputEditText5-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edAccountMobileNumber"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout6-Belongs to account-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Belongs to account"
+                        app:helperText="@string/belongs_to_account"
+                        app:placeholderText="@string/belongs_to_account">
+                        <!--InputEditText6-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edAccountBelongsAccount"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
                 <!--Group2-->
                 <LinearLayout
                     android:id="@+id/form_group2"
-                    android:layout_marginTop="@dimen/_20sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <!--InnerTitle1-->
@@ -134,26 +202,72 @@
                         android:textAlignment="textStart"
                         android:textSize="@dimen/_18ssp"
                         android:textStyle="bold" />
-                    <!--InputEditText1-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_6sdp"
-                        tools:hint="Enter Here" />
-                    <!--InputEditText2-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:hint="Enter Here" />
-                    <!--InputEditText3-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:hint="Enter Here" />
 
+                    <!--Sp-Details-Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Details"
+                        app:helperText="@string/account_detail"
+                        app:placeholderText="@string/account_detail">
+                        <!--SpinnerDetails-->
+                        <Spinner
+                            android:id="@+id/spAccountDetails"
+                            style="@style/AppSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/AccountDetails" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Sp-Nature-Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Nature"
+                        app:helperText="@string/account_nature"
+                        app:placeholderText="@string/account_nature">
+                        <!--SpinnerNature-->
+                        <Spinner
+                            android:id="@+id/spAccountNature"
+                            style="@style/AppSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/AccountNature"
+                            android:minHeight="@dimen/_48sdp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Sp-Type-Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Type"
+                        app:helperText="@string/account_type"
+                        app:placeholderText="@string/account_type">
+                        <!--SpinnerType-->
+                        <Spinner
+                            android:id="@+id/spAccountType"
+                            style="@style/AppSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/AccountType" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--Sp-Currency-Layout-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Currency"
+                        app:helperText="@string/account_currency"
+                        app:placeholderText="@string/account_currency">
+                        <!--SpinnerCurrency-->
+                        <Spinner
+                            android:id="@+id/spAccountCurrency"
+                            style="@style/AppSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/AccountCurrency" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
@@ -169,7 +283,7 @@
         style="@style/PrimaryButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/confirm"
         app:layout_constraintBottom_toBottomOf="@id/guide_bottom"
         app:layout_constraintEnd_toEndOf="@id/guide_end"

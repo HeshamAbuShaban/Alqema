@@ -17,10 +17,72 @@
     <string name="second_unit">الوحدة الثانية</string>
     <string name="category_unit">وحدة الصنف</string>
 
+
+    <!--Tab-->
+    <string name="accounts">الحسابات</string>
+    <string name="categories">التصنيفات</string>
+
     <!--For Displaying Details-->
     <string name="id">الرقم المعرف</string>
     <string name="name">الاسم</string>
     <string name="mobile">رقم الهاتف</string>
     <string name="address">العنوان</string>
+    <string name="belongs_to_account">يتبع الى حساب</string>
+
+    <!--SpinnerD-->
+    <string-array name="AccountDetails">
+        <item>تجار</item>
+        <item>زبائن</item>
+        <item>مصاريف</item>
+        <item>موظفين</item>
+    </string-array>
+
+    <!--Spinner1-->
+    <string-array name="AccountNature">
+        <item>مدين فقط</item>
+        <item>دائن فقط</item>
+        <item>مدين و دائن</item>
+    </string-array>
+    <!--Spinner2-->
+    <string-array name="AccountType">
+        <item>ميزانية عمومية</item>
+        <item>أرباح و خسائر</item>
+        <item>متاجرة</item>
+        <item>تشغيل</item>
+        <item>ايرادات ومصروفات</item>
+        <item>ذمم مدين/ دائن</item>
+        <item>وكلاء وموزعون</item>
+        <item>مشروع</item>
+    </string-array>
+    <!--Spinner3-->
+    <string-array name="AccountCurrency">
+        <item>شيكل إسرائيلي</item>
+        <item>دولار أمريكي</item>
+        <item>دينار أردني</item>
+        <item>جنيه مصري</item>
+        <item>يورو</item>
+        <item>جنيه إسترليني</item>
+        <item>دولار أسترالي</item>
+        <item>دولار كندي</item>
+        <item>فرنك سويسري</item>
+        <item>يوان صيني</item>
+        <item>ين ياباني</item>
+        <item>درهم إماراتي</item>
+        <item>ريال سعودي</item>
+        <item>ريال قطري</item>
+        <item>دينار كويتي</item>
+        <item>دينار بحريني</item>
+        <item>ريال عماني</item>
+        <item>ليرة لبنانية</item>
+        <item>ليرة تركية</item>
+        <item>روبية هندية</item>
+        <item>راند جنوب إفريقي</item>
+        <item>دولار سنغافوري</item>
+        <item>دولار نيوزيلندي</item>
+    </string-array>
+    <string name="account_nature">طبيعة الحساب</string>
+    <string name="account_type">نوع الحساب</string>
+    <string name="account_currency">عملة الحساب</string>
+    <string name="account_detail">تفصيل الحساب</string>
 
 </resources>

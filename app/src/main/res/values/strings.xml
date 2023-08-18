@@ -8,6 +8,7 @@
     <string name="scroller_for_inputs">ScrollerForInputs</string>
     <string name="add_account">Add Account</string>
     <string name="account_details">Account Details</string>
+    <string name="account_detail">Account Detail</string>
     <string name="categorize_account">Categorize Account</string>
     <string name="add_category">Add Category</string>
     <string name="category_details">Category Details</string>
@@ -19,9 +20,68 @@
     <string name="creation_btn" translatable="false">Creation Btn</string>
     <string name="display_btn" translatable="false">Display Btn</string>
 
+
+    <!--Tab-->
+    <string name="accounts">Accounts</string>
+    <string name="categories">Categories</string>
     <!--Display-->
     <string name="id">ID</string>
     <string name="name">Name</string>
     <string name="mobile">Mobile</string>
     <string name="address">Address</string>
+    <string name="belongs_to_account">Belongs to account</string>
+    <string name="account_nature">Account Nature</string>
+    <string name="account_type">Account Type</string>
+    <string name="account_currency">Account Currency</string>
+
+    <!--SpinnerD-->
+    <string-array name="AccountDetails">
+        <item>Dealers</item>
+        <item>Customer</item>
+        <item>Expenses</item>
+        <item>Employees</item>
+    </string-array>
+    <!--Spinner1-->
+    <string-array name="AccountNature">
+        <item>Debtor Only</item>
+        <item>Creditor Only</item>
+        <item>Debtor &amp; Creditor</item>
+    </string-array>
+    <!--Spinner2-->
+    <string-array name="AccountType">
+        <item>BalanceSheet</item>
+        <item>ProfitAndLoss</item>
+        <item>Trade</item>
+        <item>Employment</item>
+        <item>RevenuesAndExpenses</item>
+        <item>ReceivablesOrCreditors</item>
+        <item>AgentsAndDistributors</item>
+        <item>Project</item>
+    </string-array>
+    <!--Spinner3-->
+    <string-array name="AccountCurrency">
+        <item>NIS</item>
+        <item>USD</item>
+        <item>JOD</item>
+        <item>EGP</item>
+        <item>EUR</item>
+        <item>GBP</item>
+        <item>AUD</item>
+        <item>CAD</item>
+        <item>CHF</item>
+        <item>CNY</item>
+        <item>JPY</item>
+        <item>AED</item>
+        <item>SAR</item>
+        <item>QAR</item>
+        <item>KWD</item>
+        <item>BHD</item>
+        <item>OMR</item>
+        <item>LBP</item>
+        <item>TRY</item>
+        <item>INR</item>
+        <item>ZAR</item>
+        <item>SGD</item>
+        <item>NZD</item>
+    </string-array>
 </resources>

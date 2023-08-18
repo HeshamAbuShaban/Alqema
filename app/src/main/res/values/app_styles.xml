@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  #############################################################  -->
+
+    <style name="AppSpinner" parent="Widget.AppCompat.Spinner.DropDown">
+        <item name="android:padding">@dimen/_3sdp</item>
+        <item name="android:spinnerMode">dialog</item>
+        <item name="android:minHeight">@dimen/_44sdp</item>
+        <item name="android:background">@drawable/shape_spinner_bg</item>
+        <item name="elevation">@dimen/_10sdp</item>
+    </style>
+
+    <!--  #############################################################  -->
+</resources>
