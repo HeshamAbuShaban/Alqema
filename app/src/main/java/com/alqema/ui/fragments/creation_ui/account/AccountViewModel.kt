@@ -1,5 +1,6 @@
 package com.alqema.ui.fragments.creation_ui.account
 
+import android.text.Editable
 import androidx.lifecycle.ViewModel
 import com.alqema.app_system.AppController
 import com.alqema.database.repo.AlqemaRepository
@@ -16,19 +17,19 @@ class AccountViewModel : ViewModel() {
     private val binding get() = _binding
     private val repo: AlqemaRepository = AlqemaRepository(AppController.getInstance())
 
-    private lateinit var accountIdVH: Number
-    private lateinit var accountNameVH: String
-    private lateinit var accountDetailsVH: AccountDetails
+    private var accountIdVH: Int? = null
+    private var accountNameVH: String? = null
+    private var accountDetailsVH: AccountDetails? = null
 
     // --
-    private lateinit var addressVH: String
-    private lateinit var mobileVH: String
-    private lateinit var accountBelongsToVH: Number
+    private var addressVH: String? = null
+    private var mobileVH: String? = null
+    private var accountBelongsToVH: Int? = null
 
     // --
-    private lateinit var accountNatureVH: AccountNature
-    private lateinit var accountTypeVH: AccountType
-    private lateinit var accountCurrencyVH: AccountCurrency
+    private var accountNatureVH: AccountNature? = null
+    private var accountTypeVH: AccountType? = null
+    private var accountCurrencyVH: AccountCurrency? = null
 
     //..
     private fun readSpinnerData() {
@@ -92,12 +93,12 @@ class AccountViewModel : ViewModel() {
 
     private fun readInputsText() {
         with(binding) {
-            accountIdVH = edAccountId.text.toString().toInt()
+            accountIdVH = edAccountId.text.toInt()
             accountNameVH = edAccountName.text.toString()
             addressVH = edAccountAddress.text.toString()
             mobileVH = edAccountMobileNumber.text.toString()
             accountNameVH = edAccountName.text.toString()
-            accountBelongsToVH = edAccountBelongsAccount.text.toString().toInt()
+            accountBelongsToVH = edAccountBelongsAccount.text.toInt()
         }
     }
 
@@ -105,10 +106,10 @@ class AccountViewModel : ViewModel() {
 
     //..
 
-    fun performCreation(binding: FragmentAddAccountBinding, function: () -> Unit) {
+    fun performCreation(binding: FragmentAddAccountBinding, function: () -> Unit, onDone: () -> Unit) {
         this._binding = binding
         collectUserInputs()
-        if (checkData()) create() else function()
+        if (checkData()) create(onDone) else function()
     }
 
     private fun collectUserInputs() {
@@ -117,33 +118,34 @@ class AccountViewModel : ViewModel() {
     }
 
     private fun checkData(): Boolean =
-        accountIdVH.toString().isNotEmpty()
-                && accountNameVH.isNotEmpty()
-                && mobileVH.isNotEmpty()
-                && addressVH.isNotEmpty()
-                && accountDetailsVH.toString().isNotEmpty()
-                && accountTypeVH.toString().isNotEmpty()
-                && accountNatureVH.toString().isNotEmpty()
-                && accountCurrencyVH.toString().isNotEmpty()
-                && accountBelongsToVH.toString().isNotEmpty()
+        accountIdVH != null
+                && accountNameVH != null
+                && mobileVH != null
+                && addressVH != null
+                && accountDetailsVH != null
+                && accountTypeVH != null
+                && accountNatureVH != null
+                && accountCurrencyVH != null
+                && accountBelongsToVH != null
 
-    private fun create() {
+    private fun create(onDone: () -> Unit) {
         // Create the instance
         val accountInstance = Account.Builder()
-            .withAccountNumber(accountIdVH.toInt())
-            .withAccountName(accountNameVH)
-            .withMobileNumber(mobileVH)
-            .withAddress(addressVH)
-            .withAccountDetails(accountDetailsVH)
-            .withAccountType(accountTypeVH)
-            .withAccountNature(accountNatureVH)
-            .withAccountCurrency(accountCurrencyVH)
-            .withBelongsToAccount(accountBelongsToVH.toInt())
+            .withAccountNumber(accountIdVH!!)
+            .withAccountName(accountNameVH!!)
+            .withMobileNumber(mobileVH!!)
+            .withAddress(addressVH!!)
+            .withAccountDetails(accountDetailsVH!!)
+            .withAccountType(accountTypeVH!!)
+            .withAccountNature(accountNatureVH!!)
+            .withAccountCurrency(accountCurrencyVH!!)
+            .withBelongsToAccount(accountBelongsToVH!!)
             .build()
         // Use the instance
         repo.insertAccount(accountInstance)
         // The insert is done now empty the screen inputs for new data
         clearInputs()
+        onDone()
     }
 
     private fun clearInputs() {
@@ -161,5 +163,12 @@ class AccountViewModel : ViewModel() {
         super.onCleared()
         repo.tearDown()
     }
+
+
+    private fun Editable?.toInt(): Int? {
+        if (this?.isNotEmpty() == true) return this.toString().toInt()
+        return null
+    }
+
 
 }

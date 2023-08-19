@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.alqema.R
 import com.alqema.databinding.FragmentAddAccountBinding
 import com.alqema.utils.GeneralUtils
 
@@ -35,8 +36,12 @@ class AddAccountFragment : Fragment() {
     private fun setupListeners() {
         with(binding) {
             confirmButton.setOnClickListener {
-                viewModel.performCreation(binding) {
-                    GeneralUtils.getInstance().showSnackBar(binding.root,"Please check the Empty Fields")
+                viewModel.performCreation(binding, {
+                    GeneralUtils.getInstance()
+                        .showSnackBar(binding.root, getString(R.string.empty_fields_message))
+                }) {
+                    GeneralUtils.getInstance()
+                        .showSnackBar(binding.root, getString(R.string.created_message))
                 }
             }
         }

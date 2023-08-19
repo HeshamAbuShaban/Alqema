@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/_7sdp">
 
     <!--Container-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grey"
         android:baselineAligned="true"
         android:gravity="center"
         android:orientation="horizontal"
@@ -23,40 +25,49 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
+                android:text="@string/id"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="@string/id" />
+                android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
+                android:text="@string/name"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="@string/name" />
+                android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
+                android:text="@string/main_unit"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="@string/mobile" />
+                android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
+                android:text="@string/selling_price"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:text="@string/address" />
+                android:textSize="@dimen/_14sdp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppTitleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/purchase_price"
+                android:textAlignment="center"
+                android:textSize="@dimen/_14sdp" />
 
         </LinearLayout>
         <!--Values-->
@@ -67,44 +78,55 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountId"
+                android:id="@+id/categoryId"
+                style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountName"
+                android:id="@+id/categoryName"
+                style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountDetails"
+                android:id="@+id/categoryMainUnit"
+                style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountBelongsTo"
+                android:id="@+id/categorySellingPrice"
+                style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/categoryPurchasePrice"
+                style="@style/AppText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:textAlignment="center"
+                android:textSize="@dimen/_14sdp"
+                tools:text="Hello,World" />
+
         </LinearLayout>
 
     </LinearLayout>

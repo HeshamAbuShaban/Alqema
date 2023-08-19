@@ -94,25 +94,111 @@
                         android:textAlignment="textStart"
                         android:textSize="@dimen/_18ssp"
                         android:textStyle="bold" />
-                    <!--InputEditText1-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
+
+                    <!--#################################################################-->
+
+                    <!--TextLayout1-ID-->
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        tools:hint="Enter here" />
-                    <!--InputEditText2-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
+                        android:tag="ID"
+                        app:helperText="@string/id"
+                        app:placeholderText="@string/id">
+                        <!--InputEditText1-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryId"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_6sdp"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout2-Name-->
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:hint="Enter here" />
-                    <!--InputEditText3-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
+                        android:tag="Name"
+                        app:helperText="@string/name"
+                        app:placeholderText="@string/name">
+                        <!--InputEditText2-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryName"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout3-Barcode-->
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:hint="Enter here" />
+                        android:tag="Barcode"
+                        app:helperText="@string/barcode"
+                        app:placeholderText="@string/barcode">
+                        <!--InputEditText3-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryBarcode"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout4-MainUnit-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Barcode"
+                        app:helperText="@string/main_unit"
+                        app:placeholderText="@string/main_unit">
+                        <!--InputEditText4-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryMainUnit"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout5-SellingPrice-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="SellingPrice"
+                        app:helperText="@string/selling_price"
+                        app:placeholderText="@string/selling_price">
+                        <!--InputEditText5-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategorySellingPrice"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout6-PurchasePrice-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="PurchasePrice"
+                        app:helperText="@string/purchase_price"
+                        app:placeholderText="@string/purchase_price">
+                        <!--InputEditText5-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryPurchasePrice"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                 </LinearLayout>
@@ -123,6 +209,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <!--InnerTitle1-->
@@ -131,30 +218,81 @@
                         style="@style/AppTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@string/category_unit"
                         android:textAlignment="textStart"
                         android:textSize="@dimen/_18ssp"
-                        android:text="@string/category_unit"
                         android:textStyle="bold" />
-                    <!--InputEditText1-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
+
+                    <!--#################################################################-->
+
+                    <!--TextLayout7-Unit Name-->
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_5sdp"
-                        tools:hint="Enter here" />
-                    <!--InputEditText2-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:hint="Enter here" />
-                    <!--InputEditText3-->
-                    <com.google.android.material.textfield.TextInputEditText
-                        style="@style/AppTextInputEditText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:hint="Enter here" />
+                        android:tag="Unit Name"
+                        app:helperText="@string/unit_name"
+                        app:placeholderText="@string/unit_name">
+                        <!--InputEditText7-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryUnitName"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
 
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout8-Quantity Of Unit-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Quantity Of Unit"
+                        app:helperText="@string/quantity_of_unit"
+                        app:placeholderText="@string/quantity_of_unit">
+                        <!--InputEditText7-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryQuantityOfUnit"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout9-Unit Price-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Unit Price"
+                        app:helperText="@string/unit_price"
+                        app:placeholderText="@string/unit_price">
+                        <!--InputEditText9-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryUnitPrice"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!--TextLayout10-Unit Barcode-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="Unit Barcode"
+                        app:helperText="@string/unit_barcode"
+                        app:placeholderText="@string/unit_barcode">
+                        <!--InputEditText10-->
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edCategoryUnitBarcode"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
@@ -171,7 +309,7 @@
         style="@style/PrimaryButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:enabled="false"
+        android:enabled="true"
         android:text="@string/confirm"
         app:layout_constraintBottom_toBottomOf="@id/guide_bottom"
         app:layout_constraintEnd_toEndOf="@id/guide_end"

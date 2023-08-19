@@ -36,6 +36,18 @@
     <string name="search_accounts">Search Accounts</string>
     <string name="search_categories">Search Categories</string>
     <string name="search_by_names">Search by names</string>
+    <!--Category,Unit-->
+    <string name="barcode">Barcode</string>
+    <string name="main_unit">Main Unit</string>
+    <string name="selling_price">Selling Price</string>
+    <string name="purchase_price">Purchase Price</string>
+    <string name="unit_name">Unit Name</string>
+    <string name="quantity_of_unit">Quantity Of Unit</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="unit_barcode">Unit Barcode</string>
+    <!--Message-->
+    <string name="empty_fields_message">Check all required fields!</string>
+    <string name="created_message">Created Successfully ✔</string>
 
     <!--SpinnerD-->
     <string-array name="AccountDetails">
