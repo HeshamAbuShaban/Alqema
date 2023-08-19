@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.category.CategoryAdapter
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentCategoryDisplayBinding
 import com.alqema.models.Category
+import com.alqema.utils.GeneralUtils
 
-class CategoryDisplayFragment : Fragment() {
+class CategoryDisplayFragment : Fragment(), OnItemClickListener<Category> {
     private lateinit var binding: FragmentCategoryDisplayBinding
 
     private lateinit var viewModel: CategoryDisplayViewModel
@@ -67,8 +69,14 @@ class CategoryDisplayFragment : Fragment() {
     private fun setupCategoryAdapter(categoryList: List<Category>) {
         with(binding.categoriesRecyclerView) {
             setHasFixedSize(true)
-            adapter = CategoryAdapter(categoryList)
+            adapter = CategoryAdapter(categoryList).also {
+                it.registerOnItemClickListener(this@CategoryDisplayFragment)
+            }
         }
+    }
+
+    override fun onClick(obj: Category) {
+        GeneralUtils.getInstance().showSnackBar(binding.root, obj.categoryName)
     }
 
 }

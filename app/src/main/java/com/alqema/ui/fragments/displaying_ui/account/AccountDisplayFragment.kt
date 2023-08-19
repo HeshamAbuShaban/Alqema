@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.account.AccountAdapter
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAccountDisplayBinding
 import com.alqema.models.Account
+import com.alqema.utils.GeneralUtils
 
-class AccountDisplayFragment : Fragment() {
+class AccountDisplayFragment : Fragment(), OnItemClickListener<Account> {
     private lateinit var binding: FragmentAccountDisplayBinding
 
     private lateinit var viewModel: AccountDisplayViewModel
@@ -43,7 +45,7 @@ class AccountDisplayFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        binding.accountsSearchBar.addTextChangedListener(object :TextWatcher{
+        binding.accountsSearchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -73,8 +75,15 @@ class AccountDisplayFragment : Fragment() {
     private fun setupAccountAdapter(accountList: List<Account>) {
         with(binding.accountsRecyclerView) {
             setHasFixedSize(true)
-            adapter = AccountAdapter(accountList)
+            adapter = AccountAdapter(accountList).also {
+                it.registerOnItemClickListener(this@AccountDisplayFragment)
+            }
         }
+    }
+
+    // this to handle the click on an item to make an update on it.
+    override fun onClick(obj: Account) {
+        GeneralUtils.getInstance().showSnackBar(binding.root, obj.accountName)
     }
 
 }
