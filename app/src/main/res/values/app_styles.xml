@@ -13,6 +13,7 @@
     <!--  #############################################################  -->
 
     <style name="AppDialogButton" parent="PrimaryButton">
+        <item name="iconSize">@dimen/_24sdp</item>
         <item name="android:paddingTop">@dimen/_3sdp</item>
         <item name="android:paddingBottom">@dimen/_3sdp</item>
         <item name="cornerRadius">@dimen/_9sdp</item>

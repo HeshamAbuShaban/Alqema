@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/shape_app_bottom_sheet"
+    app:cardCornerRadius="@dimen/_5sdp"
     tools:context=".ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment">
 
     <!--ScreenContainer-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_1sdp"
         android:orientation="vertical"
+        android:padding="@dimen/_1sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,14 +24,16 @@
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/accounts" />
+            android:text="@string/accounts"
+            app:icon="@drawable/ic_accounts" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDisplayCategory"
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/categories" />
+            android:text="@string/categories"
+            app:icon="@drawable/ic_categories" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnDisplayUnits"
@@ -35,8 +41,9 @@
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_units" />
+            android:text="@string/add_units"
+            app:icon="@drawable/ic_unit" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
