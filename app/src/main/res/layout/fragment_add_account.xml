@@ -63,6 +63,14 @@
             android:textSize="@dimen/_24ssp"
             android:textStyle="bold" />
 
+        <!--Title And DeleteBtn for the update event-->
+        <!--Delete-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteAccount"
+            style="@style/AppDeleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <!--ScrollerContainer-->
         <ScrollView
             android:layout_width="match_parent"

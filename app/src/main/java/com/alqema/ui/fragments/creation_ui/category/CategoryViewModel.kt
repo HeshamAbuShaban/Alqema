@@ -99,13 +99,19 @@ class CategoryViewModel : ViewModel() {
         }
     }
 
-/*    override fun onCleared() {
-        super.onCleared()
-        repo.tearDown()
-    }*/
+    /*    override fun onCleared() {
+            super.onCleared()
+            repo.tearDown()
+        }*/
 
-    fun setUIData(binding: FragmentAddCategoryBinding, category: Category) {
+    fun setUIData(
+        binding: FragmentAddCategoryBinding,
+        category: Category,
+        handleDeletion: () -> Unit,
+    ) {
         with(binding) {
+            handleDeletion()
+            edCategoryId.isEnabled = false
             edCategoryId.setText(category.categoryNumber.toString())
             edCategoryName.setText(category.categoryName)
             edCategoryBarcode.setText(category.barcodeNumber.toString())
@@ -119,6 +125,10 @@ class CategoryViewModel : ViewModel() {
         }
     }
 
+    fun preformDelete(id: Int,onDone: () -> Unit) {
+        repo.deleteCategory(id = id)
+        onDone()
+    }
 }
 
 private fun Editable?.toInt(): Int? {

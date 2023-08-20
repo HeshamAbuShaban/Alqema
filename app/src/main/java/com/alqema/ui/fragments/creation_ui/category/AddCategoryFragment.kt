@@ -13,6 +13,7 @@ import com.alqema.R
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAddCategoryBinding
 import com.alqema.models.constants.state.EditingState
+import com.alqema.ui.fragments.dialogs.alert.DeleteItemDialogFragment
 import com.alqema.utils.GeneralUtils
 
 class AddCategoryFragment : Fragment() {
@@ -55,7 +56,25 @@ class AddCategoryFragment : Fragment() {
                         "AddCategoryFragment",
                         "onViewCreated() returned: ${category.categoryName}"
                     )
-                    viewModel.setUIData(binding, category)
+                        viewModel.setUIData(binding, category) {
+                            binding.btnDeleteCategory.visibility = View.VISIBLE
+                            binding.title.text = getString(R.string.editing_category)
+
+                            binding.btnDeleteCategory.setOnClickListener {
+                                val dialog = DeleteItemDialogFragment().apply {
+                                    registerLogoutDialogListener {
+                                        viewModel.preformDelete(args.categoryItemId){
+                                            if (updateState){
+                                                GeneralUtils.getInstance()
+                                                    .showSnackBar(binding.root, "Data Got Deleted...")
+                                                findNavController().popBackStack()
+                                            }
+                                        }
+                                    }
+                                }
+                                dialog.show(childFragmentManager, "Deleting_Item_Event")
+                            }
+                        }
                 }
             }
         }
@@ -81,5 +100,4 @@ class AddCategoryFragment : Fragment() {
             }
         }
     }
-
 }

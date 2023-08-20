@@ -3,6 +3,7 @@ package com.alqema.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.alqema.adapters.listeners.AccountContract
 import com.alqema.models.constants.account.AccountCurrency
 import com.alqema.models.constants.account.AccountDetails
 import com.alqema.models.constants.account.AccountNature
@@ -12,9 +13,9 @@ import com.alqema.models.constants.account.AccountType
 data class Account(
     @PrimaryKey
     @ColumnInfo("Account ID")
-    val accountNumber: Int,
+    override val accountNumber: Int,
     @ColumnInfo("Account Name")
-    val accountName: String,
+    override val accountName: String,
     @ColumnInfo("Account Details")
     val accountDetails: String,
     @ColumnInfo("Address")
@@ -32,7 +33,7 @@ data class Account(
     @ColumnInfo("Account Currency")
     val accountCurrency: String,
 
-    ) {
+    ) :AccountContract{
     class Builder {
 
         private var accountNumber: Int = 1

@@ -11,6 +11,7 @@
     <string name="account_details">معلومات الحساب</string>
     <string name="categorize_account">تصنيف الحساب</string>
     <string name="add_category">اضافة صنف</string>
+    <string name="editing_category">تعديل صنف</string>
     <string name="category_details">معلومات الصنف</string>
     <string name="add_units">اضافة وحدة</string>
     <string name="first_unit">الوحدة الأولى</string>
@@ -101,5 +102,9 @@
     <string name="created_message">تم الحفظ بنجاح ✔</string>
     <string name="empty_fields_message">تفقد الحقول الفارغة !</string>
     <string name="kindly_take_into_account_the_long_click_on_the_item_for_data_editing">يرجى مراعاة النقر لفترة طويلة على العنصر لتحرير البيانات</string>
+    <string name="delete">حذف</string>
+    <string name="cancel">الغاء</string>
+    <string name="do_you_really_want_to_delete">هل حقا تريد الحذف!؟</string>
+    <string name="editing_account">تعديل حساب</string>
 
 </resources>

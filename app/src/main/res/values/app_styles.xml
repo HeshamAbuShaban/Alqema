@@ -31,5 +31,14 @@
         <item name="android:textStyle">bold</item>
         <item name="drawableTint">#512DA8</item>
     </style>
+    <!--  #############################################################  -->
+
+    <style name="AppDeleteButton" parent="PrimaryButton">
+        <item name="android:backgroundTint">@color/red_deleting</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:text">@string/delete</item>
+    </style>
+
+    <!--  #############################################################  -->
 
 </resources>

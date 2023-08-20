@@ -3,6 +3,7 @@ package com.alqema.adapters.recycler_view.category
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.alqema.adapters.listeners.CategoryContract
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.category.view_holders.CategoryViewHolder
 import com.alqema.databinding.ItemCategoryBinding
@@ -11,9 +12,9 @@ import com.alqema.models.Category
 class CategoryAdapter(private val categoryList: List<Category>) :
     RecyclerView.Adapter<CategoryViewHolder>() {
 
-    private var listener: OnItemClickListener<Category>? = null
+    private var listener: OnItemClickListener<CategoryContract>? = null
 
-    fun registerOnItemClickListener(listener: OnItemClickListener<Category>) {
+    fun registerOnItemClickListener(listener: OnItemClickListener<CategoryContract>) {
         this.listener = listener
     }
 

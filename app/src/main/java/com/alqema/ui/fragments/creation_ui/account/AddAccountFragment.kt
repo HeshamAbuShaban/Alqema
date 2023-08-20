@@ -13,6 +13,7 @@ import com.alqema.R
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAddAccountBinding
 import com.alqema.models.constants.state.EditingState
+import com.alqema.ui.fragments.dialogs.alert.DeleteItemDialogFragment
 import com.alqema.utils.GeneralUtils
 
 class AddAccountFragment : Fragment() {
@@ -51,7 +52,26 @@ class AddAccountFragment : Fragment() {
                 Log.i("AddAccountFragment", "onViewCreated: QueryTrigger")
                 it?.let { account ->
                     Log.d("AddAccountFragment", "onViewCreated() returned: ${account.accountName}")
-                    viewModel.setUIData(binding, account)
+                    viewModel.setUIData(binding, account){
+                        with(binding){
+                            btnDeleteAccount.visibility = View.VISIBLE
+                            title.text = getString(R.string.editing_account)
+                            btnDeleteAccount.setOnClickListener {
+                                val dialog = DeleteItemDialogFragment().apply {
+                                    registerLogoutDialogListener {
+                                        viewModel.preformDelete(args.accountItemId){
+                                            if (updateState){
+                                                GeneralUtils.getInstance()
+                                                    .showSnackBar(binding.root, "Data Got Deleted...")
+                                                findNavController().popBackStack()
+                                            }
+                                        }
+                                    }
+                                }
+                                dialog.show(childFragmentManager, "Deleting_Item_Event")
+                            }
+                        }
+                    }
                 }
             }
         }

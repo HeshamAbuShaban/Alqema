@@ -3,6 +3,7 @@ package com.alqema.adapters.recycler_view.account
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.alqema.adapters.listeners.AccountContract
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.account.view_holders.AccountViewHolder
 import com.alqema.databinding.ItemAccountBinding
@@ -11,8 +12,8 @@ import com.alqema.models.Account
 class AccountAdapter(private val accountList: List<Account>) :
     RecyclerView.Adapter<AccountViewHolder>() {
 
-    private var listener: OnItemClickListener<Account>? = null
-    fun registerOnItemClickListener(listener: OnItemClickListener<Account>) {
+    private var listener: OnItemClickListener<AccountContract>? = null
+    fun registerOnItemClickListener(listener: OnItemClickListener<AccountContract>) {
         this.listener = listener
     }
 

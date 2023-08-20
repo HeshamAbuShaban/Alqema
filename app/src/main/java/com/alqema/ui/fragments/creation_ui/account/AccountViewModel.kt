@@ -103,8 +103,9 @@ class AccountViewModel : ViewModel() {
     }
 
     //..
-    fun setUIData(binding: FragmentAddAccountBinding, account: Account) {
+    fun setUIData(binding: FragmentAddAccountBinding, account: Account,handleDeletion: () -> Unit) {
         with(binding) {
+            handleDeletion()
             edAccountId.isEnabled = false
             edAccountId.setText(account.accountNumber.toString())
             edAccountName.setText(account.accountName)
@@ -172,6 +173,11 @@ class AccountViewModel : ViewModel() {
             edAccountName.setText("")
             edAccountBelongsAccount.setText("")
         }
+    }
+
+    fun preformDelete(id: Int,onDone: () -> Unit) {
+        repo.deleteAccount(id = id)
+        onDone()
     }
 
 /*    override fun onCleared() {

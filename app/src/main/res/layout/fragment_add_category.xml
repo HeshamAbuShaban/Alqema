@@ -63,6 +63,13 @@
             android:textAlignment="center"
             android:textSize="@dimen/_24ssp"
             android:textStyle="bold" />
+        <!--Title And DeleteBtn for the update event-->
+        <!--Delete-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDeleteCategory"
+            style="@style/AppDeleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <!--ScrollerContainer-->
         <ScrollView
@@ -111,6 +118,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_6sdp"
+                            android:inputType="numberSigned"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -128,6 +136,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="text"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -145,6 +154,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="number"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -162,6 +172,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="text"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -179,6 +190,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -196,6 +208,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -239,6 +252,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="text"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -250,12 +264,13 @@
                         android:tag="Quantity Of Unit"
                         app:helperText="@string/quantity_of_unit"
                         app:placeholderText="@string/quantity_of_unit">
-                        <!--InputEditText7-->
+                        <!--InputEditText8-->
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edCategoryQuantityOfUnit"
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -273,6 +288,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -290,6 +306,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="text"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>

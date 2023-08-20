@@ -3,14 +3,15 @@ package com.alqema.models
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.alqema.adapters.listeners.CategoryContract
 
 @Entity(tableName = "categories")
 data class Category(
     @PrimaryKey
     @ColumnInfo("Category ID")
-    val categoryNumber: Int,
+    override val categoryNumber: Int,
     @ColumnInfo("Category Name")
-    val categoryName: String,
+    override val categoryName: String,
     @ColumnInfo("Category Barcode")
     val barcodeNumber: Int,
     @ColumnInfo("Category MainUnit")
@@ -30,7 +31,7 @@ data class Category(
     val unitPrice: Double,
     @ColumnInfo("Unit Barcode")
     val unitBarcode: String,
-) {
+) : CategoryContract {
     class Builder {
 
         private var categoryNumber: Int = 0
