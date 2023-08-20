@@ -41,6 +41,9 @@ class AlqemaRepository(application: Application) {
     fun observeAccounts(name: String): LiveData<List<Account>> {
         return accountDao.observeAccounts(name)
     }
+    fun getAccount(id: Int): LiveData<Account> {
+        return accountDao.getAccount(id)
+    }
 
     //.. Now Categories ----------------------------
 
@@ -66,6 +69,10 @@ class AlqemaRepository(application: Application) {
 
     fun observeCategories(name: String): LiveData<List<Category>> {
         return categoryDao.observeCategories(name)
+    }
+
+    fun getCategory(id: Int): LiveData<Category> {
+        return categoryDao.getCategory(id)
     }
 
     fun tearDown() {

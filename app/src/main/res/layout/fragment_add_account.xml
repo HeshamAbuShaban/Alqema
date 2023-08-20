@@ -109,6 +109,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_6sdp"
+                            android:inputType="numberSigned"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -126,6 +127,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="text"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -143,6 +145,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="textPostalAddress"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -160,6 +163,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="phone"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -177,6 +181,7 @@
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="numberSigned"
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>

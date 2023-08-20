@@ -1,8 +1,14 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    // for room
+    // for navigation safe args
+    id 'androidx.navigation.safeargs'
+    /*
+    for room annotation in kotlin
     id 'kotlin-kapt'
+    */
+    // the commanded new way to use java annotation with kotlin
+    id 'com.google.devtools.ksp'
 }
 
 android {
@@ -12,7 +18,7 @@ android {
 
     buildFeatures {
         viewBinding true
-        dataBinding true
+//        dataBinding true
     }
 
     defaultConfig {
@@ -60,8 +66,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-common:2.7.0'
 
     // Navigation Component
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.7.0'
+    def nav_version = "2.7.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     // sdp ssp
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
@@ -80,7 +87,13 @@ dependencies {
     // room database
     var room_version = "2.5.2"
     implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    /*
+        To use Kotlin annotation processing tool (kapt)
+        kapt("androidx.room:room-compiler:$room_version")
+    */
+    // To use Kotlin Symbol Processing (KSP)
+    ksp("androidx.room:room-compiler:$room_version")
+    // optional - Kotlin Extensions and Coroutines support for Room
     implementation 'androidx.room:room-ktx:2.5.2'
 
 }

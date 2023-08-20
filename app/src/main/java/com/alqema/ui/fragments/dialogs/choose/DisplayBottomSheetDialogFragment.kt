@@ -1,4 +1,4 @@
-package com.alqema.ui.fragments.dialogs.chooes
+package com.alqema.ui.fragments.dialogs.choose
 
 import android.content.Context
 import android.os.Bundle
@@ -6,22 +6,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.alqema.databinding.FragmentCreationBottomSheetDialogBinding
+import com.alqema.databinding.FragmentDisplayBottomSheetDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
+class DisplayBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
 
-    private var onClickListener: OnClickListener? = null
+    private var onDisplayClickListener: OnDisplayClickListener? = null
 
-    private lateinit var binding: FragmentCreationBottomSheetDialogBinding
+    private lateinit var binding: FragmentDisplayBottomSheetDialogBinding
 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
-            onClickListener = parentFragment as OnClickListener?
-            Log.d("OnClickListener", "onAttach: Done for :$onClickListener")
+            onDisplayClickListener = parentFragment as OnDisplayClickListener?
+            Log.d("OnClickListener", "onAttach: Done for :$onDisplayClickListener")
             /*
              *  Must BE "*childFragmentManager*"
              *  ImagePickerDialogFragment().show(childFragmentManager, "ImagePicking")
@@ -42,7 +42,7 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentCreationBottomSheetDialogBinding.inflate(layoutInflater)
+        binding = FragmentDisplayBottomSheetDialogBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -59,18 +59,18 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private fun setupListeners() {
         with(binding) {
-            btnCreateUnits.setOnClickListener { view_account ->
-                onClickListener?.onClick(view_account)
+            btnDisplayAccounts.setOnClickListener { viewAccount ->
+                onDisplayClickListener?.onDisplayClicked(viewAccount)
                 dismiss()
             }
 
-            btnCreateCategory.setOnClickListener { view_category ->
-                onClickListener?.onClick(view_category)
+            btnDisplayCategory.setOnClickListener { viewCategory ->
+                onDisplayClickListener?.onDisplayClicked(viewCategory)
                 dismiss()
             }
 
-            btnCreateUnits.setOnClickListener { view_unit ->
-                onClickListener?.onClick(view_unit)
+            btnDisplayUnits.setOnClickListener { viewUnit ->
+                onDisplayClickListener?.onDisplayClicked(viewUnit)
                 dismiss()
             }
         }
@@ -78,11 +78,11 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     override fun onDetach() {
         super.onDetach()
-        onClickListener = null
+        onDisplayClickListener = null
     }
 
-    interface OnClickListener {
-        fun onClick(view: View)
+    interface OnDisplayClickListener {
+        fun onDisplayClicked(view: View)
     }
 
 }

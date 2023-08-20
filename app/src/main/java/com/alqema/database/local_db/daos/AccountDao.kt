@@ -18,6 +18,9 @@ interface AccountDao {
     @Query("SELECT * FROM accounts WHERE `Account Name` LIKE '%' || :name || '%'")
     fun observeAccounts(name: String): LiveData<List<Account>>
 
+    @Query("SELECT * FROM accounts WHERE `Account ID` = :id")
+    fun getAccount(id: Int): LiveData<Account>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAccount(account: Account)
 

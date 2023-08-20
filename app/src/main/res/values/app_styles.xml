@@ -22,4 +22,14 @@
         <item name="elevation">@dimen/_13sdp</item>
     </style>
 
+    <!--  #############################################################  -->
+
+    <style name="AppInformTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:drawableStart">@drawable/ic_info</item>
+        <item name="android:text">@string/kindly_take_into_account_the_long_click_on_the_item_for_data_editing</item>
+        <item name="android:textColor">#E6303F9F</item>
+        <item name="android:textStyle">bold</item>
+        <item name="drawableTint">#512DA8</item>
+    </style>
+
 </resources>

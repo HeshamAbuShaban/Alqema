@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.category.CategoryAdapter
 import com.alqema.database.vm.DatabaseViewModel
@@ -76,6 +77,9 @@ class CategoryDisplayFragment : Fragment(), OnItemClickListener<Category> {
     }
 
     override fun onClick(obj: Category) {
+        val navCon = findNavController()
+        val action = CategoryDisplayFragmentDirections.actionNavigationCategoryDisplayToNavigationAddCategory(obj.categoryNumber)
+        navCon.navigate(action)
         GeneralUtils.getInstance().showSnackBar(binding.root, obj.categoryName)
     }
 

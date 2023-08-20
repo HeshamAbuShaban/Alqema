@@ -99,9 +99,24 @@ class CategoryViewModel : ViewModel() {
         }
     }
 
-    override fun onCleared() {
+/*    override fun onCleared() {
         super.onCleared()
         repo.tearDown()
+    }*/
+
+    fun setUIData(binding: FragmentAddCategoryBinding, category: Category) {
+        with(binding) {
+            edCategoryId.setText(category.categoryNumber.toString())
+            edCategoryName.setText(category.categoryName)
+            edCategoryBarcode.setText(category.barcodeNumber.toString())
+            edCategoryMainUnit.setText(category.mainUnit)
+            edCategorySellingPrice.setText(category.sellingPrice.toString())
+            edCategoryPurchasePrice.setText(category.purchasePrice.toString())
+            edCategoryUnitName.setText(category.unitName)
+            edCategoryQuantityOfUnit.setText(category.quantityOfUnit.toString())
+            edCategoryUnitPrice.setText(category.unitPrice.toString())
+            edCategoryUnitBarcode.setText(category.unitBarcode)
+        }
     }
 
 }

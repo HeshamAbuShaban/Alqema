@@ -18,6 +18,9 @@ interface CategoryDao {
     @Query("SELECT * FROM categories WHERE `Category Name` LIKE '%' || :name || '%'")
     fun observeCategories(name: String): LiveData<List<Category>>
 
+    @Query("SELECT * FROM categories WHERE `Category ID` = :id")
+    fun getCategory(id: Int): LiveData<Category>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCategory(category: Category)
 

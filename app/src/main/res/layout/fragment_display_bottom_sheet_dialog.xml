@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.fragments.dialogs.choose.CreationBottomSheetDialogFragment">
+    tools:context=".ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment">
 
     <!--ScreenContainer-->
     <LinearLayout
@@ -16,21 +16,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCreateAccounts"
+            android:id="@+id/btnDisplayAccounts"
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/accounts" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCreateCategory"
+            android:id="@+id/btnDisplayCategory"
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/categories" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnCreateUnits"
+            android:id="@+id/btnDisplayUnits"
 
             style="@style/AppDialogButton"
             android:layout_width="match_parent"

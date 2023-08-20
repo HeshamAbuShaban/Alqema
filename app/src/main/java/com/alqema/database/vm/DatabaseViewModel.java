@@ -31,6 +31,10 @@ public class DatabaseViewModel extends AndroidViewModel {
         return repository.observeCategories(name);
     }
 
+    public LiveData<Category> getCategory(int id) {
+        return repository.getCategory(id);
+    }
+
     public void insertCategory(Category reminder) {
         repository.insertCategory(reminder);
     }
@@ -47,6 +51,10 @@ public class DatabaseViewModel extends AndroidViewModel {
 
     public LiveData<List<Account>> getAllAccount(String name) {
         return repository.observeAccounts(name);
+    }
+
+    public LiveData<Account> getAccount(int id) {
+        return repository.getAccount(id);
     }
 
     public void insertAccount(Category reminder) {

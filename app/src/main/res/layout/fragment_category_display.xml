@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/search_categories"
         app:helperText="@string/search_by_names"
-        app:layout_constraintBottom_toTopOf="@id/categories_recyclerView"
+        app:layout_constraintBottom_toTopOf="@id/informTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,6 +29,16 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!--InformAboutTheLongClick-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/informTitle"
+        style="@style/AppInformTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categories_searchViewContainer" />
+
     <!--RecycleViewData-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categories_recyclerView"
@@ -38,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories_searchViewContainer"
+        app:layout_constraintTop_toBottomOf="@id/informTitle"
         tools:listitem="@layout/item_account" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

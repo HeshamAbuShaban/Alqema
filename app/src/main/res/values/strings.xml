@@ -47,7 +47,8 @@
     <string name="unit_barcode">Unit Barcode</string>
     <!--Message-->
     <string name="empty_fields_message">Check all required fields!</string>
-    <string name="created_message">Created Successfully ✔</string>
+    <string name="created_message">Saved Successfully ✔</string>
+    <string name="kindly_take_into_account_the_long_click_on_the_item_for_data_editing">kindly take into account the Long Click on the Item for Data Editing</string>
 
     <!--SpinnerD-->
     <string-array name="AccountDetails">

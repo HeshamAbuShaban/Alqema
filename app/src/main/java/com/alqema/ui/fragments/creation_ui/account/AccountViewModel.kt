@@ -103,10 +103,25 @@ class AccountViewModel : ViewModel() {
     }
 
     //..
-
+    fun setUIData(binding: FragmentAddAccountBinding, account: Account) {
+        with(binding) {
+            edAccountId.isEnabled = false
+            edAccountId.setText(account.accountNumber.toString())
+            edAccountName.setText(account.accountName)
+            edAccountAddress.setText(account.address)
+            edAccountMobileNumber.setText(account.mobileNumber)
+            edAccountBelongsAccount.setText(account.belongsToAccount.toString())
+            // to the spinners
+//            spAccountCurrency.setSelection() .. nah ,forget it, will take the default
+        }
+    }
     //..
 
-    fun performCreation(binding: FragmentAddAccountBinding, function: () -> Unit, onDone: () -> Unit) {
+    fun performCreation(
+        binding: FragmentAddAccountBinding,
+        function: () -> Unit,
+        onDone: () -> Unit,
+    ) {
         this._binding = binding
         collectUserInputs()
         if (checkData()) create(onDone) else function()
@@ -159,10 +174,10 @@ class AccountViewModel : ViewModel() {
         }
     }
 
-    override fun onCleared() {
+/*    override fun onCleared() {
         super.onCleared()
         repo.tearDown()
-    }
+    }*/
 
 
     private fun Editable?.toInt(): Int? {

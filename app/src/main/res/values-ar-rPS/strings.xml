@@ -98,7 +98,8 @@
     <string name="search_by_names">ابحث بالاسم</string>
     <string name="search_categories">ابحث عن الاصناف</string>
     <!--Messages-->
-    <string name="created_message">تم الانشاء بنجاح ✔</string>
+    <string name="created_message">تم الحفظ بنجاح ✔</string>
     <string name="empty_fields_message">تفقد الحقول الفارغة !</string>
+    <string name="kindly_take_into_account_the_long_click_on_the_item_for_data_editing">يرجى مراعاة النقر لفترة طويلة على العنصر لتحرير البيانات</string>
 
 </resources>

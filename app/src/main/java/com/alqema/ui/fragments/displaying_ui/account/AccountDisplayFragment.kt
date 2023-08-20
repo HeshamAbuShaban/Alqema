@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.account.AccountAdapter
 import com.alqema.database.vm.DatabaseViewModel
@@ -83,6 +84,9 @@ class AccountDisplayFragment : Fragment(), OnItemClickListener<Account> {
 
     // this to handle the click on an item to make an update on it.
     override fun onClick(obj: Account) {
+        val navCon = binding.root.findNavController()
+        val action = AccountDisplayFragmentDirections.actionNavigationAccountDisplayToNavigationAddAccount(obj.accountNumber)
+        navCon.navigate(action)
         GeneralUtils.getInstance().showSnackBar(binding.root, obj.accountName)
     }
 
