@@ -14,7 +14,7 @@ import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.account.AccountAdapter
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAccountDisplayBinding
-import com.alqema.models.Account
+import com.alqema.database.local_db.models.Account
 import com.alqema.utils.GeneralUtils
 
 class AccountDisplayFragment : Fragment(), OnItemClickListener<AccountContract> {

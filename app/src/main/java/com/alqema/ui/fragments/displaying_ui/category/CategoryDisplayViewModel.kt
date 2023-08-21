@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alqema.app_system.AppController
 import com.alqema.database.repo.AlqemaRepository
-import com.alqema.models.Category
+import com.alqema.database.local_db.models.Category
 
 class CategoryDisplayViewModel : ViewModel() {
 

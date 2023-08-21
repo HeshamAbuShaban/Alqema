@@ -22,6 +22,9 @@
     <string name="creation_btn" translatable="false">Creation Btn</string>
     <string name="display_btn" translatable="false">Display Btn</string>
 
+    <!--ID-foreach-->
+    <string name="id_account">Account number</string>
+    <string name="id_category">Category number</string>
 
     <!--Tab-->
     <string name="accounts">Accounts</string>
@@ -54,6 +57,14 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="do_you_really_want_to_delete">Do you really want to Delete!?</string>
+    <string name="query_s">Query\'s</string>
+    <string name="add_receipt">Add Receipt</string>
+    <string name="add_receipts">Add Receipts</string>
+    <string name="receipt_details">Receipt details</string>
+    <string name="receipt_number">Receipt Number</string>
+    <string name="receipt_account_number">Receipt Account Number</string>
+    <string name="receipt_categories">Receipt Categories</string>
+    <string name="pick_category">Pick Category</string>
 
     <!--SpinnerD-->
     <string-array name="AccountDetails">
@@ -70,13 +81,13 @@
     </string-array>
     <!--Spinner2-->
     <string-array name="AccountType">
-        <item>BalanceSheet</item>
-        <item>ProfitAndLoss</item>
+        <item>Balance Sheet</item>
+        <item>Profit &amp; Loss</item>
         <item>Trade</item>
         <item>Employment</item>
-        <item>RevenuesAndExpenses</item>
-        <item>ReceivablesOrCreditors</item>
-        <item>AgentsAndDistributors</item>
+        <item>Revenues &amp; Expenses</item>
+        <item>Receivables Or Creditors</item>
+        <item>Agents &amp; Distributors</item>
         <item>Project</item>
     </string-array>
     <!--Spinner3-->

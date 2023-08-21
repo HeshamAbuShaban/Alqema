@@ -14,7 +14,7 @@ import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.category.CategoryAdapter
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentCategoryDisplayBinding
-import com.alqema.models.Category
+import com.alqema.database.local_db.models.Category
 import com.alqema.utils.GeneralUtils
 
 class CategoryDisplayFragment : Fragment(), OnItemClickListener<CategoryContract> {

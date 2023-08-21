@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.alqema.app_system.AppController
 import com.alqema.database.repo.AlqemaRepository
-import com.alqema.models.Account
+import com.alqema.database.local_db.models.Account
 
 class AccountDisplayViewModel : ViewModel() {
 

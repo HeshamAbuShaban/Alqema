@@ -2,7 +2,7 @@ package com.alqema.adapters.recycler_view.account.view_holders
 
 import androidx.recyclerview.widget.RecyclerView
 import com.alqema.databinding.ItemAccountBinding
-import com.alqema.models.Account
+import com.alqema.database.local_db.models.Account
 
 class AccountViewHolder(private val binding: ItemAccountBinding) : RecyclerView.ViewHolder(binding.root) {
 

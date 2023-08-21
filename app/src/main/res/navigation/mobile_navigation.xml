@@ -21,7 +21,7 @@
             android:id="@+id/action_navigation_home_to_navigation_accountDisplay"
             app:destination="@id/navigation_accountDisplay"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            app:exitAnim="@anim/slide_out_left" />
         <!--Category Actions-->
         <action
             android:id="@+id/action_navigation_home_to_navigation_addCategory"
@@ -32,17 +32,18 @@
             android:id="@+id/action_navigation_home_to_navigation_categoryDisplay"
             app:destination="@id/navigation_categoryDisplay"
             app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"/>
+            app:exitAnim="@anim/slide_out_left" />
+        <!--Receipt Actions-->
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_addReceipt"
+            app:destination="@id/navigation_addReceipt"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
     </fragment>
 
-    <!--CreationActivity-->
-<!--    <activity
-        android:id="@+id/navigation_creationActivity"
-        android:name="com.alqema.ui.screens.CreationActivity"
-        android:label="@string/creation"
-        tools:layout="@layout/activity_creation" />-->
 
-    <!--AddingFrags-->
+    <!--####################AddingFrags-->
     <fragment
         android:id="@+id/navigation_addAccount"
         android:name="com.alqema.ui.fragments.creation_ui.account.AddAccountFragment"
@@ -54,6 +55,7 @@
             app:argType="integer" />
     </fragment>
 
+    <!--Category-->
     <fragment
         android:id="@+id/navigation_addCategory"
         android:name="com.alqema.ui.fragments.creation_ui.category.AddCategoryFragment"
@@ -65,22 +67,23 @@
             app:argType="integer" />
     </fragment>
 
+    <!--Unit-->
     <fragment
         android:id="@+id/navigation_addUnit"
         android:name="com.alqema.ui.fragments.creation_ui.unit.AddUnitFragment"
         android:label="fragment_add_unit"
         tools:layout="@layout/fragment_add_unit" />
 
+    <!--Receipt-->
+    <fragment
+        android:id="@+id/navigation_addReceipt"
+        android:name="com.alqema.ui.fragments.creation_ui.receipt.AddReceiptFragment"
+        android:label="AddReceiptFragment"
+        tools:layout="@layout/fragment_add_receipt"/>
 
-    <!--DisplayActivity-->
-<!--    <activity
-        android:id="@+id/navigation_displayActivity"
-        android:name="com.alqema.ui.screens.DisplayActivity"
-        android:label="DisplayActivity" />-->
 
-
-
-    <!--DisplayingFrags-->
+    <!--####################DisplayingFrags-->
+    <!--Category-->
     <fragment
         android:id="@+id/navigation_categoryDisplay"
         android:name="com.alqema.ui.fragments.displaying_ui.category.CategoryDisplayFragment"
@@ -96,6 +99,7 @@
                 app:argType="integer" />
         </action>
     </fragment>
+    <!--Account-->
     <fragment
         android:id="@+id/navigation_accountDisplay"
         android:name="com.alqema.ui.fragments.displaying_ui.account.AccountDisplayFragment"
@@ -111,5 +115,6 @@
                 app:argType="integer" />
         </action>
     </fragment>
+    <!--Receipt-->
 
 </navigation>

@@ -7,7 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.alqema.models.Account
+import com.alqema.database.local_db.models.Account
 
 @Dao
 interface AccountDao {

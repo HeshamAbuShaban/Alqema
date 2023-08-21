@@ -16,5 +16,6 @@
     <color name="inner_edit_text">#FAFAFA</color>
     <color name="edit_text_board">#F0F0F0</color>
     <color name="red_deleting">#DC141E</color>
+    <color name="calm_gray">#5A788C</color>
 
 </resources>

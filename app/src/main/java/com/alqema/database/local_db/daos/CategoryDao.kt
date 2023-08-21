@@ -7,7 +7,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.alqema.models.Category
+import com.alqema.database.local_db.models.Category
 
 @Dao
 interface CategoryDao {

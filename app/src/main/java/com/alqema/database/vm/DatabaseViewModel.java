@@ -8,8 +8,8 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.alqema.database.repo.AlqemaRepository;
-import com.alqema.models.Account;
-import com.alqema.models.Category;
+import com.alqema.database.local_db.models.Account;
+import com.alqema.database.local_db.models.Category;
 
 import java.util.List;
 

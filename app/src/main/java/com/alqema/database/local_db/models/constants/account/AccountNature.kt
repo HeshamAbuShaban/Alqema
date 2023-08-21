@@ -1,4 +1,4 @@
-package com.alqema.models.constants.account
+package com.alqema.database.local_db.models.constants.account
 
 enum class AccountNature(val value: String) {
     DebtorOnly("مدين فقط"),

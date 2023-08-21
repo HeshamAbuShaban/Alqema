@@ -1,13 +1,21 @@
-package com.alqema.ui.fragments.creation_ui.category
+package com.alqema.ui.fragments.creation_ui.receipt
 
 import android.text.Editable
 import androidx.lifecycle.ViewModel
 import com.alqema.app_system.AppController
+import com.alqema.database.local_db.models.Category
 import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentAddCategoryBinding
-import com.alqema.database.local_db.models.Category
 
-class CategoryViewModel : ViewModel() {
+class ReceiptViewModel : ViewModel() {
+
+    private var receiptNumber: Int? = null
+    private var accountNumber: Int? = null
+    private var receiptDetails: String? = null
+    private var receiptDate: Long? = null
+    private var barcodeNumber: String? = null
+    private var categoryListIds: Int? = null
+
 
     private var categoryNumber: Int? = null
     private var categoryName: String? = null
@@ -41,11 +49,6 @@ class CategoryViewModel : ViewModel() {
             categoryName = edCategoryName.text.toString()
             categoryBarcodeNumber = edCategoryBarcode.text.toInt()
             categoryMainUnit = edCategoryMainUnit.text.toString()
-            categorySellingPrice = edCategorySellingPrice.text.toDouble()
-            categoryPurchasePrice = edCategoryPurchasePrice.text.toDouble()
-            unitName = edCategoryUnitName.text.toString()
-            quantityOfUnit = edCategoryQuantityOfUnit.text.toDouble()
-            unitPrice = edCategoryUnitPrice.text.toDouble()
             unitBarcode = edCategoryUnitBarcode.text.toString()
         }
     }
@@ -133,10 +136,5 @@ class CategoryViewModel : ViewModel() {
 
 private fun Editable?.toInt(): Int? {
     if (this?.isNotEmpty() == true) return this.toString().toInt()
-    return null
-}
-
-private fun Editable?.toDouble(): Double? {
-    if (this?.isNotEmpty() == true) return this.toString().toDouble()
     return null
 }

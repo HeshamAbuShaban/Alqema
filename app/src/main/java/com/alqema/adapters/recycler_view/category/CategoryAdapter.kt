@@ -7,7 +7,7 @@ import com.alqema.adapters.listeners.CategoryContract
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.category.view_holders.CategoryViewHolder
 import com.alqema.databinding.ItemCategoryBinding
-import com.alqema.models.Category
+import com.alqema.database.local_db.models.Category
 
 class CategoryAdapter(private val categoryList: List<Category>) :
     RecyclerView.Adapter<CategoryViewHolder>() {

@@ -12,7 +12,7 @@ import androidx.navigation.fragment.navArgs
 import com.alqema.R
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAddCategoryBinding
-import com.alqema.models.constants.state.EditingState
+import com.alqema.database.local_db.models.constants.state.EditingState
 import com.alqema.ui.fragments.dialogs.alert.DeleteItemDialogFragment
 import com.alqema.utils.GeneralUtils
 

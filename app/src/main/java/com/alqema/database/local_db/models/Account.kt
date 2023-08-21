@@ -1,13 +1,13 @@
-package com.alqema.models
+package com.alqema.database.local_db.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.alqema.adapters.listeners.AccountContract
-import com.alqema.models.constants.account.AccountCurrency
-import com.alqema.models.constants.account.AccountDetails
-import com.alqema.models.constants.account.AccountNature
-import com.alqema.models.constants.account.AccountType
+import com.alqema.database.local_db.models.constants.account.AccountCurrency
+import com.alqema.database.local_db.models.constants.account.AccountDetails
+import com.alqema.database.local_db.models.constants.account.AccountNature
+import com.alqema.database.local_db.models.constants.account.AccountType
 
 @Entity(tableName = "accounts")
 data class Account(

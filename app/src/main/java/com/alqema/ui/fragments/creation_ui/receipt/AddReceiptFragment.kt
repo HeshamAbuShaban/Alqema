@@ -1,4 +1,4 @@
-package com.alqema.ui.fragments.creation_ui.unit
+package com.alqema.ui.fragments.creation_ui.receipt
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.alqema.R
-import com.alqema.databinding.FragmentAddUnitBinding
+import com.alqema.databinding.FragmentAddReceiptBinding
 
-class AddUnitFragment : Fragment() {
-    private lateinit var binding: FragmentAddUnitBinding
+class AddReceiptFragment : Fragment() {
+    private lateinit var binding: FragmentAddReceiptBinding
+    private lateinit var viewModel: ReceiptViewModel
+    private var updateState = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         println()
@@ -19,11 +22,12 @@ class AddUnitFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding = FragmentAddUnitBinding.bind(
+        binding = FragmentAddReceiptBinding.bind(
             inflater.inflate(
-                R.layout.fragment_add_unit,
+                R.layout.fragment_add_receipt,
                 container,
-                false)
+                false
+            )
         )
         // Inflate the layout for this fragment
         return binding.root
@@ -33,4 +37,5 @@ class AddUnitFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         println()
     }
+
 }

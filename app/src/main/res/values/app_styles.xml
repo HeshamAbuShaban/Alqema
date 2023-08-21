@@ -14,6 +14,7 @@
 
     <style name="AppDialogButton" parent="PrimaryButton">
         <item name="iconSize">@dimen/_24sdp</item>
+        <item name="iconTint">@color/white</item>
         <item name="android:paddingTop">@dimen/_3sdp</item>
         <item name="android:paddingBottom">@dimen/_3sdp</item>
         <item name="cornerRadius">@dimen/_9sdp</item>
@@ -27,11 +28,23 @@
 
     <style name="AppInformTitle" parent="Widget.MaterialComponents.TextView">
         <item name="android:drawableStart">@drawable/ic_info</item>
-        <item name="android:text">@string/kindly_take_into_account_the_long_click_on_the_item_for_data_editing</item>
+        <item name="android:text">
+            @string/kindly_take_into_account_the_long_click_on_the_item_for_data_editing
+        </item>
         <item name="android:textColor">#E6303F9F</item>
         <item name="android:textStyle">bold</item>
         <item name="drawableTint">#512DA8</item>
     </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppDateTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:drawableStart">@drawable/ic_date</item>
+        <item name="android:textColor">@color/calm_gray</item>
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="drawableTint">@color/calm_gray</item>
+    </style>
+
     <!--  #############################################################  -->
 
     <style name="AppDeleteButton" parent="PrimaryButton">

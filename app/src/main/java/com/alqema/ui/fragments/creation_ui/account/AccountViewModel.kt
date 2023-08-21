@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModel
 import com.alqema.app_system.AppController
 import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentAddAccountBinding
-import com.alqema.models.Account
-import com.alqema.models.constants.account.AccountCurrency
-import com.alqema.models.constants.account.AccountDetails
-import com.alqema.models.constants.account.AccountNature
-import com.alqema.models.constants.account.AccountType
+import com.alqema.database.local_db.models.Account
+import com.alqema.database.local_db.models.constants.account.AccountCurrency
+import com.alqema.database.local_db.models.constants.account.AccountDetails
+import com.alqema.database.local_db.models.constants.account.AccountNature
+import com.alqema.database.local_db.models.constants.account.AccountType
 
 class AccountViewModel : ViewModel() {
 
@@ -103,7 +103,7 @@ class AccountViewModel : ViewModel() {
     }
 
     //..
-    fun setUIData(binding: FragmentAddAccountBinding, account: Account,handleDeletion: () -> Unit) {
+    fun setUIData(binding: FragmentAddAccountBinding, account: Account, handleDeletion: () -> Unit) {
         with(binding) {
             handleDeletion()
             edAccountId.isEnabled = false

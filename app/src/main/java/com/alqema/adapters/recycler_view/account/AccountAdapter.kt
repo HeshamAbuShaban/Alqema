@@ -7,7 +7,7 @@ import com.alqema.adapters.listeners.AccountContract
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.account.view_holders.AccountViewHolder
 import com.alqema.databinding.ItemAccountBinding
-import com.alqema.models.Account
+import com.alqema.database.local_db.models.Account
 
 class AccountAdapter(private val accountList: List<Account>) :
     RecyclerView.Adapter<AccountViewHolder>() {

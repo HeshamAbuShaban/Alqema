@@ -8,13 +8,14 @@
     android:background="@color/grey"
     tools:context=".ui.fragments.home.HomeFragment">
 
+    <!--DisplayBtn-->
     <ImageButton
         android:id="@+id/displayingIBtn"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_80sdp"
-        android:contentDescription="@string/display_btn"
         android:background="@drawable/ic_display"
         android:backgroundTint="@color/white"
+        android:contentDescription="@string/display_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/creationIBtn"
         app:layout_constraintHorizontal_bias="0.5"
@@ -23,13 +24,28 @@
         app:layout_constraintVertical_bias="0.5"
         tools:ignore="ImageContrastCheck" />
 
+    <!--Accosted Display Text-->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:tag="Accosted Display Text"
+        android:text="@string/query_s"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/displayingIBtn"
+        app:layout_constraintStart_toStartOf="@id/displayingIBtn"
+        app:layout_constraintTop_toBottomOf="@id/displayingIBtn" />
+
+    <!--CreationBtn-->
     <ImageButton
         android:id="@+id/creationIBtn"
         android:layout_width="@dimen/_80sdp"
         android:layout_height="@dimen/_80sdp"
-        android:contentDescription="@string/creation_btn"
         android:background="@drawable/ic_creation"
         android:backgroundTint="@color/white"
+        android:contentDescription="@string/creation_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -37,6 +53,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
         tools:ignore="ImageContrastCheck" />
+
+    <!--Accosted Creation Text-->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:tag="Accosted Creation Text"
+        android:text="@string/creation"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/creationIBtn"
+        app:layout_constraintStart_toStartOf="@id/creationIBtn"
+        app:layout_constraintTop_toBottomOf="@id/creationIBtn" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrierTop"

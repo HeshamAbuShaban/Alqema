@@ -17,11 +17,23 @@
     <string name="first_unit">الوحدة الأولى</string>
     <string name="second_unit">الوحدة الثانية</string>
     <string name="category_unit">وحدة الصنف</string>
+    <string name="query_s">استعلامات</string>
+
+    <string name="add_receipt"> إضافة إيصال </string>
+    <string name="add_receipts"> إضافة الإيصالات </string>
+    <string name="receipt_details"> تفاصيل الإيصال </string>
+    <string name="receipt_number"> رقم الإيصال </string>
+    <string name="receipt_account_number"> رقم حساب الإيصال </string>
+    <string name="receipt_categories"> فئات الإيصالات </string>
+    <string name="pick_category"> اختر فئة </string>
 
 
     <!--Tab-->
     <string name="accounts">الحسابات</string>
     <string name="categories">التصنيفات</string>
+    <!--ID-foreach-->
+    <string name="id_account">رقم الحساب</string>
+    <string name="id_category">رقم الصنف</string>
 
     <!--For Displaying Details-->
     <string name="id">الرقم المعرف</string>

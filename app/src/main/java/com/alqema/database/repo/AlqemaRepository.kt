@@ -5,19 +5,22 @@ import androidx.lifecycle.LiveData
 import com.alqema.database.local_db.AlqemaDB
 import com.alqema.database.local_db.daos.AccountDao
 import com.alqema.database.local_db.daos.CategoryDao
-import com.alqema.models.Account
-import com.alqema.models.Category
+import com.alqema.database.local_db.daos.ReceiptDao
+import com.alqema.database.local_db.models.Account
+import com.alqema.database.local_db.models.Category
 
 class AlqemaRepository(application: Application) {
 
     private val accountDao: AccountDao
     private val categoryDao: CategoryDao
+    private val receiptDao: ReceiptDao
     private val db: AlqemaDB
 
     init {
         db = AlqemaDB.getDatabase(application)
         accountDao = db.accountDao()
         categoryDao = db.categoryDao()
+        receiptDao = db.receiptDao()
     }
 
     fun insertAccount(account: Account) {
@@ -41,6 +44,7 @@ class AlqemaRepository(application: Application) {
     fun observeAccounts(name: String): LiveData<List<Account>> {
         return accountDao.observeAccounts(name)
     }
+
     fun getAccount(id: Int): LiveData<Account> {
         return accountDao.getAccount(id)
     }

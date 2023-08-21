@@ -1,4 +1,4 @@
-package com.alqema.models
+package com.alqema.database.local_db.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

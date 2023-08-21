@@ -3,7 +3,7 @@ package com.alqema.database.local;
 import android.app.Application;
 import androidx.test.core.app.ApplicationProvider;
 import com.alqema.database.repo.AlqemaRepository;
-import com.alqema.models.Category;
+import com.alqema.database.local_db.models.Category;
 
 import org.junit.After;
 import org.junit.Assert;

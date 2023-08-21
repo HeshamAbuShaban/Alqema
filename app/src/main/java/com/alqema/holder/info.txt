@@ -1,0 +1,36 @@
+
+/**
+     *  tip: whenever you have a foreignKey in your class that belongs to different class,
+     *  your job is to add in this class that you are currently in , this following line of code:
+     *
+     *  @Entity(foreignKeys = {@ForeignKey(entity = Levels.class,parentColumns = {"level_num"},childColumns = {"sub_level_num"},onDelete = ForeignKey.CASCADE,onUpdate = ForeignKey.CASCADE)})
+     *
+     */
+
+
+     /**
+     * YOU CAN HAVE AS MANY AS YOU CAN
+     @Entity(
+         "receipts",
+         foreignKeys = [
+             ForeignKey(
+             entity = ReceiptCategory::class,
+             parentColumns = ["R-C ID"],
+             childColumns = ["Receipt Category ID"],
+             onDelete = ForeignKey.CASCADE,
+             onUpdate = ForeignKey.CASCADE
+         ),  ForeignKey(
+             entity = ReceiptCategory::class,
+             parentColumns = ["R-C ID"],
+             childColumns = ["Receipt Category ID"],
+             onDelete = ForeignKey.CASCADE,
+             onUpdate = ForeignKey.CASCADE
+         ),  ForeignKey(
+             entity = ReceiptCategory::class,
+             parentColumns = ["R-C ID"],
+             childColumns = ["Receipt Category ID"],
+             onDelete = ForeignKey.CASCADE,
+             onUpdate = ForeignKey.CASCADE
+         ),]
+     )
+     */

@@ -19,7 +19,7 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        println("Shit")
+
     }
 
     override fun onCreateView(
@@ -61,6 +61,7 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
         when (view.id) {
             R.id.btnCreateAccounts -> navController.navigate(R.id.action_navigation_home_to_navigation_addAccount)
             R.id.btnCreateCategory -> navController.navigate(R.id.action_navigation_home_to_navigation_addCategory)
+            R.id.btnCreateReceipts -> navController.navigate(R.id.action_navigation_home_to_navigation_addReceipt)
         }
     }
 

@@ -5,11 +5,11 @@ import android.app.Application;
 import androidx.test.core.app.ApplicationProvider;
 
 import com.alqema.database.repo.AlqemaRepository;
-import com.alqema.models.Account;
-import com.alqema.models.constants.account.AccountCurrency;
-import com.alqema.models.constants.account.AccountDetails;
-import com.alqema.models.constants.account.AccountNature;
-import com.alqema.models.constants.account.AccountType;
+import com.alqema.database.local_db.models.Account;
+import com.alqema.database.local_db.models.constants.account.AccountCurrency;
+import com.alqema.database.local_db.models.constants.account.AccountDetails;
+import com.alqema.database.local_db.models.constants.account.AccountNature;
+import com.alqema.database.local_db.models.constants.account.AccountType;
 
 import org.junit.After;
 import org.junit.Assert;
