@@ -14,6 +14,7 @@ class ReceiptViewModel : ViewModel() {
     private var receiptDetails: String? = null
     private var receiptDate: Long? = null
     private var barcodeNumber: String? = null
+
     private var categoryListIds: Int? = null
 
 

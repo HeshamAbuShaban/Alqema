@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity("receipt_categories")
 data class ReceiptCategory(
-    @PrimaryKey(true)
+    @PrimaryKey
     @ColumnInfo("R-C ID")
     val id: Int? = null,
     @ColumnInfo("Receipt Number")

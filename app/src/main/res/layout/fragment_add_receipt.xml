@@ -212,6 +212,7 @@
                     <!--Add ReceiptCategory Obj Btn-->
                     <!--TODO: LIST OH Check the LIST ArrayLIST-->
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddCategoryItem"
                         style="@style/AppDialogButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

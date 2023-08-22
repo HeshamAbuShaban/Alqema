@@ -69,7 +69,12 @@ class AlqemaRepository(application: Application) {
         AlqemaDB.databaseWriteExecutor.execute { categoryDao.deleteCategory(id) }
     }
 
+    suspend fun getCategories(): List<Category> {
+        return categoryDao.getCategories()
+    }
+
     fun observeCategories(): LiveData<List<Category>> = categoryDao.observeCategories()
+    fun observeCategoriesArrayList(): LiveData<List<Category>> = categoryDao.observeCategoriesArrayList()
 
     fun observeCategories(name: String): LiveData<List<Category>> {
         return categoryDao.observeCategories(name)

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_app_bottom_sheet"
+    app:cardCornerRadius="@dimen/_5sdp"
+    tools:context=".ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment">
+
+    <TextView
+        android:text="@string/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!--ScreenContainer-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRecyclerDialogData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_mini_category" />
+
+</com.google.android.material.card.MaterialCardView>

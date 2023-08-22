@@ -2,9 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:backgroundTint="@color/calm_gray"
     app:cardCornerRadius="@dimen/_10sdp">
 
     <!--Container-->
@@ -52,22 +52,24 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/categoryId"
-                style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/categoryName"
-                style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
                 tools:text="Hello,World" />
 
         </LinearLayout>

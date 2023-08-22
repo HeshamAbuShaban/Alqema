@@ -13,7 +13,13 @@ import com.alqema.database.local_db.models.Category
 interface CategoryDao {
 
     @Query("SELECT * FROM categories")
+    suspend fun getCategories(): List<Category>
+
+    @Query("SELECT * FROM categories")
     fun observeCategories(): LiveData<List<Category>>
+
+    @Query("SELECT * FROM categories")
+    fun observeCategoriesArrayList(): LiveData<List<Category>>
 
     @Query("SELECT * FROM categories WHERE `Category Name` LIKE '%' || :name || '%'")
     fun observeCategories(name: String): LiveData<List<Category>>
