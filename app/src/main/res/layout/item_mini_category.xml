@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/calm_gray"
+    android:backgroundTint="@color/dark_sea"
     app:cardCornerRadius="@dimen/_10sdp">
 
     <!--Container-->
@@ -15,7 +15,18 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="@dimen/_15sdp"
-        android:weightSum="2">
+        android:weightSum="3">
+
+        <ImageButton
+            android:id="@+id/btnRemoveItem"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_weight="0.1"
+            android:background="@drawable/ic_remove_circle_outline"
+            android:backgroundTint="#FF0000"
+            android:contentDescription="@string/delete"
+            android:visibility="gone" />
 
         <!--Des-->
         <LinearLayout
@@ -31,6 +42,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/id"
                 android:textAlignment="center"
+                android:textColor="#FF8A65"
                 android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -40,6 +52,7 @@
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/name"
                 android:textAlignment="center"
+                android:textColor="#FF8A65"
                 android:textSize="@dimen/_14sdp" />
 
         </LinearLayout>

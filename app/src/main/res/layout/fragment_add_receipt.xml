@@ -225,10 +225,15 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recReceiptCategories"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="3"
                         tools:listitem="@layout/item_mini_category" />
+
+                    <!--ToAddUpMoreSpaceInScreenContainer-->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp" />
 
                 </LinearLayout>
 

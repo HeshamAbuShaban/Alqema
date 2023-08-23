@@ -34,3 +34,12 @@
          ),]
      )
      */
+
+
+
+        fun convertTimeMillisToDate(timeMillis: Long): String {
+            val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+            val date = Date(timeMillis)
+            return sdf.format(date)
+        }
+        binding.receiptDateInformTitle.text = convertTimeMillisToDate(System.currentTimeMillis())
