@@ -84,6 +84,7 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 tools:itemCount="3"
+                app:spanCount="2"
                 tools:listitem="@layout/item_mini_category" />
             <!--ToAddUpMoreSpaceInScreenContainer-->
             <View
