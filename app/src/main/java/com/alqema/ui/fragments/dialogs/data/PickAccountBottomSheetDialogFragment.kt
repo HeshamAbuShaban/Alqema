@@ -10,22 +10,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.alqema.adapters.listeners.OnItemClickListener
-import com.alqema.adapters.recycler_view.receipt.cate.CategoryAdapter
+import com.alqema.adapters.recycler_view.receipt.acc.AccountAdapter
 import com.alqema.app_system.AppController
-import com.alqema.database.local_db.models.Category
+import com.alqema.database.local_db.models.Account
 import com.alqema.database.repo.AlqemaRepository
-import com.alqema.databinding.FragmentPickCategoryBottomSheetDialogBinding
+import com.alqema.databinding.FragmentPickAccountBottomSheetDialogBinding
 import com.alqema.utils.GeneralUtils
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PickCategoryBottomSheetDialogFragment : BottomSheetDialogFragment(),
-    OnItemClickListener<Category> {
+class PickAccountBottomSheetDialogFragment : BottomSheetDialogFragment(),
+    OnItemClickListener<Account> {
 
     private var onDataClickListener: OnDataClickListener? = null
-    private lateinit var binding: FragmentPickCategoryBottomSheetDialogBinding
+    private lateinit var binding: FragmentPickAccountBottomSheetDialogBinding
     private val repo: AlqemaRepository = AlqemaRepository(AppController.getInstance())
 
 
@@ -52,7 +52,7 @@ class PickCategoryBottomSheetDialogFragment : BottomSheetDialogFragment(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentPickCategoryBottomSheetDialogBinding.inflate(layoutInflater)
+        binding = FragmentPickAccountBottomSheetDialogBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -79,11 +79,10 @@ class PickCategoryBottomSheetDialogFragment : BottomSheetDialogFragment(),
         }
     }
 
+    // TODO : Add Search Feature
     private fun fetchData() {
-
         var query: String  // TODO:Check This and Try it null.
-
-        binding.categoriesSearchBar.addTextChangedListener(object : TextWatcher {
+        binding.accountsSearchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 query = ""
             }
@@ -94,38 +93,40 @@ class PickCategoryBottomSheetDialogFragment : BottomSheetDialogFragment(),
             override fun afterTextChanged(text: Editable?) {
                 query = text.toString()
                 lifecycleScope.launch {
-                    val categoryList = withContext(Dispatchers.IO) {
-                        repo.getCategories(query)
+                    val accountList = withContext(Dispatchers.IO) {
+                        repo.getAccounts(query)
                     }
                     withContext(Dispatchers.Main) {
-                        setupCategoriesRecycler(ArrayList(categoryList))
+                        setupAccountsRecycler(ArrayList(accountList))
                     }
                 }
             }
         })
 
         lifecycleScope.launch {
-            val categoryList = withContext(Dispatchers.IO) { repo.getCategories() }
+            val accountList = withContext(Dispatchers.IO) {
+                repo.getAccounts()
+            }
             withContext(Dispatchers.Main) {
-                setupCategoriesRecycler(ArrayList(categoryList))
+                setupAccountsRecycler(ArrayList(accountList))
             }
         }
 
         /*lifecycleScope.launch {
-            val categoryList = withContext(Dispatchers.IO) { repo.getCategories() }
+            val accountList = withContext(Dispatchers.IO) { repo.getAccounts() }
             withContext(Dispatchers.Main) {
-                setupCategoriesRecycler(ArrayList(categoryList))
+                setupAccountsRecycler(ArrayList(accountList))
             }
         }*/
     }
 
 
     // apply data from database to Dialog recycler
-    private fun setupCategoriesRecycler(categoryList: ArrayList<Category>) {
-        with(binding.categoriesRecyclerDialogData) {
-            adapter = CategoryAdapter(categoryList).apply {
+    private fun setupAccountsRecycler(accountsList: ArrayList<Account>) {
+        with(binding.accountsRecyclerDialogData) {
+            adapter = AccountAdapter(accountsList).apply {
                 // INIT FOR
-                registerOnItemClickListener(this@PickCategoryBottomSheetDialogFragment)
+                registerOnItemClickListener(this@PickAccountBottomSheetDialogFragment)
             }
             startAnimation(GeneralUtils.getInstance().getAppRecyclerAnimation(requireContext()))
             setHasFixedSize(true)
@@ -135,20 +136,21 @@ class PickCategoryBottomSheetDialogFragment : BottomSheetDialogFragment(),
 
     // SingleClick not Like the original adapter that activated with a long click
     // From Receive Adapter Clicks OnItemClickListener<Category>
-    override fun onClick(obj: Category) {
+    override fun onClick(obj: Account) {
         // from Adapter( OnItemClickListener<Category>) clicks .. to dialog(OnDataClickListener) click to screen usage.
-        onDataClickListener?.onItemClicked(category = obj)
+        onDataClickListener?.onItemClicked(obj)
+        dismiss()
     }
 
     override fun onDetach() {
         super.onDetach()
         onDataClickListener = null
-        binding.categoriesRecyclerDialogData.clearAnimation()
+        binding.accountsRecyclerDialogData.clearAnimation()
     }
 
     //.. ****for this class communication with outSide****outSide*******outSide****outSide
     interface OnDataClickListener {
-        fun onItemClicked(category: Category)
+        fun onItemClicked(account: Account)
 
     }
 }

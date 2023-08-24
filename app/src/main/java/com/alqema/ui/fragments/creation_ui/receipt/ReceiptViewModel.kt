@@ -6,6 +6,7 @@ import com.alqema.app_system.AppController
 import com.alqema.database.local_db.models.Category
 import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentAddCategoryBinding
+import com.alqema.databinding.FragmentAddReceiptBinding
 
 class ReceiptViewModel : ViewModel() {
 
@@ -16,26 +17,16 @@ class ReceiptViewModel : ViewModel() {
     private var barcodeNumber: String? = null
 
     private var categoryListIds: Int? = null
+    private var total: Double? = 0.0
 
 
-    private var categoryNumber: Int? = null
-    private var categoryName: String? = null
-    private var categoryBarcodeNumber: Int? = null
-    private var categoryMainUnit: String? = null
-    private var categorySellingPrice: Double? = null
-    private var categoryPurchasePrice: Double? = null
-    private var unitName: String? = null
-    private var quantityOfUnit: Double? = null
-    private var unitPrice: Double? = null
-    private var unitBarcode: String? = null
-
-    private lateinit var _binding: FragmentAddCategoryBinding
+    private lateinit var _binding: FragmentAddReceiptBinding
     private val binding get() = _binding
     private val repo: AlqemaRepository = AlqemaRepository(AppController.getInstance())
 
 
     fun performCreation(
-        binding: FragmentAddCategoryBinding,
+        binding: FragmentAddReceiptBinding,
         function: () -> Unit,
         doneCreation: () -> Unit,
     ) {
@@ -46,16 +37,19 @@ class ReceiptViewModel : ViewModel() {
 
     private fun readInputsText() {
         with(binding) {
+
+            /*
             categoryNumber = edCategoryId.text.toInt()
             categoryName = edCategoryName.text.toString()
             categoryBarcodeNumber = edCategoryBarcode.text.toInt()
             categoryMainUnit = edCategoryMainUnit.text.toString()
             unitBarcode = edCategoryUnitBarcode.text.toString()
+        */
         }
     }
 
-    private fun checkData(): Boolean =
-        categoryNumber != null
+    private fun checkData(): Boolean = true
+        /*categoryNumber != null
                 && categoryName != null
                 && categoryBarcodeNumber != null
                 && categoryMainUnit != null
@@ -64,12 +58,13 @@ class ReceiptViewModel : ViewModel() {
                 && unitName != null
                 && quantityOfUnit != null
                 && unitPrice != null
-                && unitBarcode != null
+                && unitBarcode != null*/
 
 
     private fun create(doneCreation: () -> Unit) {
         // Create the instance
-        val categoryInstance = Category.Builder()
+
+        /*val categoryInstance = Category.Builder()
             .withCategoryNumber(categoryNumber!!)
             .withCategoryName(categoryName!!)
             .withBarcodeNumber(categoryBarcodeNumber!!)
@@ -81,16 +76,17 @@ class ReceiptViewModel : ViewModel() {
             .withQuantityOfUnit(quantityOfUnit!!)
             .withUnitPrice(unitPrice!!)
             .withBarcode(unitBarcode!!)
-            .build()
+            .build()*/
 
-        repo.insertCategory(categoryInstance)
+//        repo.insertCategory(categoryInstance)
         doneCreation()
         clearInputs()
     }
 
     private fun clearInputs() {
         with(binding) {
-            edCategoryId.setText("")
+
+        /*edCategoryId.setText("")
             edCategoryName.setText("")
             edCategoryBarcode.setText("")
             edCategoryMainUnit.setText("")
@@ -99,7 +95,7 @@ class ReceiptViewModel : ViewModel() {
             edCategoryUnitName.setText("")
             edCategoryQuantityOfUnit.setText("")
             edCategoryUnitPrice.setText("")
-            edCategoryUnitBarcode.setText("")
+            edCategoryUnitBarcode.setText("")*/
         }
     }
 
@@ -108,6 +104,7 @@ class ReceiptViewModel : ViewModel() {
             repo.tearDown()
         }*/
 
+    // For Update ---------------------------------------------------------
     fun setUIData(
         binding: FragmentAddCategoryBinding,
         category: Category,
@@ -128,11 +125,12 @@ class ReceiptViewModel : ViewModel() {
             edCategoryUnitBarcode.setText(category.unitBarcode)
         }
     }
-
-    fun preformDelete(id: Int,onDone: () -> Unit) {
+    // For Update #Delete---------------------------------------------------------
+    fun preformDelete(id: Int, onDone: () -> Unit) {
         repo.deleteCategory(id = id)
         onDone()
     }
+
 }
 
 private fun Editable?.toInt(): Int? {

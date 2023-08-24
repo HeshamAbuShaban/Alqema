@@ -15,6 +15,12 @@ interface CategoryDao {
     @Query("SELECT * FROM categories")
     suspend fun getCategories(): List<Category>
 
+//    @Query("SELECT * FROM categories WHERE `Category Name` LIKE '%' || :name || '%'")
+//    suspend fun getCategoriesLiveData(name: String): LiveData<List<Category>>
+
+    @Query("SELECT * FROM categories WHERE `Category Name` LIKE '%' || :name || '%'")
+    suspend fun getCategories(name: String): List<Category>
+
     @Query("SELECT * FROM categories")
     fun observeCategories(): LiveData<List<Category>>
 

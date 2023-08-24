@@ -129,29 +129,45 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <!--Btn To choose the accosted Account-->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAddReceiptAccountNumber"
+                        style="@style/AppDialogButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/calm_gray"
+                        android:text="@string/pick_account"
+                        app:rippleColor="@color/white"
+                        app:strokeColor="@color/white" />
+
                     <!--TextLayout2-ReceiptAccountNumber-->
-                    <com.google.android.material.textfield.TextInputLayout
+                    <!--InputEditText2-->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/edReceiptAccountNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:tag="ReceiptAccountNumber"
-                        app:helperText="@string/receipt_account_number"
-                        app:placeholderText="@string/receipt_account_number">
-                        <!--InputEditText2-->
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edReceiptAccountNumber"
-                            style="@style/AppTextInputEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberSigned"
-                            tools:hint="Enter Here" />
+                        android:textAlignment="center"
+                        android:textColorHint="#757575"
+                        android:textSize="@dimen/_18ssp"
+                        android:textStyle="bold"
+                        android:hint="@string/receipt_account_number" />
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                    <!--Divider-->
+                    <com.google.android.material.divider.MaterialDivider
+                        app:dividerColor="@color/primary_color"
+                        app:dividerThickness="@dimen/_2sdp"
+                        app:dividerInsetEnd="@dimen/_3sdp"
+                        app:dividerInsetStart="@dimen/_3sdp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
                     <!--TextLayout3-Details-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:tag="Name"
+                        android:layout_marginTop="@dimen/_7sdp"
                         app:helperText="@string/receipt_details"
                         app:placeholderText="@string/receipt_details">
                         <!--InputEditText3-->
@@ -210,7 +226,6 @@
                     <!--Add many ReceiptCategory Object and show them in Recycler-->
 
                     <!--Add ReceiptCategory Obj Btn-->
-                    <!--TODO: LIST OH Check the LIST ArrayLIST-->
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddCategoryItem"
                         style="@style/AppDialogButton"
@@ -226,8 +241,8 @@
                         android:id="@+id/recReceiptCategories"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:spanCount="2"
                         tools:itemCount="3"
                         tools:listitem="@layout/item_mini_category" />
@@ -236,6 +251,24 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp" />
+
+                    <!--TOTAL-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:helperText="Total">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvReceiptTotal"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:hint="@string/total"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_23ssp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                 </LinearLayout>
 

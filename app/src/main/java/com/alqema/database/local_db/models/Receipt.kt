@@ -14,8 +14,8 @@ import com.alqema.database.type_converter.DateConverter
             entity = ReceiptCategory::class,
             parentColumns = ["R-C ID"],
             childColumns = ["Receipt Category ID"],
-            onDelete = ForeignKey.CASCADE,
-            onUpdate = ForeignKey.CASCADE
+            onDelete = ForeignKey.SET_NULL,
+            onUpdate = ForeignKey.SET_NULL
         )]
 )
 @TypeConverters(DateConverter::class)
@@ -37,9 +37,13 @@ data class Receipt(
 
     // this is the id of the ReceiptCategory class.
     @ColumnInfo("Receipt Category ID")
-    val categoryListIds: Int
+    val categoryListIds: Int,
 
-) {
+    // this is the id of the ReceiptCategory class.
+    @ColumnInfo("Total")
+    val total: Double,
+
+    ) {
     class Builder {
 
         private var receiptNumber: Int = 1
@@ -48,6 +52,7 @@ data class Receipt(
         private var receiptDate: Long = 1L
         private var barcodeNumber: String = "a"
         private var categoryListIds: Int = 1
+        private var total: Double = 1.0
 
         fun withReceiptNumber(receiptNumber: Int): Builder {
             this.receiptNumber = receiptNumber
@@ -79,6 +84,11 @@ data class Receipt(
             return this
         }
 
+        fun withTotal(total: Double): Builder {
+            this.total = total
+            return this
+        }
+
 
         // Build
         fun build(): Receipt =
@@ -88,7 +98,8 @@ data class Receipt(
                 receiptDetails,
                 receiptDate,
                 barcodeNumber,
-                categoryListIds
+                categoryListIds,
+                total
             )
     }
 }

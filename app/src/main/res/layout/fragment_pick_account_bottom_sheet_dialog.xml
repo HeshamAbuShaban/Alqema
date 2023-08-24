@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <!--CloseIcon-->
             <ImageButton
                 android:id="@+id/cancel_button"
@@ -67,10 +68,10 @@
 
             <!--SearchBar-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/categories_searchViewContainer"
+                android:id="@+id/accounts_searchViewContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/search_categories"
+                android:hint="@string/search_accounts"
                 app:helperText="@string/search_by_names"
                 app:layout_constraintBottom_toTopOf="@id/informTitle"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +79,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/categories_searchBar"
+                    android:id="@+id/accounts_searchBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="#616161"
@@ -91,21 +92,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="@string/pick_category"
+                android:text="@string/pick_account"
                 android:textAlignment="center"
                 android:textSize="@dimen/_23ssp"
                 android:textStyle="bold" />
 
-            <!--TODO:Check orientation-->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/categoriesRecyclerDialogData"
+                android:id="@+id/accountsRecyclerDialogData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:spanCount="2"
                 tools:itemCount="3"
+                app:spanCount="2"
                 tools:listitem="@layout/item_mini_category" />
             <!--ToAddUpMoreSpaceInScreenContainer-->
             <View

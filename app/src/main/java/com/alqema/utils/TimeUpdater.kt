@@ -26,8 +26,9 @@ class TimeUpdater(private val timeUpdateListener: TimeUpdateListener) {
     fun stopUpdatingTime() {
         handler.removeCallbacks(updateTimeRunnable)
     }
+    interface TimeUpdateListener {
+        fun onTimeUpdated(time: String)
+    }
 }
 
-interface TimeUpdateListener {
-    fun onTimeUpdated(time: String)
-}
+

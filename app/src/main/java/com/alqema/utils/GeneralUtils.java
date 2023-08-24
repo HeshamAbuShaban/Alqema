@@ -2,6 +2,8 @@ package com.alqema.utils;
 
 import android.content.Context;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import androidx.navigation.NavOptions;
@@ -14,8 +16,10 @@ import java.util.Locale;
 
 public class GeneralUtils {
     private static volatile GeneralUtils Instance;
+
     private GeneralUtils() {
     }
+
     public static synchronized GeneralUtils getInstance() {
         if (Instance == null) {
             Instance = new GeneralUtils();
@@ -30,6 +34,7 @@ public class GeneralUtils {
     public void showSnackBar(View view, String text) {
         Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show();
     }
+
     public void showToast(Context context, String text) {
         Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
     }
@@ -46,5 +51,9 @@ public class GeneralUtils {
                 .setPopEnterAnim(R.anim.slide_in_right)
                 .setPopExitAnim(R.anim.slide_out_left)
                 .build();
+    }
+
+    public Animation getAppRecyclerAnimation(Context context) {
+        return AnimationUtils.loadAnimation(context, R.anim.slide_left_right_loop);
     }
 }

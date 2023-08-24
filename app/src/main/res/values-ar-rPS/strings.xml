@@ -19,18 +19,18 @@
     <string name="category_unit">وحدة الصنف</string>
     <string name="query_s">استعلامات</string>
 
-    <string name="add_receipt"> إضافة إيصال </string>
-    <string name="add_receipts"> إضافة الإيصالات </string>
-    <string name="receipt_details"> تفاصيل الإيصال </string>
-    <string name="receipt_number"> رقم الإيصال </string>
-    <string name="receipt_account_number"> رقم حساب الإيصال </string>
-    <string name="receipt_categories"> فئات الإيصالات </string>
-    <string name="pick_category"> اختر فئة </string>
+    <string name="add_receipt">" إضافة فاتورة البيع "</string>
+    <string name="add_receipts">" إضافة فواتير البيع "</string>
+    <string name="receipt_details">" تفاصيل فاتورة البيع "</string>
+    <string name="receipt_number">" رقم  فاتورة البيع "</string>
+    <string name="receipt_account_number">" رقم حساب فاتورة البيع "</string>
+    <string name="receipt_categories">" فئات فاتورة البيع "</string>
+    <string name="pick_category">" اختر صنف "</string>
 
 
     <!--Tab-->
     <string name="accounts">الحسابات</string>
-    <string name="categories">التصنيفات</string>
+    <string name="categories">الأصناف</string>
     <!--ID-foreach-->
     <string name="id_account">رقم الحساب</string>
     <string name="id_category">رقم الصنف</string>
@@ -45,7 +45,7 @@
     <!--Category,Uint-->
     <string name="barcode">الرمز الشريطي</string>
     <string name="main_unit">الوحدة الرئيسية</string>
-    <string name="selling_price">سعر البيع</string>
+    <string name="selling_price">سعر الالبيع</string>
     <string name="purchase_price">سعر الشراء</string>
     <string name="unit_name">اسم الوحدة</string>
     <string name="quantity_of_unit">كمية الوحدة</string>
@@ -103,7 +103,7 @@
         <item>دولار سنغافوري</item>
         <item>دولار نيوزيلندي</item>
     </string-array>
-    <string name="account_nature">طبيعة الحساب</string>
+    <string name="account_nature">طالبيعة الحساب</string>
     <string name="account_type">نوع الحساب</string>
     <string name="account_currency">عملة الحساب</string>
     <string name="account_detail">تفصيل الحساب</string>
@@ -118,5 +118,10 @@
     <string name="cancel">الغاء</string>
     <string name="do_you_really_want_to_delete">هل حقا تريد الحذف!؟</string>
     <string name="editing_account">تعديل حساب</string>
+    <string name="total">الاجمالي</string>
+    <string name="pick_account">اختر حساب</string>
+    <string name="number">الرقم</string>
+    <string name="category_got_added">" تم اضافة الصنف :"</string>
+    <string name="category_got_removed">" تم ازالة الصنف :"</string>
 
 </resources>

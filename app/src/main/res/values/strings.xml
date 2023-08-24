@@ -65,6 +65,13 @@
     <string name="receipt_account_number">Receipt Account Number</string>
     <string name="receipt_categories">Receipt Categories</string>
     <string name="pick_category">Pick Category</string>
+    <string name="total">Total</string>
+    <string name="pick_account">Pick Account</string>
+
+    <string name="number">Number</string>
+    <string name="category_got_added">Category got added:</string>
+    <string name="category_got_removed">Category got removed:</string>
+
 
     <!--SpinnerD-->
     <string-array name="AccountDetails">

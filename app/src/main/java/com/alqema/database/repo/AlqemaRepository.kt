@@ -69,12 +69,24 @@ class AlqemaRepository(application: Application) {
         AlqemaDB.databaseWriteExecutor.execute { categoryDao.deleteCategory(id) }
     }
 
+    // Pass
     suspend fun getCategories(): List<Category> {
         return categoryDao.getCategories()
     }
 
+    // Test
+    suspend fun getCategories(name: String): List<Category> {
+        return categoryDao.getCategories(name)
+    }
+
+    // Hope ? No
+//    suspend fun getCategoriesLiveData(name: String): LiveData<List<Category>> {
+//        return categoryDao.getCategoriesLiveData(name)
+//    }
+
     fun observeCategories(): LiveData<List<Category>> = categoryDao.observeCategories()
-    fun observeCategoriesArrayList(): LiveData<List<Category>> = categoryDao.observeCategoriesArrayList()
+    fun observeCategoriesArrayList(): LiveData<List<Category>> =
+        categoryDao.observeCategoriesArrayList()
 
     fun observeCategories(name: String): LiveData<List<Category>> {
         return categoryDao.observeCategories(name)
@@ -87,5 +99,20 @@ class AlqemaRepository(application: Application) {
     fun tearDown() {
         db.close()
     }
+
+    // Pass
+    suspend fun getAccounts(): List<Account> {
+        return accountDao.getAccounts()
+    }
+
+    // Test
+    suspend fun getAccounts(name: String): List<Account> {
+        return accountDao.getAccounts(name)
+    }
+
+    // Hope ? No
+//    suspend fun getAccountsLiveData(name: String): LiveData<List<Account>> {
+//        return accountDao.getAccountsLiveData(name)
+//    }
 
 }
