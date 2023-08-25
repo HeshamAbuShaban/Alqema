@@ -35,20 +35,20 @@
             android:text="@string/categories"
             app:icon="@drawable/ic_categories" />
 
-        <com.google.android.material.button.MaterialButton
+<!--        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCreateUnits"
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/add_units"
-            app:icon="@drawable/ic_unit" />
+            app:icon="@drawable/ic_unit" />-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnCreateReceipts"
             style="@style/AppDialogButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_receipts"
+            android:text="@string/receipt_button_dialog_title"
             app:icon="@drawable/ic_accounts_1" />
 
     </LinearLayout>

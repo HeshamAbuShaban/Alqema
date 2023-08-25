@@ -69,10 +69,15 @@ class DisplayBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 dismiss()
             }
 
-            btnDisplayUnits.setOnClickListener { viewUnit ->
-                onDisplayClickListener?.onDisplayClicked(viewUnit)
+            /*            btnDisplayUnits.setOnClickListener { viewUnit ->
+                            onDisplayClickListener?.onDisplayClicked(viewUnit)
+                            dismiss()
+                        }*/
+            btnDisplayReceipts.setOnClickListener { viewReceipts ->
+                onDisplayClickListener?.onDisplayClicked(viewReceipts)
                 dismiss()
             }
+
         }
     }
 

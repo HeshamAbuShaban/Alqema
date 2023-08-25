@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.alqema.database.local_db.daos.AccountDao
 import com.alqema.database.local_db.daos.CategoryDao
+import com.alqema.database.local_db.daos.ReceiptCategoryDao
 import com.alqema.database.local_db.daos.ReceiptDao
 import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
@@ -23,6 +24,7 @@ abstract class AlqemaDB : RoomDatabase() {
     abstract fun accountDao(): AccountDao
     abstract fun categoryDao(): CategoryDao
     abstract fun receiptDao(): ReceiptDao
+    abstract fun receiptCategoryDao(): ReceiptCategoryDao
 
 
     companion object {

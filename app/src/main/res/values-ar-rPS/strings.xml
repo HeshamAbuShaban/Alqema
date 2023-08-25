@@ -25,6 +25,7 @@
     <string name="receipt_number">" رقم  فاتورة البيع "</string>
     <string name="receipt_account_number">" رقم حساب فاتورة البيع "</string>
     <string name="receipt_categories">" فئات فاتورة البيع "</string>
+    <string name="receipt_date"> تاريخ فاتورة البيع </string>
     <string name="pick_category">" اختر صنف "</string>
 
 
@@ -38,6 +39,7 @@
     <!--For Displaying Details-->
     <string name="id">الرقم المعرف</string>
     <string name="name">الاسم</string>
+    <string name="customer_num">رقم المستهلك</string>
     <string name="mobile">رقم الهاتف</string>
     <string name="address">العنوان</string>
     <string name="belongs_to_account">يتبع الى حساب</string>
@@ -109,6 +111,7 @@
     <string name="account_detail">تفصيل الحساب</string>
     <string name="search_accounts">ابحث عن حسابات</string>
     <string name="search_by_names">ابحث بالاسم</string>
+    <string name="search_by_numbers">ابحث بالرقم المعرف</string>
     <string name="search_categories">ابحث عن الاصناف</string>
     <!--Messages-->
     <string name="created_message">تم الحفظ بنجاح ✔</string>
@@ -123,5 +126,7 @@
     <string name="number">الرقم</string>
     <string name="category_got_added">" تم اضافة الصنف :"</string>
     <string name="category_got_removed">" تم ازالة الصنف :"</string>
+    <string name="search_receipts">ابحث عن فاتورة</string>
+    <string name="receipt_button_dialog_title">فواتير البيع</string>
 
 </resources>

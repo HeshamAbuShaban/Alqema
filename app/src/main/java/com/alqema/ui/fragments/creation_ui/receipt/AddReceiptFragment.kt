@@ -1,24 +1,28 @@
 package com.alqema.ui.fragments.creation_ui.receipt
 
 import android.os.Bundle
+import android.text.Editable
 import android.text.Html
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.alqema.R
 import com.alqema.adapters.listeners.OnItemActionClickListener
 import com.alqema.adapters.recycler_view.receipt.cate.CategoryAdapter
+import com.alqema.app_system.AppController
 import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
+import com.alqema.database.local_db.models.Receipt
+import com.alqema.database.local_db.models.ReceiptCategory
+import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentAddReceiptBinding
 import com.alqema.ui.fragments.dialogs.data.PickAccountBottomSheetDialogFragment
 import com.alqema.ui.fragments.dialogs.data.PickCategoryBottomSheetDialogFragment
 import com.alqema.utils.GeneralUtils
 import com.alqema.utils.TimeUpdater
-
 
 class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnDataClickListener,
     PickAccountBottomSheetDialogFragment.OnDataClickListener, OnItemActionClickListener<Category>,
@@ -26,12 +30,15 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     // UI
     private lateinit var binding: FragmentAddReceiptBinding
 
+    // database
+    private val repository: AlqemaRepository = AlqemaRepository(AppController.getInstance())
+
     // Creation and Update
     private val viewModel: ReceiptViewModel by viewModels() // TODO:Check This.
     private var updateState = false
 
     // only for account.. <tobe received from the Dialog>
-    private var account: Account? = null
+    private var pickedAccount: Account? = null
 
     // only for categorise..
     private val categoriesList: ArrayList<Category> = ArrayList()
@@ -95,29 +102,130 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
             // Create Receipt
             confirmButton.setOnClickListener {
-//                viewModel.performCreation()
+                performCreation()
             }
         }
     }
 
+    //=====================================================================================
+
+    //.. Holders
+    private var receiptNumber: Int? = null
+    private var accountNumber: Int? = null
+    private var receiptDetails: String? = null
+    private var receiptDate: Long? = null
+    private var barcodeNumber: String? = null
+
+    // Unique ID to be set as a ref between the 2 classes
+    private var categoryListIds: Int? = null
+
+    private var total: Double? = 0.0
+
+
+    private fun performCreation() {
+        readInputs()
+        if (checkData()) create() else showError()
+    }
+
+    private fun checkData(): Boolean =
+        pickedAccount != null &&
+                categoriesList.isNotEmpty() &&
+                receiptNumber != null &&
+                accountNumber != null &&
+                receiptDetails != null &&
+                receiptDate != null &&
+                barcodeNumber != null &&
+                categoryListIds != null &&
+                total != null
+
+    private fun readInputs() {
+        with(binding) {
+            receiptNumber = edReceiptNumber.text.toInt()
+            accountNumber = pickedAccount?.accountNumber
+            receiptDetails = edReceiptDetails.text.toString()
+            receiptDate = System.currentTimeMillis()
+            barcodeNumber = edReceiptBarcode.text.toString()
+            categoryListIds = receiptNumber!!
+        }
+    }
+
+    private fun calculateTotal(categoriesList: List<Category>) {
+        categoriesList.forEach {
+            this.total = total!!.plus(it.sellingPrice)
+        }
+        binding.tvReceiptTotal.text = this.total.toString()
+        Log.i("AddReceiptFragment", "calculateTotal: total: ${this.total}")
+    }
+
+    private fun calculateRemovedTotal(obj: Category) {
+        categoriesList.forEach {
+            if (it == obj) {
+                this.total = total!!.minus(it.sellingPrice)
+            }
+        }
+        binding.tvReceiptTotal.text = this.total.toString()
+        Log.i("AddReceiptFragment", "calculateTotal: total: ${this.total}")
+    }
+
+    private fun createRCInstances() {
+        for (it in categoriesList) {
+            Log.i("ARF", "createRCInstances: ${it.categoryName}")
+
+            val receiptCategory = ReceiptCategory.Builder()
+                .withRCId(receiptNumber!!)
+                .withReceiptNumber(receiptNumber!!)
+                .withCategoryNumber(it.categoryNumber)
+                .build()
+
+            repository.insertReceiptCategory(receiptCategory)
+        }
+    }
+
+    private fun create() {
+        val receipt = Receipt.Builder()
+            .withReceiptNumber(receiptNumber!!)
+            .withAccountNumber(accountNumber!!)
+            .withReceiptDetails(receiptDetails!!)
+            .withReceiptDate(receiptDate!!)
+            .withBarcodeNumber(barcodeNumber!!)
+            .withCategoryListIds(categoryListIds!!)
+            .withTotal(total!!)
+            .build()
+
+        // this must go first
+        createRCInstances()
+        // this comes second
+        repository.insertReceipt(receipt)
+
+        GeneralUtils.getInstance().showSnackBar(binding.root, getString(R.string.created_message))
+    }
+
+    private fun showError() {
+        GeneralUtils
+            .getInstance()
+            .showSnackBar(binding.root, getString(R.string.empty_fields_message))
+    }
+
+    //=====================================================================================
+
     // From <Dialog> PickCategoryBottomSheetDialogFragment
     override fun onItemClicked(category: Category) {
-        // ToDo: Add the item to a global array that is passed to the Recycler of this fragment
+        // fill the current array (holderOfTempData)
         categoriesList.add(category)
-
-        // TODO:Check These Out.....*************.....*************.....*************.....
-        categoryAdapter.addUpCategoryList(categoriesList) // Check This or This :
-//        categoryAdapter.addSingleCategory(category) // Check This or This :
-        Toast.makeText(
+        // notify the recycler and it adapter with the changes to the data
+        categoryAdapter.addUpCategoryList(categoriesList)
+//        categoryAdapter.addSingleCategory(category) ..this works but no need .due the need of the (holderOfTempData)
+        //..show message that indicate the user with the state
+        GeneralUtils.getInstance().showToast(
             requireContext(),
-            "${getString(R.string.category_got_added)}${category.categoryName}",
-            Toast.LENGTH_SHORT
-        ).show()
+            "${getString(R.string.category_got_added)}${category.categoryName}"
+        )
+        //.. now update the total value to the screen
+        calculateTotal(categoriesList)
     }
 
     // setupCategoriesRecycler with the data coming from dialog PickCategoryBottomSheetDialogFragment
     private fun setupCategoriesRecycler() {
-
         with(binding.recReceiptCategories) {
             adapter = categoryAdapter
             startAnimation(GeneralUtils.getInstance().getAppRecyclerAnimation(requireContext()))
@@ -129,11 +237,12 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     override fun onDelete(obj: Category) {
         categoriesList.remove(obj)
         categoryAdapter.removeFromCategoryList(categoriesList)
-        Toast.makeText(
+        GeneralUtils.getInstance().showToast(
             requireContext(),
-            "${getString(R.string.category_got_removed)}${obj.categoryName}",
-            Toast.LENGTH_SHORT
-        ).show()
+            "${getString(R.string.category_got_removed)}${obj.categoryName}"
+        )
+        //.. now update the total value to the screen
+        calculateRemovedTotal(obj)
     }
 
 
@@ -156,8 +265,8 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     // From <Dialog> PickAccountBottomSheetDialogFragment
     override fun onItemClicked(account: Account) {
         // set this to ur holder
-        this.account = account
-        setPickedAccountData(this.account!!)
+        this.pickedAccount = account
+        setPickedAccountData(this.pickedAccount!!)
     }
 
     // call this when the this.account is not null finally , which means this fragment has received data of account from dialog
@@ -176,8 +285,12 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
         with(binding.edReceiptAccountNumber) {
             text = htmlFormattedText
-//                "name: ${account.accountName} number: ${account.accountNumber}"
         }
     }
 
+}
+
+private fun Editable?.toInt(): Int? {
+    if (this?.isNotEmpty() == true) return this.toString().toInt()
+    return null
 }

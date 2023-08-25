@@ -69,6 +69,7 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
         when (view.id) {
             R.id.btnDisplayAccounts -> navController.navigate(R.id.action_navigation_home_to_navigation_accountDisplay)
             R.id.btnDisplayCategory -> navController.navigate(R.id.action_navigation_home_to_navigation_categoryDisplay)
+            R.id.btnDisplayReceipts -> navController.navigate(R.id.action_navigation_home_to_navigation_receiptDisplay)
         }
     }
 

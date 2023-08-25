@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.displaying_ui.receipt.ReceiptDisplayFragment">
+
+    <!--SearchBar-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/receipts_searchViewContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/search_receipts"
+        app:helperText="@string/search_by_numbers"
+        app:layout_constraintBottom_toTopOf="@id/informTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/receipts_searchBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#616161"
+            android:inputType="numberSigned"
+            tools:ignore="TextContrastCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--InformAboutTheLongClick-->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/informTitle"
+        style="@style/AppInformTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/receipts_searchViewContainer" />
+
+    <!--RecycleViewData-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/receipts_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/informTitle"
+        tools:listitem="@layout/item_account" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,7 @@ interface ReceiptDao {
     fun observeReceipts(): LiveData<List<Receipt>>
 
     @Query("SELECT * FROM receipts WHERE `Receipt ID` LIKE '%' || :receiptId || '%'")
-    fun observeReceipts(receiptId: String): LiveData<List<Receipt>>
+    fun observeReceipts(receiptId: Int): LiveData<List<Receipt>>
 
     @Query("SELECT * FROM receipts WHERE `Receipt ID` = :id")
     fun getReceipt(id: Int): LiveData<Receipt>

@@ -32,6 +32,7 @@
     <!--Display-->
     <string name="id">ID</string>
     <string name="name">Name</string>
+    <string name="customer_num">Customer Number</string>
     <string name="mobile">Mobile</string>
     <string name="address">Address</string>
     <string name="belongs_to_account">Belongs to account</string>
@@ -41,6 +42,7 @@
     <string name="search_accounts">Search Accounts</string>
     <string name="search_categories">Search Categories</string>
     <string name="search_by_names">Search by names</string>
+    <string name="search_by_numbers">Search by Id-numbers</string>
     <!--Category,Unit-->
     <string name="barcode">Barcode</string>
     <string name="main_unit">Main Unit</string>
@@ -61,6 +63,7 @@
     <string name="add_receipt">Add Receipt</string>
     <string name="add_receipts">Add Receipts</string>
     <string name="receipt_details">Receipt details</string>
+    <string name="receipt_date">Receipt Date</string>
     <string name="receipt_number">Receipt Number</string>
     <string name="receipt_account_number">Receipt Account Number</string>
     <string name="receipt_categories">Receipt Categories</string>
@@ -71,6 +74,7 @@
     <string name="number">Number</string>
     <string name="category_got_added">Category got added:</string>
     <string name="category_got_removed">Category got removed:</string>
+    <string name="search_receipts">Search Receipts</string>
 
 
     <!--SpinnerD-->
@@ -123,4 +127,5 @@
         <item>SGD</item>
         <item>NZD</item>
     </string-array>
+    <string name="receipt_button_dialog_title">Receipts</string>
 </resources>

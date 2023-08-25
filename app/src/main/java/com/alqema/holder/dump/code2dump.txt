@@ -314,3 +314,10 @@ fetchingDataProblem with database viersion code and the livedata witin main thre
 
             setupCategoriesRecycler(data)
         }*/
+
+
+
+            // Hope ? No
+        //    suspend fun getCategoriesLiveData(name: String): LiveData<List<Category>> {
+        //        return categoryDao.getCategoriesLiveData(name)
+        //    }

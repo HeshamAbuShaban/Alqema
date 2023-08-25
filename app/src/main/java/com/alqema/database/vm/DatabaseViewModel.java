@@ -7,9 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.alqema.database.repo.AlqemaRepository;
 import com.alqema.database.local_db.models.Account;
 import com.alqema.database.local_db.models.Category;
+import com.alqema.database.local_db.models.Receipt;
+import com.alqema.database.repo.AlqemaRepository;
 
 import java.util.List;
 
@@ -65,4 +66,13 @@ public class DatabaseViewModel extends AndroidViewModel {
         repository.deleteCategory(reminder);
     }
 
+
+    // Receipt
+    public LiveData<List<Receipt>> getAllReceipts() {
+        return repository.observeReceipts();
+    }
+
+    public LiveData<List<Receipt>> getAllReceipts(int id) {
+        return repository.observeReceipts(id);
+    }
 }

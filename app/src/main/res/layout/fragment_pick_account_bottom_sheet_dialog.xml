@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_app_bottom_sheet"
-    tools:context=".ui.fragments.dialogs.data.PickCategoryBottomSheetDialogFragment">
+    tools:context=".ui.fragments.dialogs.data.PickAccountBottomSheetDialogFragment">
 
     <!--#############################################################-->
 

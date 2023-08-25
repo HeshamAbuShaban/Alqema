@@ -39,6 +39,11 @@
             app:destination="@id/navigation_addReceipt"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_receiptDisplay"
+            app:destination="@id/navigation_receiptDisplay"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
 
     </fragment>
 
@@ -79,7 +84,20 @@
         android:id="@+id/navigation_addReceipt"
         android:name="com.alqema.ui.fragments.creation_ui.receipt.AddReceiptFragment"
         android:label="AddReceiptFragment"
-        tools:layout="@layout/fragment_add_receipt"/>
+        tools:layout="@layout/fragment_add_receipt">
+
+        <action
+            android:id="@+id/action_navigation_addReceipt_to_navigation_receiptDisplay"
+            app:destination="@id/navigation_receiptDisplay"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left">
+            <argument
+                android:name="receiptItemId"
+                android:defaultValue="-1"
+                app:argType="integer" />
+        </action>
+
+    </fragment>
 
 
     <!--####################DisplayingFrags-->
@@ -115,6 +133,36 @@
                 app:argType="integer" />
         </action>
     </fragment>
-    <!--Receipt-->
 
+    <!--Receipt-->
+    <fragment
+        android:id="@+id/navigation_receiptDisplay"
+        android:name="com.alqema.ui.fragments.displaying_ui.receipt.ReceiptDisplayFragment"
+        android:label="ReceiptDisplayFragment"
+        tools:layout="@layout/fragment_receipt_display" />
+    <dialog
+        android:id="@+id/pickAccountBottomSheetDialogFragment2"
+        android:name="com.alqema.ui.fragments.dialogs.data.PickAccountBottomSheetDialogFragment"
+        android:label="fragment_pick_account_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_pick_account_bottom_sheet_dialog" />
+    <dialog
+        android:id="@+id/pickCategoryBottomSheetDialogFragment"
+        android:name="com.alqema.ui.fragments.dialogs.data.PickCategoryBottomSheetDialogFragment"
+        android:label="fragment_pick_category_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_pick_category_bottom_sheet_dialog" />
+    <dialog
+        android:id="@+id/deleteItemDialogFragment"
+        android:name="com.alqema.ui.fragments.dialogs.alert.DeleteItemDialogFragment"
+        android:label="fragment_delete_item_dialog"
+        tools:layout="@layout/fragment_delete_item_dialog" />
+    <dialog
+        android:id="@+id/creationBottomSheetDialogFragment"
+        android:name="com.alqema.ui.fragments.dialogs.choose.CreationBottomSheetDialogFragment"
+        android:label="fragment_creation_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_creation_bottom_sheet_dialog" />
+    <dialog
+        android:id="@+id/displayBottomSheetDialogFragment"
+        android:name="com.alqema.ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment"
+        android:label="fragment_display_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_display_bottom_sheet_dialog" />
 </navigation>

@@ -5,15 +5,19 @@ import androidx.lifecycle.LiveData
 import com.alqema.database.local_db.AlqemaDB
 import com.alqema.database.local_db.daos.AccountDao
 import com.alqema.database.local_db.daos.CategoryDao
+import com.alqema.database.local_db.daos.ReceiptCategoryDao
 import com.alqema.database.local_db.daos.ReceiptDao
 import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
+import com.alqema.database.local_db.models.Receipt
+import com.alqema.database.local_db.models.ReceiptCategory
 
 class AlqemaRepository(application: Application) {
 
     private val accountDao: AccountDao
     private val categoryDao: CategoryDao
     private val receiptDao: ReceiptDao
+    private val receiptCategoryDao: ReceiptCategoryDao
     private val db: AlqemaDB
 
     init {
@@ -21,6 +25,7 @@ class AlqemaRepository(application: Application) {
         accountDao = db.accountDao()
         categoryDao = db.categoryDao()
         receiptDao = db.receiptDao()
+        receiptCategoryDao = db.receiptCategoryDao()
     }
 
     fun insertAccount(account: Account) {
@@ -79,10 +84,6 @@ class AlqemaRepository(application: Application) {
         return categoryDao.getCategories(name)
     }
 
-    // Hope ? No
-//    suspend fun getCategoriesLiveData(name: String): LiveData<List<Category>> {
-//        return categoryDao.getCategoriesLiveData(name)
-//    }
 
     fun observeCategories(): LiveData<List<Category>> = categoryDao.observeCategories()
     fun observeCategoriesArrayList(): LiveData<List<Category>> =
@@ -110,9 +111,46 @@ class AlqemaRepository(application: Application) {
         return accountDao.getAccounts(name)
     }
 
-    // Hope ? No
-//    suspend fun getAccountsLiveData(name: String): LiveData<List<Account>> {
-//        return accountDao.getAccountsLiveData(name)
-//    }
+    // ReceiptDao =======================================================
 
+    fun insertReceipt(receipt: Receipt) {
+        AlqemaDB.databaseWriteExecutor.execute { receiptDao.insertReceipt(receipt) }
+    }
+    // Deletion
+    fun deleteReceipt(receipt: Receipt) {
+        AlqemaDB.databaseWriteExecutor.execute { receiptDao.deleteReceipt(receipt) }
+    }
+    fun deleteReceipt(receiptId: Int) {
+        AlqemaDB.databaseWriteExecutor.execute { receiptDao.deleteReceipt(receiptId) }
+    }
+    // observe
+    fun observeReceipts():LiveData<List<Receipt>>{
+        return receiptDao.observeReceipts()
+    }
+    fun observeReceipts(id: Int):LiveData<List<Receipt>>{
+        return receiptDao.observeReceipts(id)
+    }
+
+    // ReceiptCategoryDao =======================================================
+
+    fun insertReceiptCategory(receipt: ReceiptCategory) {
+        AlqemaDB.databaseWriteExecutor.execute { receiptCategoryDao.insertReceiptCategory(receipt) }
+    }
+    // Deletion
+    fun deleteReceiptCategory(receipt: ReceiptCategory) {
+        AlqemaDB.databaseWriteExecutor.execute { receiptCategoryDao.deleteReceiptCategory(receipt) }
+    }
+    fun deleteReceiptCategory(receiptId: Int) {
+        AlqemaDB.databaseWriteExecutor.execute { receiptCategoryDao.deleteReceiptCategory(receiptId) }
+    }
+    // observe
+    fun observeReceiptCategories():LiveData<List<ReceiptCategory>>{
+        return receiptCategoryDao.observeReceiptCategories()
+    }
+    fun observeReceiptCategoriesById(id: Int):LiveData<List<ReceiptCategory>>{
+        return receiptCategoryDao.observeReceiptCategoriesById(id)
+    }
+    fun observeReceiptCategoriesByReceiptId(id: Int):LiveData<List<ReceiptCategory>>{
+        return receiptCategoryDao.observeReceiptCategoriesByReceiptId(id)
+    }
 }

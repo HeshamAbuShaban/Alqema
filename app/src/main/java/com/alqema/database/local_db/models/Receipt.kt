@@ -12,10 +12,10 @@ import com.alqema.database.type_converter.DateConverter
     foreignKeys = [
         ForeignKey(
             entity = ReceiptCategory::class,
-            parentColumns = ["R-C ID"],
+            parentColumns = ["ID"],
             childColumns = ["Receipt Category ID"],
-            onDelete = ForeignKey.SET_NULL,
-            onUpdate = ForeignKey.SET_NULL
+            onDelete = ForeignKey.SET_DEFAULT,
+            onUpdate = ForeignKey.SET_DEFAULT
         )]
 )
 @TypeConverters(DateConverter::class)

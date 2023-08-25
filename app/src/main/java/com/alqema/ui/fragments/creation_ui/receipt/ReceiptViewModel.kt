@@ -37,6 +37,13 @@ class ReceiptViewModel : ViewModel() {
 
     private fun readInputsText() {
         with(binding) {
+            receiptNumber = edReceiptNumber.text.toInt()
+            accountNumber = edReceiptNumber.text.toInt()
+            receiptDetails = edReceiptDetails.text.toString()
+            receiptDate = System.currentTimeMillis()
+            barcodeNumber = edReceiptBarcode.text.toString()
+//            categoryListIds =
+//            total
 
             /*
             categoryNumber = edCategoryId.text.toInt()
@@ -49,16 +56,16 @@ class ReceiptViewModel : ViewModel() {
     }
 
     private fun checkData(): Boolean = true
-        /*categoryNumber != null
-                && categoryName != null
-                && categoryBarcodeNumber != null
-                && categoryMainUnit != null
-                && categorySellingPrice != null
-                && categoryPurchasePrice != null
-                && unitName != null
-                && quantityOfUnit != null
-                && unitPrice != null
-                && unitBarcode != null*/
+    /*categoryNumber != null
+            && categoryName != null
+            && categoryBarcodeNumber != null
+            && categoryMainUnit != null
+            && categorySellingPrice != null
+            && categoryPurchasePrice != null
+            && unitName != null
+            && quantityOfUnit != null
+            && unitPrice != null
+            && unitBarcode != null*/
 
 
     private fun create(doneCreation: () -> Unit) {
@@ -86,16 +93,16 @@ class ReceiptViewModel : ViewModel() {
     private fun clearInputs() {
         with(binding) {
 
-        /*edCategoryId.setText("")
-            edCategoryName.setText("")
-            edCategoryBarcode.setText("")
-            edCategoryMainUnit.setText("")
-            edCategorySellingPrice.setText("")
-            edCategoryPurchasePrice.setText("")
-            edCategoryUnitName.setText("")
-            edCategoryQuantityOfUnit.setText("")
-            edCategoryUnitPrice.setText("")
-            edCategoryUnitBarcode.setText("")*/
+            /*edCategoryId.setText("")
+                edCategoryName.setText("")
+                edCategoryBarcode.setText("")
+                edCategoryMainUnit.setText("")
+                edCategorySellingPrice.setText("")
+                edCategoryPurchasePrice.setText("")
+                edCategoryUnitName.setText("")
+                edCategoryQuantityOfUnit.setText("")
+                edCategoryUnitPrice.setText("")
+                edCategoryUnitBarcode.setText("")*/
         }
     }
 
@@ -125,6 +132,7 @@ class ReceiptViewModel : ViewModel() {
             edCategoryUnitBarcode.setText(category.unitBarcode)
         }
     }
+
     // For Update #Delete---------------------------------------------------------
     fun preformDelete(id: Int, onDone: () -> Unit) {
         repo.deleteCategory(id = id)

@@ -69,10 +69,10 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 dismiss()
             }
 
-            btnCreateUnits.setOnClickListener { viewUnit ->
+/*            btnCreateUnits.setOnClickListener { viewUnit ->
                 onCreationClickListener?.onCreateClicked(viewUnit)
                 dismiss()
-            }
+            }*/
 
             btnCreateReceipts.setOnClickListener { viewReceipts ->
                 onCreationClickListener?.onCreateClicked(viewReceipts)
