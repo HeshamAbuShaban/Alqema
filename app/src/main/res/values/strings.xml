@@ -127,5 +127,8 @@
         <item>SGD</item>
         <item>NZD</item>
     </string-array>
+
+
     <string name="receipt_button_dialog_title">Receipts</string>
+    <string name="count">Count</string>
 </resources>

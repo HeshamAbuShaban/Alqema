@@ -128,5 +128,6 @@
     <string name="category_got_removed">" تم ازالة الصنف :"</string>
     <string name="search_receipts">ابحث عن فاتورة</string>
     <string name="receipt_button_dialog_title">فواتير البيع</string>
+    <string name="count">الكمية</string>
 
 </resources>

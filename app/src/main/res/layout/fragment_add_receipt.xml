@@ -251,12 +251,29 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_35sdp" />
+                    <!--Count-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:helperText="@string/count">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvReceiptCategoriesCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35sdp"
+                            android:hint="@string/count"
+                            android:textColor="@color/primary_color"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_16ssp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <!--TOTAL-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:helperText="Total">
+                        app:helperText="@string/total">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvReceiptTotal"

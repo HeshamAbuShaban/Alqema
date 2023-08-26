@@ -119,7 +119,7 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     // Unique ID to be set as a ref between the 2 classes
     private var categoryListIds: Int? = null
 
-    private var total: Double? = 0.0
+    private var total: Double = 0.0
 
 
     private fun performCreation() {
@@ -135,8 +135,7 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
                 receiptDetails != null &&
                 receiptDate != null &&
                 barcodeNumber != null &&
-                categoryListIds != null &&
-                total != null
+                categoryListIds != null
 
     private fun readInputs() {
         with(binding) {
@@ -145,24 +144,25 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
             receiptDetails = edReceiptDetails.text.toString()
             receiptDate = System.currentTimeMillis()
             barcodeNumber = edReceiptBarcode.text.toString()
-            categoryListIds = receiptNumber!!
+            categoryListIds = receiptNumber
         }
     }
 
-    private fun calculateTotal(categoriesList: List<Category>) {
-        categoriesList.forEach {
-            this.total = total!!.plus(it.sellingPrice)
-        }
+    private fun calculateTotal(category: Category) {
+        /*        categoriesList.forEach {
+                    this.total = total.plus(it.sellingPrice)
+                }*/
+        this.total = total.plus(category.sellingPrice)
+
         binding.tvReceiptTotal.text = this.total.toString()
         Log.i("AddReceiptFragment", "calculateTotal: total: ${this.total}")
     }
 
     private fun calculateRemovedTotal(obj: Category) {
-        categoriesList.forEach {
-            if (it == obj) {
-                this.total = total!!.minus(it.sellingPrice)
-            }
-        }
+
+        if (total != 0.0) total = total.minus(obj.sellingPrice) else GeneralUtils.getInstance()
+            .showSnackBar(binding.root, "cant mains 0")
+
         binding.tvReceiptTotal.text = this.total.toString()
         Log.i("AddReceiptFragment", "calculateTotal: total: ${this.total}")
     }
@@ -189,7 +189,7 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
             .withReceiptDate(receiptDate!!)
             .withBarcodeNumber(barcodeNumber!!)
             .withCategoryListIds(categoryListIds!!)
-            .withTotal(total!!)
+            .withTotal(total)
             .build()
 
         // this must go first
@@ -210,18 +210,22 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
     // From <Dialog> PickCategoryBottomSheetDialogFragment
     override fun onItemClicked(category: Category) {
+        // TODO:Clean ThisOne
         // fill the current array (holderOfTempData)
         categoriesList.add(category)
         // notify the recycler and it adapter with the changes to the data
         categoryAdapter.addUpCategoryList(categoriesList)
 //        categoryAdapter.addSingleCategory(category) ..this works but no need .due the need of the (holderOfTempData)
+
+        // update the count of item in the ui
+        binding.tvReceiptCategoriesCount.text = categoriesList.size.toString()
         //..show message that indicate the user with the state
         GeneralUtils.getInstance().showToast(
             requireContext(),
             "${getString(R.string.category_got_added)}${category.categoryName}"
         )
         //.. now update the total value to the screen
-        calculateTotal(categoriesList)
+        calculateTotal(category)
     }
 
     // setupCategoriesRecycler with the data coming from dialog PickCategoryBottomSheetDialogFragment
@@ -235,8 +239,11 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
     // OnItemActionClickListener<Category> From Adapter
     override fun onDelete(obj: Category) {
+        // TODO:Clean ThisOne
         categoriesList.remove(obj)
         categoryAdapter.removeFromCategoryList(categoriesList)
+        // update the count of item in the ui
+        binding.tvReceiptCategoriesCount.text = categoriesList.size.toString()
         GeneralUtils.getInstance().showToast(
             requireContext(),
             "${getString(R.string.category_got_removed)}${obj.categoryName}"

@@ -29,10 +29,10 @@ public class AppController extends Application {
     private void setupDatabaseWithInitialData() {
         var repo = new AlqemaRepository(this);
 
-        var category1 = new Category.Builder().withCategoryNumber(1).withCategoryName("Food-(1) XD.").withSellingPrice(1500.55).withUnitName("Test-Unit1").build();
-        var category2 = new Category.Builder().withCategoryNumber(2).withCategoryName("Games-(2) XD.").withSellingPrice(340.55).withUnitName("Test-Unit1").build();
-        var category3 = new Category.Builder().withCategoryNumber(3).withCategoryName("Car-(3) XD.").withSellingPrice(60.55).withUnitName("Test-Unit1").build();
-        var category4 = new Category.Builder().withCategoryNumber(4).withCategoryName("Guns-(4) XD.").withSellingPrice(100.55).withUnitName("Test-Unit1").build();
+        var category1 = new Category.Builder().withCategoryNumber(1).withCategoryName("Food-(1) XD.").withSellingPrice(10.0).withUnitName("Test-Unit1").build();
+        var category2 = new Category.Builder().withCategoryNumber(2).withCategoryName("Games-(2) XD.").withSellingPrice(20.0).withUnitName("Test-Unit1").build();
+        var category3 = new Category.Builder().withCategoryNumber(3).withCategoryName("Car-(3) XD.").withSellingPrice(30.0).withUnitName("Test-Unit1").build();
+        var category4 = new Category.Builder().withCategoryNumber(4).withCategoryName("Guns-(4) XD.").withSellingPrice(40.0).withUnitName("Test-Unit1").build();
         repo.insertCategory(category1);
         repo.insertCategory(category2);
         repo.insertCategory(category3);
