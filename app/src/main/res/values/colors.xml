@@ -2,6 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="less_black">#99000000</color>
+    <color name="less_black_time2">#80050505</color>
     <color name="white">#FFFFFFFF</color>
     <color name="less_white">#DCDCDC</color>
 
@@ -9,6 +10,7 @@
 
 
     <color name="grey">#3C3C3C</color>
+    <color name="less_grey">#803C3C3C</color>
     <color name="primary_color">#FF482C</color>
     <color name="primary_color_old">#E64A19</color>
     <color name="primary_color_rec">#E53935</color>
@@ -18,5 +20,12 @@
     <color name="red_deleting">#DC141E</color>
     <color name="calm_gray">#5A788C</color>
     <color name="dark_sea">#145A6E</color>
+
+    <!--ItemMiniLight-->
+    <color name="item_text">#F1FAEE</color>
+    <color name="item_bg">#457B9D</color>
+    <!--ItemMiniDark-->
+    <color name="item_text_dark">#F1FAEE</color>
+    <color name="item_bg_dark">#1D3557</color>
 
 </resources>

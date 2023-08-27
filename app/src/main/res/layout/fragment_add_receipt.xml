@@ -82,6 +82,7 @@
 
         <!--ScrollerContainer-->
         <ScrollView
+            style="@style/AppScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/scroller_for_inputs">
@@ -146,28 +147,30 @@
                         android:id="@+id/edReceiptAccountNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:hint="@string/receipt_account_number"
+                        android:padding="@dimen/_5sdp"
                         android:tag="ReceiptAccountNumber"
                         android:textAlignment="center"
                         android:textColorHint="#757575"
                         android:textSize="@dimen/_18ssp"
-                        android:textStyle="bold"
-                        android:hint="@string/receipt_account_number" />
+                        android:textStyle="bold" />
 
                     <!--Divider-->
                     <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         app:dividerColor="@color/primary_color"
-                        app:dividerThickness="@dimen/_2sdp"
                         app:dividerInsetEnd="@dimen/_3sdp"
                         app:dividerInsetStart="@dimen/_3sdp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        app:dividerThickness="@dimen/_2sdp" />
 
                     <!--TextLayout3-Details-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:tag="Name"
                         android:layout_marginTop="@dimen/_7sdp"
+                        android:tag="Name"
                         app:helperText="@string/receipt_details"
                         app:placeholderText="@string/receipt_details">
                         <!--InputEditText3-->
@@ -250,7 +253,7 @@
                     <!--ToAddUpMoreSpaceInScreenContainer-->
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp" />
+                        android:layout_height="@dimen/_30sdp" />
                     <!--Count-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -260,11 +263,11 @@
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvReceiptCategoriesCount"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/_35sdp"
+                            android:layout_height="wrap_content"
                             android:hint="@string/count"
-                            android:textColor="@color/primary_color"
                             android:textAlignment="center"
-                            android:textSize="@dimen/_16ssp"
+                            android:textColor="@color/primary_color"
+                            android:textSize="@dimen/_19ssp"
                             android:textStyle="bold" />
 
                     </com.google.android.material.textfield.TextInputLayout>

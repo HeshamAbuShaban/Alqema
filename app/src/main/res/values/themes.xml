@@ -3,10 +3,12 @@
     <style name="Base.Theme.Alqema" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/less_white</item>
         <!-- Customize your light theme here. -->
-         <item name="colorPrimary">@color/primary_color</item>
+        <item name="android:statusBarColor">@color/calm_gray</item>
+        <item name="colorPrimary">@color/primary_color</item>
         <item name="android:fontFamily">@font/cairo_medium</item>
         <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <item name="fontFamily">@font/cairo_medium</item>
+
     </style>
 
     <style name="Theme.Alqema" parent="Base.Theme.Alqema" />
@@ -30,6 +32,26 @@
 
     <style name="AppLayout" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@color/less_white</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppItemLayout" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:backgroundTint">@color/less_white</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppItemMiniLayout" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:backgroundTint">@color/item_bg</item>
+        <item name="android:layout_margin">@dimen/_5sdp</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppItemMiniText" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/item_text</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!--  #############################################################  -->

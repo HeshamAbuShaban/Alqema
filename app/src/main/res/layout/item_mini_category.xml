@@ -2,9 +2,9 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppItemMiniLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="@color/dark_sea"
     app:cardCornerRadius="@dimen/_10sdp">
 
     <!--Container-->
@@ -36,24 +36,22 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                style="@style/AppTitleText"
+                style="@style/AppItemMiniText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/id"
                 android:textAlignment="center"
-                android:textColor="#FF8A65"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_14ssp" />
 
             <com.google.android.material.textview.MaterialTextView
-                style="@style/AppTitleText"
+                style="@style/AppItemMiniText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/name"
                 android:textAlignment="center"
-                android:textColor="#FF8A65"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_14ssp" />
 
         </LinearLayout>
         <!--Values-->
@@ -65,23 +63,23 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/categoryId"
+                style="@style/AppItemMiniText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/categoryName"
+                style="@style/AppItemMiniText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5ssp"
                 android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_14ssp"
                 android:textStyle="bold"
                 tools:text="Hello,World" />
 

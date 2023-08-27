@@ -73,6 +73,7 @@
 
         <!--ScrollerContainer-->
         <ScrollView
+            style="@style/AppScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/scroller_for_inputs">

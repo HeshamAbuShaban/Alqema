@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.alqema.R
 import com.alqema.adapters.listeners.OnItemActionClickListener
 import com.alqema.adapters.recycler_view.receipt.cate.CategoryAdapter
@@ -33,10 +32,10 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     // database
     private val repository: AlqemaRepository = AlqemaRepository(AppController.getInstance())
 
-    // Creation and Update
-    private val viewModel: ReceiptViewModel by viewModels() // TODO:Check This.
+   /* // Creation and Update
+    private val viewModel: ReceiptViewModel by viewModels() //
     private var updateState = false
-
+*/
     // only for account.. <tobe received from the Dialog>
     private var pickedAccount: Account? = null
 
@@ -168,7 +167,7 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     }
 
     private fun createRCInstances() {
-        for (it in categoriesList) {
+        this.categoriesList.forEach {
             Log.i("ARF", "createRCInstances: ${it.categoryName}")
 
             val receiptCategory = ReceiptCategory.Builder()
@@ -285,12 +284,13 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
         // Format the text using HTML <br>
         // Format the text using HTML with inline styling
         val formattedText = """
-            <font color='#FF482C'><b>${getString(R.string.name)}: </b></font> <font color='#5A788C'>$name</font><br>
-            <font color='#FF482C'><b>${getString(R.string.number)}: </b></font> <font color='#212121'>$number</font>""".trimIndent()
+            <font color='#F9F871'><b>${getString(R.string.name)}: </b></font> <u><font color='#F1FAEE'>$name</font></u><br>
+            <font color='#F9F871'><b>${getString(R.string.number)}: </b></font> <u><font color='#F1FAEE'>$number</font></u>""".trimIndent()
 
         val htmlFormattedText = Html.fromHtml(formattedText, Html.FROM_HTML_MODE_LEGACY)
 
         with(binding.edReceiptAccountNumber) {
+            setBackgroundResource(R.drawable.shape_text_view_account_info)
             text = htmlFormattedText
         }
     }

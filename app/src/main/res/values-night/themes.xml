@@ -4,13 +4,35 @@
         <item name="android:windowBackground">@color/night_window_background_color</item>
 
         <!-- Customize your dark theme here. -->
-         <item name="colorPrimary">@color/primary_color_rec</item>
+        <item name="android:statusBarColor">@color/calm_gray</item>
+        <item name="colorPrimary">@color/primary_color_rec</item>
+        <item name="fontFamily">@font/cairo_medium</item>
     </style>
 
     <!--  #############################################################  -->
 
-    <style name="AppLayout" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:background">@color/grey</item>
+    <style name="AppLayout" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:background">@color/less_grey</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppItemLayout" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:backgroundTint">@color/less_black_time2</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppItemMiniLayout" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:backgroundTint">@color/item_bg_dark</item>
+        <item name="android:layout_margin">@dimen/_5sdp</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppItemMiniText" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">@color/item_text_dark</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!--  #############################################################  -->
