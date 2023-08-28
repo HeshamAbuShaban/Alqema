@@ -11,6 +11,11 @@ import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
 import com.alqema.database.local_db.models.Receipt
 import com.alqema.database.local_db.models.ReceiptCategory
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AlqemaRepository(application: Application) {
 
@@ -86,8 +91,7 @@ class AlqemaRepository(application: Application) {
 
 
     fun observeCategories(): LiveData<List<Category>> = categoryDao.observeCategories()
-    fun observeCategoriesArrayList(): LiveData<List<Category>> =
-        categoryDao.observeCategoriesArrayList()
+    private fun observeCategory(id: Int): Category = categoryDao.observeCategory(id)
 
     fun observeCategories(name: String): LiveData<List<Category>> {
         return categoryDao.observeCategories(name)
@@ -116,18 +120,22 @@ class AlqemaRepository(application: Application) {
     fun insertReceipt(receipt: Receipt) {
         AlqemaDB.databaseWriteExecutor.execute { receiptDao.insertReceipt(receipt) }
     }
+
     // Deletion
     fun deleteReceipt(receipt: Receipt) {
         AlqemaDB.databaseWriteExecutor.execute { receiptDao.deleteReceipt(receipt) }
     }
+
     fun deleteReceipt(receiptId: Int) {
         AlqemaDB.databaseWriteExecutor.execute { receiptDao.deleteReceipt(receiptId) }
     }
+
     // observe
-    fun observeReceipts():LiveData<List<Receipt>>{
+    fun observeReceipts(): LiveData<List<Receipt>> {
         return receiptDao.observeReceipts()
     }
-    fun observeReceipts(id: Int):LiveData<List<Receipt>>{
+
+    fun observeReceipts(id: Int): LiveData<List<Receipt>> {
         return receiptDao.observeReceipts(id)
     }
 
@@ -136,21 +144,48 @@ class AlqemaRepository(application: Application) {
     fun insertReceiptCategory(receipt: ReceiptCategory) {
         AlqemaDB.databaseWriteExecutor.execute { receiptCategoryDao.insertReceiptCategory(receipt) }
     }
+
     // Deletion
     fun deleteReceiptCategory(receipt: ReceiptCategory) {
         AlqemaDB.databaseWriteExecutor.execute { receiptCategoryDao.deleteReceiptCategory(receipt) }
     }
+
     fun deleteReceiptCategory(receiptId: Int) {
         AlqemaDB.databaseWriteExecutor.execute { receiptCategoryDao.deleteReceiptCategory(receiptId) }
     }
+
     // observe
-    fun observeReceiptCategories():LiveData<List<ReceiptCategory>>{
+    fun observeReceiptCategories(): LiveData<List<ReceiptCategory>> {
         return receiptCategoryDao.observeReceiptCategories()
     }
-    fun observeReceiptCategoriesById(id: Int):LiveData<List<ReceiptCategory>>{
+
+    fun observeReceiptCategoriesById(id: Int): LiveData<List<ReceiptCategory>> {
         return receiptCategoryDao.observeReceiptCategoriesById(id)
     }
-    fun observeReceiptCategoriesByReceiptId(id: Int):LiveData<List<ReceiptCategory>>{
+
+    private suspend fun recObserveCategoriesById(id: Int): List<Int> {
+        return receiptCategoryDao.observeCategoriesById(id)
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun fetchCategoriesOfReceipt(
+        id: Int,
+        onSuccess: (MutableList<Category>) -> Unit,
+    ) {
+        GlobalScope.launch {
+            val array: MutableList<Category> = mutableListOf()
+            withContext(Dispatchers.IO) {
+                recObserveCategoriesById(id).forEach {
+                    array.add(observeCategory(it))
+                }
+            }
+            withContext(Dispatchers.Main) {
+                onSuccess(array)
+            }
+        }
+    }
+
+    fun observeReceiptCategoriesByReceiptId(id: Int): LiveData<List<ReceiptCategory>> {
         return receiptCategoryDao.observeReceiptCategoriesByReceiptId(id)
     }
 }

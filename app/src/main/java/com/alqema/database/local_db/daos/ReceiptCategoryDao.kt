@@ -14,8 +14,10 @@ interface ReceiptCategoryDao {
     @Query("SELECT * FROM receipt_categories")
     fun observeReceiptCategories(): LiveData<List<ReceiptCategory>>
 
-    @Query("SELECT * FROM receipt_categories WHERE `R-C ID` LIKE '%' || :id || '%'")
+    @Query("SELECT * FROM receipt_categories WHERE `Receipt ID` LIKE '%' || :id || '%'")
     fun observeReceiptCategoriesById(id: Int): LiveData<List<ReceiptCategory>>
+    @Query("SELECT `Category ID` FROM receipt_categories WHERE `Receipt ID` LIKE '%' || :id || '%'")
+    fun observeCategoriesById(id: Int): List<Int>
 
     @Query("SELECT * FROM receipt_categories WHERE `Receipt ID` LIKE '%' || :receiptId || '%'")
     fun observeReceiptCategoriesByReceiptId(receiptId: Int): LiveData<List<ReceiptCategory>>

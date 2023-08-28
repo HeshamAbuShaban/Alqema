@@ -24,8 +24,8 @@ interface CategoryDao {
     @Query("SELECT * FROM categories")
     fun observeCategories(): LiveData<List<Category>>
 
-    @Query("SELECT * FROM categories")
-    fun observeCategoriesArrayList(): LiveData<List<Category>>
+    @Query("SELECT * FROM categories WHERE `Category ID` = :id")
+    fun observeCategory(id: Int): Category
 
     @Query("SELECT * FROM categories WHERE `Category Name` LIKE '%' || :name || '%'")
     fun observeCategories(name: String): LiveData<List<Category>>

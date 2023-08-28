@@ -139,7 +139,27 @@
         android:id="@+id/navigation_receiptDisplay"
         android:name="com.alqema.ui.fragments.displaying_ui.receipt.ReceiptDisplayFragment"
         android:label="ReceiptDisplayFragment"
-        tools:layout="@layout/fragment_receipt_display" />
+        tools:layout="@layout/fragment_receipt_display" >
+        <action
+            android:id="@+id/action_navigation_receiptDisplay_to_navigation_receiptItemsDisplay"
+            app:destination="@id/navigation_receiptItemsDisplay">
+            <argument
+                android:name="receiptId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_receiptItemsDisplay"
+        android:name="com.alqema.ui.fragments.displaying_ui.receipt_items.ReceiptItemsDisplayFragment"
+        android:label="fragment_receipt_items_display"
+        tools:layout="@layout/fragment_receipt_items_display">
+        <argument
+            android:name="receiptId"
+            android:defaultValue="1"
+            app:argType="integer" />
+    </fragment>
+
+    <!--Dialogs-->
     <dialog
         android:id="@+id/pickAccountBottomSheetDialogFragment2"
         android:name="com.alqema.ui.fragments.dialogs.data.PickAccountBottomSheetDialogFragment"
