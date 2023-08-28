@@ -16,6 +16,7 @@ import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
 import com.alqema.database.local_db.models.Receipt
 import com.alqema.database.local_db.models.ReceiptCategory
+import com.alqema.database.local_db.models.constants.state.ItemState
 import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentAddReceiptBinding
 import com.alqema.ui.fragments.dialogs.data.PickAccountBottomSheetDialogFragment
@@ -23,8 +24,10 @@ import com.alqema.ui.fragments.dialogs.data.PickCategoryBottomSheetDialogFragmen
 import com.alqema.utils.GeneralUtils
 import com.alqema.utils.TimeUpdater
 
-class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnDataClickListener,
-    PickAccountBottomSheetDialogFragment.OnDataClickListener, OnItemActionClickListener<Category>,
+class AddReceiptFragment : Fragment(),
+    PickCategoryBottomSheetDialogFragment.OnDataClickListener,
+    PickAccountBottomSheetDialogFragment.OnDataClickListener,
+    OnItemActionClickListener<Category>,
     TimeUpdater.TimeUpdateListener {
     // UI
     private lateinit var binding: FragmentAddReceiptBinding
@@ -32,10 +35,6 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
     // database
     private val repository: AlqemaRepository = AlqemaRepository(AppController.getInstance())
 
-   /* // Creation and Update
-    private val viewModel: ReceiptViewModel by viewModels() //
-    private var updateState = false
-*/
     // only for account.. <tobe received from the Dialog>
     private var pickedAccount: Account? = null
 
@@ -69,10 +68,10 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
+        initializer()
     }
 
-    private fun init() {
+    private fun initializer() {
         setupTimer()
         setupListeners()
         setupCategoriesRecycler()
@@ -147,26 +146,22 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
         }
     }
 
-    private fun calculateTotal(category: Category) {
-        /*        categoriesList.forEach {
-                    this.total = total.plus(it.sellingPrice)
-                }*/
-        this.total = total.plus(category.sellingPrice)
+    private fun calculateTotal(obj: Category, state: Int) {
+        if (state == ItemState.ADDED) {
+            this.total = total.plus(obj.sellingPrice)
+            displayTotal()
+        } else {
+            total = if (total != 0.0) total.minus(obj.sellingPrice) else 0.0
+            displayTotal()
+        }
+    }
 
+    private fun displayTotal() {
         binding.tvReceiptTotal.text = this.total.toString()
         Log.i("AddReceiptFragment", "calculateTotal: total: ${this.total}")
     }
 
-    private fun calculateRemovedTotal(obj: Category) {
-
-        if (total != 0.0) total = total.minus(obj.sellingPrice) else GeneralUtils.getInstance()
-            .showSnackBar(binding.root, "cant mains 0")
-
-        binding.tvReceiptTotal.text = this.total.toString()
-        Log.i("AddReceiptFragment", "calculateTotal: total: ${this.total}")
-    }
-
-    private fun createRCInstances() {
+    private fun createRelationsInstances() {
         this.categoriesList.forEach {
             Log.i("ARF", "createRCInstances: ${it.categoryName}")
 
@@ -192,7 +187,7 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
             .build()
 
         // this must go first
-        createRCInstances()
+        createRelationsInstances()
         // this comes second
         repository.insertReceipt(receipt)
 
@@ -209,22 +204,24 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
     // From <Dialog> PickCategoryBottomSheetDialogFragment
     override fun onItemClicked(category: Category) {
-        // TODO:Clean ThisOne
-        // fill the current array (holderOfTempData)
-        categoriesList.add(category)
-        // notify the recycler and it adapter with the changes to the data
-        categoryAdapter.addUpCategoryList(categoriesList)
-//        categoryAdapter.addSingleCategory(category) ..this works but no need .due the need of the (holderOfTempData)
-
-        // update the count of item in the ui
-        binding.tvReceiptCategoriesCount.text = categoriesList.size.toString()
-        //..show message that indicate the user with the state
+        //.. state of item added
+        addToListRecycler(category)
+        // update count in ui
+        displayItemsCount()
+        //..show message
         GeneralUtils.getInstance().showToast(
             requireContext(),
             "${getString(R.string.category_got_added)}${category.categoryName}"
         )
-        //.. now update the total value to the screen
-        calculateTotal(category)
+        //.. update total to screen
+        calculateTotal(category, ItemState.ADDED)
+    }
+
+    private fun addToListRecycler(category: Category) {
+        // (holderOfTempData)
+        categoriesList.add(category)
+        // notify the recycler and it adapter with the changes to the data
+        categoryAdapter.addUpCategoryList(categoriesList)
     }
 
     // setupCategoriesRecycler with the data coming from dialog PickCategoryBottomSheetDialogFragment
@@ -238,17 +235,26 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
 
     // OnItemActionClickListener<Category> From Adapter
     override fun onDelete(obj: Category) {
-        // TODO:Clean ThisOne
-        categoriesList.remove(obj)
-        categoryAdapter.removeFromCategoryList(categoriesList)
-        // update the count of item in the ui
-        binding.tvReceiptCategoriesCount.text = categoriesList.size.toString()
+        //.. update state of items
+        popListRecycler(obj)
+        //.. count in ui
+        displayItemsCount()
+        //.. show message
         GeneralUtils.getInstance().showToast(
             requireContext(),
             "${getString(R.string.category_got_removed)}${obj.categoryName}"
         )
         //.. now update the total value to the screen
-        calculateRemovedTotal(obj)
+        calculateTotal(obj, ItemState.REMOVED)
+    }
+
+    private fun displayItemsCount() {
+        binding.tvReceiptCategoriesCount.text = categoriesList.size.toString()
+    }
+
+    private fun popListRecycler(obj: Category) {
+        categoriesList.remove(obj)
+        categoryAdapter.removeFromCategoryList(categoriesList)
     }
 
 
@@ -295,9 +301,8 @@ class AddReceiptFragment : Fragment(), PickCategoryBottomSheetDialogFragment.OnD
         }
     }
 
-}
-
-private fun Editable?.toInt(): Int? {
-    if (this?.isNotEmpty() == true) return this.toString().toInt()
-    return null
+    private fun Editable?.toInt(): Int? {
+        if (this?.isNotEmpty() == true) return this.toString().toInt()
+        return null
+    }
 }
