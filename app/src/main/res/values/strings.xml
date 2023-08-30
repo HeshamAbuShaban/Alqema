@@ -131,4 +131,5 @@
 
     <string name="receipt_button_dialog_title">Receipts</string>
     <string name="count">Count</string>
+    <string name="to_view_the_associated_categories_hold_click_on_any_item">Hold clicking any item to see the related categories.</string>
 </resources>

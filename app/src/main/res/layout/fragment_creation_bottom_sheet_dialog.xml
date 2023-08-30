@@ -2,19 +2,19 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppBottomSheetLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="@dimen/_24sdp"
-    app:cardPreventCornerOverlap="true"
     app:cardElevation="@dimen/_10sdp"
     app:cardMaxElevation="@dimen/_15sdp"
+    app:cardPreventCornerOverlap="true"
     tools:context=".ui.fragments.dialogs.choose.CreationBottomSheetDialogFragment">
 
     <!--ScreenContainer-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_app_bottom_sheet"
         android:orientation="vertical"
         android:padding="@dimen/_20sdp">
 
@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/receipt_button_dialog_title"
-            app:icon="@drawable/ic_accounts_1" />
+            app:icon="@drawable/ic_receipt" />
 
     </LinearLayout>
 

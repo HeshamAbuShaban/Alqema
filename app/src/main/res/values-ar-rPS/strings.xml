@@ -129,5 +129,6 @@
     <string name="search_receipts">ابحث عن فاتورة</string>
     <string name="receipt_button_dialog_title">فواتير البيع</string>
     <string name="count">الكمية</string>
+    <string name="to_view_the_associated_categories_hold_click_on_any_item">استمر في النقر فوق أي عنصر لرؤية الفئات ذات الصلة.</string>
 
 </resources>

@@ -1,6 +1,11 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Alqema" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--StatsBar-->
+<!--        <item name="android:windowTranslucentStatus">true</item>-->
+<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+        <!--StatsBar-->
+
         <item name="android:windowBackground">@color/night_window_background_color</item>
 
         <!-- Customize your dark theme here. -->
@@ -13,6 +18,12 @@
 
     <style name="AppLayout" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:background">@color/less_grey</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppBottomSheetLayout" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:backgroundTint">@color/less_grey</item>
     </style>
 
     <!--  #############################################################  -->

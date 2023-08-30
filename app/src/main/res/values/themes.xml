@@ -1,9 +1,14 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.Alqema" parent="Theme.Material3.DayNight.NoActionBar">
+        <!--StatsBar-->
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <!--        <item name="android:windowTranslucentNavigation">true</item>-->
+        <!--StatsBar-->
+
         <item name="android:windowBackground">@color/less_white</item>
         <!-- Customize your light theme here. -->
-        <item name="android:statusBarColor">@color/calm_gray</item>
+        <item name="android:statusBarColor">@color/dark_sea</item>
         <item name="colorPrimary">@color/primary_color</item>
         <item name="android:fontFamily">@font/cairo_medium</item>
         <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
@@ -32,6 +37,12 @@
 
     <style name="AppLayout" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@color/less_white</item>
+    </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppBottomSheetLayout" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:backgroundTint">@color/less_white</item>
     </style>
 
     <!--  #############################################################  -->

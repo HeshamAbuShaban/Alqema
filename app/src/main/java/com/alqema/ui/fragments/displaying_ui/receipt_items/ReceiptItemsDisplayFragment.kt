@@ -1,19 +1,20 @@
 package com.alqema.ui.fragments.displaying_ui.receipt_items
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.alqema.adapters.recycler_view.receipt_items.ReceiptItemsAdapter
-import com.alqema.app_system.AppController
+import com.alqema.app_system.node.UseDatabase
+import com.alqema.database.listeners.Result
 import com.alqema.database.local_db.models.Category
-import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentReceiptItemsDisplayBinding
+import kotlinx.coroutines.launch
 
-class ReceiptItemsDisplayFragment : Fragment(){
+class ReceiptItemsDisplayFragment : Fragment() {
     private lateinit var binding: FragmentReceiptItemsDisplayBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,21 +36,31 @@ class ReceiptItemsDisplayFragment : Fragment(){
 
     private fun displayCategory() {
         val args: ReceiptItemsDisplayFragmentArgs by navArgs()
-        Log.d("AddAccountFragment", "onViewCreated() returned: ${args.receiptId}")
+        lifecycleScope.launch {
+            when (val result =
+                UseDatabase.getInstance().repository
+                    .fetchCategoriesOfReceipt(args.receiptId)) {
+                is Result.Success<List<Category>> -> {
+                    val categories = result.data
+                    // Process categories here
+                    binding.itemsCount.text = categories.size.toString()
+                    setupCategoryAdapter(categories)
+                }
 
-        val repo = AlqemaRepository(AppController.getInstance())
-        repo.fetchCategoriesOfReceipt(args.receiptId) {
-            binding.itemsCount.text = it.size.toString()
-            setupCategoryAdapter(it)
+                is Result.Error -> {
+                    val exception = result.exception
+                    // Handle the error
+                    binding.itemsCount.text = exception.toString()
+                }
+            }
         }
+
     }
 
     private fun setupCategoryAdapter(categoryList: List<Category>) {
         with(binding.categoriesRecyclerView) {
             setHasFixedSize(true)
-            adapter = ReceiptItemsAdapter(categoryList)/*.also {
-                it.registerOnItemClickListener(this@ReceiptItemsDisplayFragment)
-            }*/
+            adapter = ReceiptItemsAdapter(categoryList)
         }
     }
 }

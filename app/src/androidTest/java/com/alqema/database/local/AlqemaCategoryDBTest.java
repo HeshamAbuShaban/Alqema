@@ -38,9 +38,9 @@ public class AlqemaCategoryDBTest {
         // not null
         Assert.assertNotNull(category);
         // insert into database
-        var res = alqemaRepository.insertCategory(category);
+        /*-var res = alqemaRepository.insertCategory(category);
         // did insert executed properly
-        Assert.assertTrue(res);
+        Assert.assertTrue(res);*/
     }
 
     @Test

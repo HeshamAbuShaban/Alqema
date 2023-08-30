@@ -13,6 +13,7 @@
     <!--  #############################################################  -->
 
     <style name="AppDialogButton" parent="PrimaryButton">
+        <item name="backgroundTint">@color/calm_gray</item>
         <item name="iconSize">@dimen/_24sdp</item>
         <item name="iconTint">@color/white</item>
         <item name="android:paddingTop">@dimen/_3sdp</item>

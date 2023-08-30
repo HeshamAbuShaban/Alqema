@@ -33,6 +33,7 @@
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/informTitle"
         style="@style/AppInformTitle"
+        android:text="@string/to_view_the_associated_categories_hold_click_on_any_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

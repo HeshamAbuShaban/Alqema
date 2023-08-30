@@ -29,19 +29,46 @@
 
     </com.google.android.material.textfield.TextInputLayout>-->
 
-    <!--InformAboutTheLongClick-->
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/itemsCount"
+    <!--TextContainer-->
+    <LinearLayout
+        android:id="@+id/textContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:textColor="@color/primary_color"
-        android:textSize="@dimen/_30ssp"
-        android:textStyle="bold"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <!--InformAboutTheLongClick-->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/itemsCountTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/count"
+            android:textAlignment="center"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/_30ssp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toStartOf="@id/itemsCount"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/itemsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/primary_color"
+            android:textSize="@dimen/_30ssp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/itemsCountTitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
     <!--RecycleViewData-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categories_recyclerView"
@@ -51,7 +78,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/itemsCount"
+        app:layout_constraintTop_toBottomOf="@id/textContainer"
         tools:listitem="@layout/item_receipt_items" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
