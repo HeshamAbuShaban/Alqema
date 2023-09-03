@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.alqema.adapters.listeners.OnItemClickListener
 import com.alqema.adapters.recycler_view.receipt.cate.CategoryAdapter
-import com.alqema.app_system.AppController
+import com.alqema.app_system.node.UseDatabase
 import com.alqema.database.local_db.models.Category
 import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentPickCategoryBottomSheetDialogBinding
@@ -26,7 +26,7 @@ class PickCategoryBottomSheetDialogFragment : BottomSheetDialogFragment(),
 
     private var onDataClickListener: OnDataClickListener? = null
     private lateinit var binding: FragmentPickCategoryBottomSheetDialogBinding
-    private val repo: AlqemaRepository = AlqemaRepository(AppController.getInstance())
+    private val repo: AlqemaRepository =  UseDatabase.getInstance().repository
 
 
     //  No Need To Use if the screen already inherent the interface and the OnAttach do the rest job.. @Deprecated()

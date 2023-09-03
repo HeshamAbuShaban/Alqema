@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alqema.adapters.listeners.AccountContract
 import com.alqema.adapters.listeners.OnItemClickListener
+import com.alqema.adapters.listeners.OnItemExpandClickListener
 import com.alqema.adapters.recycler_view.account.view_holders.AccountViewHolder
 import com.alqema.databinding.ItemAccountBinding
 import com.alqema.database.local_db.models.Account
@@ -13,8 +14,13 @@ class AccountAdapter(private val accountList: List<Account>) :
     RecyclerView.Adapter<AccountViewHolder>() {
 
     private var listener: OnItemClickListener<AccountContract>? = null
+
+    private var expandItemClickListener: OnItemExpandClickListener<Account>? = null
     fun registerOnItemClickListener(listener: OnItemClickListener<AccountContract>) {
         this.listener = listener
+    }
+    fun registerOnExpandItemClickListener(listener: OnItemExpandClickListener<Account>) {
+        this.expandItemClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountViewHolder {
@@ -38,5 +44,8 @@ class AccountAdapter(private val accountList: List<Account>) :
             false
         }
 
+        holder.getExpandButton().setOnClickListener {
+            expandItemClickListener?.onExpandClick(account)
+        }
     }
 }

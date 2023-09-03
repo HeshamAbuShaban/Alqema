@@ -186,4 +186,16 @@ class AlqemaRepository(application: Application) {
 
     fun observePayments(): LiveData<List<Payment>> = paymentDao.observePayment()
 
+    // Balance Modify ===========================================================
+
+    // Method to update the account balance when a receipt is created
+    fun updateAccountBalanceForReceipt(accountNumber: Int, amount: Double) {
+        accountDao.updateAccountBalanceIncrement(accountNumber, amount)
+    }
+
+    // Method to update the account balance when a payment is made
+    fun updateAccountBalanceForPayment(accountNumber: Int, amount: Double) {
+        accountDao.updateAccountBalanceDecrement(accountNumber, amount)
+    }
+
 }

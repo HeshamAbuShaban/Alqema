@@ -135,4 +135,6 @@
     <string name="amount">Amount</string>
     <string name="payment_date">Payment Date</string>
     <string name="payments">Payments</string>
+    <string name="event_expand_item" translatable="false">Event Expand Item</string>
+    <string name="balance">Balance</string>
 </resources>

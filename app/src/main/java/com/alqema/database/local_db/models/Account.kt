@@ -33,13 +33,16 @@ data class Account(
     @ColumnInfo("Account Currency")
     val accountCurrency: String,
 
-    ) :AccountContract{
+    @ColumnInfo(name = "Balance")
+    var balance: Double = 0.0, // Initialize balance to 0.0
+
+) : AccountContract {
     class Builder {
 
         private var accountNumber: Int = 1
-        private var accountName: String = "default_"
+        private var accountName: String = "default_name"
         private var accountDetails: String = AccountDetails.Dealers.value
-        private var address: String = "default_"
+        private var address: String = "default_address"
         private var mobileNumber: String = "0"
         private var belongsToAccount: Int = 1
 
@@ -98,15 +101,15 @@ data class Account(
 
         fun build(): Account =
             Account(
-                accountNumber,
-                accountName,
-                accountDetails,
-                address,
-                mobileNumber,
-                belongsToAccount,
-                accountNature,
-                accountType,
-                accountCurrency
+                accountNumber = accountNumber,
+                accountName = accountName,
+                accountDetails = accountDetails,
+                address = address,
+                mobileNumber = mobileNumber,
+                belongsToAccount = belongsToAccount,
+                accountNature = accountNature,
+                accountType = accountType,
+                accountCurrency = accountCurrency
             )
 
     }

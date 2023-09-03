@@ -95,4 +95,9 @@
 
     <!--  #############################################################  -->
 
+
+    <style name="AppExpandItemButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="android:backgroundTint">@color/less_black</item>
+    </style>
+
 </resources>

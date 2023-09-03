@@ -5,112 +5,95 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
-    <!--new-->
-    <!--Container-->
+    <!--higherContainer-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:baselineAligned="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="@dimen/_15sdp"
-        android:weightSum="2">
+        android:orientation="vertical"
+        android:tag="higherContainer">
 
-        <!--Des-->
+        <!--ButtonExpand Item-->
+        <ImageButton
+            android:id="@+id/btnExpand"
+            style="@style/AppExpandItemButton"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/ic_expand_item"
+            android:contentDescription="@string/event_expand_item"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <!--Container-->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:orientation="vertical">
+            android:layout_marginTop="@dimen/_minus15sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:baselineAligned="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/_15sdp"
+            android:weightSum="2">
 
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/AppTitleText"
-                android:layout_width="match_parent"
+            <!--Des-->
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/id"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                android:layout_weight="0.5"
+                android:orientation="vertical">
 
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/AppTitleText"
-                android:layout_width="match_parent"
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/AppTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/id"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/AppTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/name"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+            <!--Values-->
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/name"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                android:layout_weight="1.5"
+                android:orientation="vertical">
 
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/AppTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/mobile"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/accountId"
+                    style="@style/AppText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    tools:text="Hello,World" />
 
-            <com.google.android.material.textview.MaterialTextView
-                style="@style/AppTitleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="@string/address"
-                android:textAlignment="center"
-                android:textSize="20sp" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/accountName"
+                    style="@style/AppText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    tools:text="Hello,World" />
 
-        </LinearLayout>
-        <!--Values-->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.5"
-            android:orientation="vertical">
+            </LinearLayout>
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountId"
-                style="@style/AppText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                tools:text="Hello,World" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountName"
-                style="@style/AppText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                tools:text="Hello,World" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountMobile"
-                style="@style/AppText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                tools:text="Hello,World" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountAddress"
-                style="@style/AppText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                tools:text="Hello,World" />
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </com.google.android.material.card.MaterialCardView>

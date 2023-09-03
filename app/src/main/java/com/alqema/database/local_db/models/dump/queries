@@ -1,0 +1,18 @@
+/*fun updateAccountBalanceForReceipt(accountNumber: Int, amount: Double) {
+        val account = accountDao.getAccount(accountNumber)
+        if (account != null) {
+            val updatedBalance = account.balance + amount
+            account.balance = updatedBalance
+            accountDao.updateAccount(account)
+        }
+    }
+
+    // Method to update the account balance when a payment is made
+    fun updateAccountBalanceForPayment(accountNumber: Int, amount: Double) {
+        val account = accountDao.getAccount(accountNumber)
+        if (account != null) {
+            val updatedBalance = account.balance - amount
+            account.balance = updatedBalance
+            accountDao.updateAccount(account)
+        }
+    }*/

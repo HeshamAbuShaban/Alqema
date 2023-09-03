@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="true"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="@dimen/_15sdp"
+    android:weightSum="2"
+    tools:context=".ui.fragments.dialogs.display.ExpandedAccountFragment">
+
+    <!--Des-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/id"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/name"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/account_detail"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/mobile"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/address"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/belongs_to_account"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/account_nature"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/account_type"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/account_currency"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/AppTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:text="@string/balance"
+            android:textAlignment="center"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    <!--Values-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountId"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountName"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountDetails"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountMobile"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountAddress"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountBelongsTo"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountNature"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountType"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountCurrency"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/accountBalance"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:text="Hello,World" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

@@ -133,5 +133,6 @@
     <string name="amount">المبلغ</string>
     <string name="payment_date">تاريخ سند الدفع</string>
     <string name="payments">سندات الدفع</string>
+    <string name="balance">الرصيد</string>
 
 </resources>

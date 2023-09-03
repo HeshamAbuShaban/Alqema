@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Alqema" parent="Theme.Material3.DayNight.NoActionBar">
         <!--StatsBar-->
-<!--        <item name="android:windowTranslucentStatus">true</item>-->
-<!--        <item name="android:windowTranslucentNavigation">true</item>-->
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <!--        <item name="android:windowTranslucentNavigation">true</item>-->
         <!--StatsBar-->
 
         <item name="android:windowBackground">@color/night_window_background_color</item>
@@ -65,7 +65,6 @@
 
 
     <!--  #############################################################  -->
-
     <style name="AppTextInputEditText" parent="ThemeOverlay.Material3.TextInputEditText">
         <item name="android:layout_marginTop">@dimen/_16sdp</item>
         <item name="android:includeFontPadding">true</item>
@@ -74,5 +73,12 @@
         <item name="android:textColorHint">@color/less_black</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppExpandItemButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="android:backgroundTint">@color/primary_color_rec</item>
+    </style>
+
 
 </resources>

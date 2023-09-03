@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.alqema.database.local_db.models.Account
-import com.alqema.database.local_db.models.Category
 
 @Dao
 interface AccountDao {
@@ -42,5 +41,12 @@ interface AccountDao {
 
     @Query("DELETE FROM accounts WHERE `Account ID` = :id")
     fun deleteAccount(id: Int)
+
+    // Balance
+    @Query("UPDATE accounts SET Balance = Balance + :amount WHERE `Account ID` = :accountNumber")
+    fun updateAccountBalanceIncrement(accountNumber: Int, amount: Double)
+
+    @Query("UPDATE accounts SET Balance = Balance - :amount WHERE `Account ID` = :accountNumber")
+    fun updateAccountBalanceDecrement(accountNumber: Int, amount: Double)
 
 }

@@ -1,6 +1,7 @@
 package com.alqema.ui.fragments.creation_ui.payment
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.alqema.R
 import com.alqema.app_system.AppController
 import com.alqema.app_system.node.UseDatabase
@@ -8,6 +9,8 @@ import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Payment
 import com.alqema.databinding.FragmentAddPaymentBinding
 import com.alqema.utils.GeneralUtils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class PaymentViewModel : ViewModel() {
     private val context = AppController.getInstance()
@@ -47,7 +50,10 @@ class PaymentViewModel : ViewModel() {
             .withDate(date)
             .build()
 
-        UseDatabase.getInstance().repository.insertPayment(paymentObj)
+        viewModelScope.launch(Dispatchers.IO) {
+            UseDatabase.getInstance().repository.insertPayment(paymentObj)
+            UseDatabase.getInstance().repository.updateAccountBalanceForPayment(accountID, payment)
+        }
 
         GeneralUtils.getInstance()
             .showSnackBar(binding.root, context.getString(R.string.created_message))

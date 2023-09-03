@@ -11,13 +11,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.alqema.adapters.listeners.AccountContract
 import com.alqema.adapters.listeners.OnItemClickListener
+import com.alqema.adapters.listeners.OnItemExpandClickListener
 import com.alqema.adapters.recycler_view.account.AccountAdapter
+import com.alqema.database.local_db.models.Account
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAccountDisplayBinding
-import com.alqema.database.local_db.models.Account
+import com.alqema.ui.fragments.dialogs.display.ExpandedAccountFragment
 import com.alqema.utils.GeneralUtils
 
-class AccountDisplayFragment : Fragment(), OnItemClickListener<AccountContract> {
+class AccountDisplayFragment : Fragment(), OnItemClickListener<AccountContract>,
+    OnItemExpandClickListener<Account> {
     private lateinit var binding: FragmentAccountDisplayBinding
 
     private lateinit var viewModel: AccountDisplayViewModel
@@ -77,8 +80,9 @@ class AccountDisplayFragment : Fragment(), OnItemClickListener<AccountContract> 
     private fun setupAccountAdapter(accountList: List<Account>) {
         with(binding.accountsRecyclerView) {
             setHasFixedSize(true)
-            adapter = AccountAdapter(accountList).also {
-                it.registerOnItemClickListener(this@AccountDisplayFragment)
+            adapter = AccountAdapter(accountList).apply {
+                registerOnItemClickListener(this@AccountDisplayFragment)
+                registerOnExpandItemClickListener(this@AccountDisplayFragment)
             }
         }
     }
@@ -86,9 +90,17 @@ class AccountDisplayFragment : Fragment(), OnItemClickListener<AccountContract> 
     // this to handle the click on an item to make an update on it.
     override fun onClick(obj: AccountContract) {
         val navCon = binding.root.findNavController()
-        val action = AccountDisplayFragmentDirections.actionNavigationAccountDisplayToNavigationAddAccount(obj.accountNumber)
+        val action =
+            AccountDisplayFragmentDirections.actionNavigationAccountDisplayToNavigationAddAccount(
+                obj.accountNumber
+            )
         navCon.navigate(action)
         GeneralUtils.getInstance().showSnackBar(binding.root, obj.accountName)
+    }
+
+    override fun onExpandClick(obj: Account) {
+        val dialog = ExpandedAccountFragment(obj)
+        dialog.show(childFragmentManager, "Expand Account Details Event")
     }
 
 }

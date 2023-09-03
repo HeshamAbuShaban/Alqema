@@ -194,6 +194,8 @@ class AddReceiptFragment : Fragment(),
                 withContext(Dispatchers.IO) {
                     UseDatabase.getInstance().repository.insertReceipt(receipt)
                     createRelationsInstances()
+                    UseDatabase.getInstance().repository
+                        .updateAccountBalanceForReceipt(pickedAccount!!.accountNumber,total)
                 }
                 withContext(Dispatchers.Main) {
                     GeneralUtils.getInstance()

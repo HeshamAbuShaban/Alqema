@@ -13,7 +13,7 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         appController = this;
-//        setupDatabaseWithInitialData();
+        setupDatabaseWithInitialData();
     }
 
     // Instance : helpful with the context etc...
