@@ -2,9 +2,8 @@
     <string name="app_name">Alqema</string>
     <!-- Strings related to Creation -->
     <string name="confirm">Confirm</string>
-    <string name="creation">creation</string>
+    <string name="creation">Creation</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scroller_for_inputs">ScrollerForInputs</string>
     <string name="add_account">Add Account</string>
     <string name="editing_account">Editing Account</string>
@@ -23,8 +22,6 @@
     <string name="display_btn" translatable="false">Display Btn</string>
 
     <!--ID-foreach-->
-    <string name="id_account">Account number</string>
-    <string name="id_category">Category number</string>
 
     <!--Tab-->
     <string name="accounts">Accounts</string>
@@ -59,9 +56,8 @@
     <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="do_you_really_want_to_delete">Do you really want to Delete!?</string>
-    <string name="query_s">Query\'s</string>
+    <string name="query_s">Queries</string>
     <string name="add_receipt">Add Receipt</string>
-    <string name="add_receipts">Add Receipts</string>
     <string name="receipt_details">Receipt details</string>
     <string name="receipt_date">Receipt Date</string>
     <string name="receipt_number">Receipt Number</string>
@@ -132,4 +128,11 @@
     <string name="receipt_button_dialog_title">Receipts</string>
     <string name="count">Count</string>
     <string name="to_view_the_associated_categories_hold_click_on_any_item">Hold clicking any item to see the related categories.</string>
+    <string name="add_payment">Add Payment</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="payment_account_number">Payment Account Number</string>
+    <string name="payment_amount">Payment Amount</string>
+    <string name="amount">Amount</string>
+    <string name="payment_date">Payment Date</string>
+    <string name="payments">Payments</string>
 </resources>

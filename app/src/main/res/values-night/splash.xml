@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!--BackgroundColor-->
+        <item name="windowSplashScreenIconBackgroundColor">@color/calm_gray</item>
+
+        <!--Even if its not animated you still have to choose it-->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_app_logo_foreground</item>
+
+        <!--switch to what theme? after splash is done ,go ahead and set your main theme-->
+        <item name="postSplashScreenTheme">@style/Theme.Alqema</item>
+    </style>
+    <!--After that apply your appStartingActivity theme in manifests to this one-->
+    <!--After that apply installSplashScreen() in appStartingActivity aka MainActivity-->
+</resources>

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><!--tools:context=".ui.fragments.creation_ui.receipt.AddReceiptFragment">-->
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/AppLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.creation_ui.receipt.AddReceiptFragment">
+    tools:context=".ui.fragments.creation_ui.payment.AddPaymentFragment">
 
     <!--#############################################################-->
 
@@ -59,14 +59,14 @@
             style="@style/AppText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_receipt"
+            android:text="@string/add_payment"
             android:textAlignment="center"
             android:textSize="@dimen/_24ssp"
             android:textStyle="bold" />
 
-        <!--InformAboutThe Receipt Date-->
+        <!--InformAboutThe Payment Date-->
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/receiptDateInformTitle"
+            android:id="@+id/paymentDateInformTitle"
             style="@style/AppDateTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
         <!--Title And DeleteBtn for the update event-->
         <!--Delete-->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDeleteReceipt"
+            android:id="@+id/btnDeletePayment"
             style="@style/AppDeleteButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -107,32 +107,32 @@
                         style="@style/AppTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/receipt_details" />
+                        android:text="@string/payment_details" />
 
                     <!--#################################################################-->
 
-                    <!--TextLayout1-ID-->
-                   <!-- <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:tag="ID"
-                        app:helperText="@string/receipt_number"
-                        app:placeholderText="@string/receipt_number">
-                        &lt;!&ndash;InputEditText1&ndash;&gt;
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edReceiptNumber"
-                            style="@style/AppTextInputEditText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_6sdp"
-                            android:inputType="numberSigned"
-                            tools:hint="Enter Here" />
+                    <!-- &lt;!&ndash;TextLayout1-ID&ndash;&gt;
+                     <com.google.android.material.textfield.TextInputLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:tag="ID"
+                         app:helperText="@string/payment_number"
+                         app:placeholderText="@string/payment_number">
+                         &lt;!&ndash;InputEditText1&ndash;&gt;
+                         <com.google.android.material.textfield.TextInputEditText
+                             android:id="@+id/edPaymentNumber"
+                             style="@style/AppTextInputEditText"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginTop="@dimen/_6sdp"
+                             android:inputType="numberSigned"
+                             tools:hint="Enter Here" />
 
-                    </com.google.android.material.textfield.TextInputLayout>-->
+                     </com.google.android.material.textfield.TextInputLayout>-->
 
                     <!--Btn To choose the accosted Account-->
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnAddReceiptAccountNumber"
+                        android:id="@+id/btnAddPaymentAccountNumber"
                         style="@style/AppDialogButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -141,16 +141,16 @@
                         app:rippleColor="@color/white"
                         app:strokeColor="@color/white" />
 
-                    <!--TextLayout2-ReceiptAccountNumber-->
+                    <!--TextLayout2-PaymentAccountNumber-->
                     <!--InputEditText2-->
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/edReceiptAccountNumber"
+                        android:id="@+id/edPaymentAccountNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sdp"
-                        android:hint="@string/receipt_account_number"
+                        android:hint="@string/payment_account_number"
                         android:padding="@dimen/_5sdp"
-                        android:tag="ReceiptAccountNumber"
+                        android:tag="PaymentAccountNumber"
                         android:textAlignment="center"
                         android:textColorHint="#757575"
                         android:textSize="@dimen/_18ssp"
@@ -171,11 +171,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_7sdp"
                         android:tag="Name"
-                        app:helperText="@string/receipt_details"
-                        app:placeholderText="@string/receipt_details">
+                        app:helperText="@string/payment_details"
+                        app:placeholderText="@string/payment_details">
                         <!--InputEditText3-->
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edReceiptDetails"
+                            android:id="@+id/edPaymentDetails"
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -184,8 +184,8 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!--TextLayout4-Barcode-->
-                   <!-- <com.google.android.material.textfield.TextInputLayout
+                    <!--&lt;!&ndash;TextLayout4-Barcode&ndash;&gt;
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:tag="Barcode"
@@ -193,7 +193,7 @@
                         app:placeholderText="@string/barcode">
                         &lt;!&ndash;InputEditText3&ndash;&gt;
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edReceiptBarcode"
+                            android:id="@+id/edPaymentBarcode"
                             style="@style/AppTextInputEditText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -220,15 +220,15 @@
                         style="@style/AppTitleText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/receipt_categories"
+                        android:text="@string/payment_amount"
                         android:textAlignment="textStart"
                         android:textSize="@dimen/_18ssp"
                         android:textStyle="bold" />
 
                     <!--#################################################################-->
-                    <!--Add many ReceiptCategory Object and show them in Recycler-->
+                    <!--Add many PaymentCategory Object and show them in Recycler-->
 
-                    <!--Add ReceiptCategory Obj Btn-->
+                    <!--&lt;!&ndash;Add PaymentCategory Obj Btn&ndash;&gt;
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnAddCategoryItem"
                         style="@style/AppDialogButton"
@@ -239,21 +239,39 @@
                         app:rippleColor="@color/white"
                         app:strokeColor="@color/white" />
 
-                    <!--Display RCategories Obj-s Recycler-->
+                    &lt;!&ndash;Display RCategories Obj-s Recycler&ndash;&gt;
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recReceiptCategories"
+                        android:id="@+id/recPaymentCategories"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         app:spanCount="2"
                         tools:itemCount="3"
-                        tools:listitem="@layout/item_mini_category" />
+                        tools:listitem="@layout/item_mini_category" />-->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:tag="amount"
+                        app:helperText="@string/barcode"
+                        app:placeholderText="@string/amount">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edPaymentAmount"
+                            style="@style/AppTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="numberDecimal"
+                            tools:hint="Enter Here" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <!--ToAddUpMoreSpaceInScreenContainer-->
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_25sdp" />
+                        android:layout_height="@dimen/_70sdp" />
+
                     <!--Count-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -261,7 +279,7 @@
                         app:helperText="@string/count">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvReceiptCategoriesCount"
+                            android:id="@+id/tvPaymentCategoriesCount"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/count"
@@ -279,7 +297,7 @@
                         app:helperText="@string/total">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvReceiptTotal"
+                            android:id="@+id/tvPaymentTotal"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_35sdp"
                             android:hint="@string/total"

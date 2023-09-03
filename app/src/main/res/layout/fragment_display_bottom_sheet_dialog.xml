@@ -59,6 +59,14 @@
             android:text="@string/receipt_button_dialog_title"
             app:icon="@drawable/ic_receipt" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDisplayPayments"
+            style="@style/AppDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payments"
+            app:icon="@drawable/ic_payment" />
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

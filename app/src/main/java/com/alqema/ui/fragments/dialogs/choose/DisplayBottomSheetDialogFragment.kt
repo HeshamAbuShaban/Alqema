@@ -78,6 +78,11 @@ class DisplayBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 dismiss()
             }
 
+            btnDisplayPayments.setOnClickListener { viewPayments ->
+                onDisplayClickListener?.onDisplayClicked(viewPayments)
+                dismiss()
+            }
+
         }
     }
 

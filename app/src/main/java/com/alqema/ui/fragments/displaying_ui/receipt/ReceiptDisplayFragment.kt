@@ -85,7 +85,7 @@ class ReceiptDisplayFragment : Fragment(), OnItemClickListener<Receipt> {
         val navCon = binding.root.findNavController()
         val action =
             ReceiptDisplayFragmentDirections.actionNavigationReceiptDisplayToNavigationReceiptItemsDisplay(
-                obj.receiptNumber
+                obj.receiptNumber!!
             )
         //.. REMOVE DEFAULT VALUE OF THE ARG
         navCon.navigate(action)

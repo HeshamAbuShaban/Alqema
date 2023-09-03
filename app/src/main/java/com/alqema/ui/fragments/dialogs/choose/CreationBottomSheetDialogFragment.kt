@@ -78,6 +78,11 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 onCreationClickListener?.onCreateClicked(viewReceipts)
                 dismiss()
             }
+
+            btnCreatePayments.setOnClickListener { viewPayments ->
+                onCreationClickListener?.onCreateClicked(viewPayments)
+                dismiss()
+            }
         }
     }
 

@@ -5,7 +5,6 @@
     <string name="confirm">تأكيد</string>
     <string name="creation">انشاء</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="scroller_for_inputs">ScrollerForInputs</string>
     <string name="add_account">اضافة حساب</string>
     <string name="account_details">معلومات الحساب</string>
@@ -20,7 +19,6 @@
     <string name="query_s">استعلامات</string>
 
     <string name="add_receipt">" إضافة فاتورة البيع "</string>
-    <string name="add_receipts">" إضافة فواتير البيع "</string>
     <string name="receipt_details">" تفاصيل فاتورة البيع "</string>
     <string name="receipt_number">" رقم  فاتورة البيع "</string>
     <string name="receipt_account_number">" رقم حساب فاتورة البيع "</string>
@@ -33,8 +31,6 @@
     <string name="accounts">الحسابات</string>
     <string name="categories">الأصناف</string>
     <!--ID-foreach-->
-    <string name="id_account">رقم الحساب</string>
-    <string name="id_category">رقم الصنف</string>
 
     <!--For Displaying Details-->
     <string name="id">الرقم المعرف</string>
@@ -130,5 +126,12 @@
     <string name="receipt_button_dialog_title">فواتير البيع</string>
     <string name="count">الكمية</string>
     <string name="to_view_the_associated_categories_hold_click_on_any_item">استمر في النقر فوق أي عنصر لرؤية الفئات ذات الصلة.</string>
+    <string name="add_payment">سند الدفع</string>
+    <string name="payment_details">تفاصيل سند الدفع</string>
+    <string name="payment_account_number">رقم حساب سند الدفع</string>
+    <string name="payment_amount">مبلغ سند الدفع</string>
+    <string name="amount">المبلغ</string>
+    <string name="payment_date">تاريخ سند الدفع</string>
+    <string name="payments">سندات الدفع</string>
 
 </resources>

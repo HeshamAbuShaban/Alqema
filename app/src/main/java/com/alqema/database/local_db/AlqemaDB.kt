@@ -6,17 +6,19 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.alqema.database.local_db.daos.AccountDao
 import com.alqema.database.local_db.daos.CategoryDao
+import com.alqema.database.local_db.daos.PaymentDao
 import com.alqema.database.local_db.daos.ReceiptCategoryDao
 import com.alqema.database.local_db.daos.ReceiptDao
 import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
+import com.alqema.database.local_db.models.Payment
 import com.alqema.database.local_db.models.Receipt
 import com.alqema.database.local_db.models.ReceiptCategory
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 @Database(
-    entities = [Account::class, Category::class, Receipt::class, ReceiptCategory::class],
+    entities = [Account::class, Category::class, Receipt::class, ReceiptCategory::class, Payment::class],
     version = 1,
     exportSchema = true
 )
@@ -25,6 +27,7 @@ abstract class AlqemaDB : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun receiptDao(): ReceiptDao
     abstract fun receiptCategoryDao(): ReceiptCategoryDao
+    abstract fun paymentDao(): PaymentDao
 
 
     companion object {

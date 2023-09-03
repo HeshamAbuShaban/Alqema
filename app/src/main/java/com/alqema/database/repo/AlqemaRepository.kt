@@ -6,10 +6,12 @@ import com.alqema.database.listeners.Result
 import com.alqema.database.local_db.AlqemaDB
 import com.alqema.database.local_db.daos.AccountDao
 import com.alqema.database.local_db.daos.CategoryDao
+import com.alqema.database.local_db.daos.PaymentDao
 import com.alqema.database.local_db.daos.ReceiptCategoryDao
 import com.alqema.database.local_db.daos.ReceiptDao
 import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
+import com.alqema.database.local_db.models.Payment
 import com.alqema.database.local_db.models.Receipt
 import com.alqema.database.local_db.models.ReceiptCategory
 import kotlinx.coroutines.Dispatchers
@@ -21,6 +23,7 @@ class AlqemaRepository(application: Application) {
     private val categoryDao: CategoryDao
     private val receiptDao: ReceiptDao
     private val receiptCategoryDao: ReceiptCategoryDao
+    private val paymentDao: PaymentDao
     private val db: AlqemaDB
 
     init {
@@ -29,6 +32,7 @@ class AlqemaRepository(application: Application) {
         categoryDao = db.categoryDao()
         receiptDao = db.receiptDao()
         receiptCategoryDao = db.receiptCategoryDao()
+        paymentDao = db.paymentDao()
     }
 
     // Account Related Functions ==============================
@@ -116,6 +120,11 @@ class AlqemaRepository(application: Application) {
 
     fun observeReceipts(id: Int): LiveData<List<Receipt>> = receiptDao.observeReceipts(id)
 
+    // Append ______________
+    suspend fun getLastId(): Int {
+        return receiptDao.getLastId()
+    }
+
     // ReceiptCategory Related Functions ==============================
 
     fun insertReceiptCategory(receipt: ReceiptCategory) {
@@ -126,9 +135,9 @@ class AlqemaRepository(application: Application) {
         executeInBackground { receiptCategoryDao.deleteReceiptCategory(receipt) }
     }
 
-    fun deleteReceiptCategory(receiptId: Int) {
+    /*fun deleteReceiptCategory(receiptId: Int) {
         executeInBackground { receiptCategoryDao.deleteReceiptCategory(receiptId) }
-    }
+    }*/
 
     fun observeReceiptCategories(): LiveData<List<ReceiptCategory>> =
         receiptCategoryDao.observeReceiptCategories()
@@ -161,5 +170,20 @@ class AlqemaRepository(application: Application) {
             Result.Error(e)
         }
     }
+
+    // Payment ==========================================================
+    fun insertPayment(payment: Payment) {
+        executeInBackground { paymentDao.insertPayment(payment) }
+    }
+
+    fun updatePayment(payment: Payment) {
+        executeInBackground { paymentDao.updatePayment(payment) }
+    }
+
+    fun deletePayment(id: Int) {
+        executeInBackground { paymentDao.deletePayment(id) }
+    }
+
+    fun observePayments(): LiveData<List<Payment>> = paymentDao.observePayment()
 
 }

@@ -8,21 +8,22 @@ import androidx.room.TypeConverters
 import com.alqema.database.type_converter.DateConverter
 
 @Entity(
-    "receipts",
+    tableName = "receipts",
     foreignKeys = [
         ForeignKey(
-            entity = ReceiptCategory::class,
-            parentColumns = ["ID"],
-            childColumns = ["Receipt Category ID"],
-            onDelete = ForeignKey.SET_DEFAULT,
-            onUpdate = ForeignKey.SET_DEFAULT
-        )]
+            entity = Account::class,
+            parentColumns = ["Account ID"],
+            childColumns = ["Customer ID"],
+            onDelete = ForeignKey.CASCADE, // Cascade delete when an associated account is deleted
+            onUpdate = ForeignKey.CASCADE
+        )
+    ]
 )
 @TypeConverters(DateConverter::class)
 data class Receipt(
     @PrimaryKey(true)
     @ColumnInfo("Receipt ID")
-    val receiptNumber: Int,
+    val receiptNumber: Int? = null,
 
     // this is the id of the Account PrimaryKey-ID class.
     @ColumnInfo("Customer ID")
@@ -32,11 +33,8 @@ data class Receipt(
     val receiptDetails: String?,
     @ColumnInfo("Receipt Date")
     val receiptDate: Long,
-    @ColumnInfo("Barcode Number")
-    val barcodeNumber: String,
-
     // this is the id of the ReceiptCategory class.
-    @ColumnInfo("Receipt Category ID")
+    @ColumnInfo("Child Receipt ID")
     val categoryListIds: Int,
 
     // this is the id of the ReceiptCategory class.
@@ -93,13 +91,11 @@ data class Receipt(
         // Build
         fun build(): Receipt =
             Receipt(
-                receiptNumber,
-                accountNumber,
-                receiptDetails,
-                receiptDate,
-                barcodeNumber,
-                categoryListIds,
-                total
+                accountNumber = accountNumber,
+                receiptDetails = receiptDetails,
+                receiptDate = receiptDate,
+                categoryListIds = categoryListIds,
+                total = total
             )
     }
 }

@@ -8,8 +8,8 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.TypeConverters
 import androidx.room.Update
-import com.alqema.database.type_converter.DateConverter
 import com.alqema.database.local_db.models.Receipt
+import com.alqema.database.type_converter.DateConverter
 
 @Dao
 @TypeConverters(DateConverter::class)
@@ -23,6 +23,9 @@ interface ReceiptDao {
 
     @Query("SELECT * FROM receipts WHERE `Receipt ID` = :id")
     fun getReceipt(id: Int): LiveData<Receipt>
+
+    @Query("SELECT `Receipt ID` FROM receipts ORDER BY `Receipt ID` DESC LIMIT 1")
+    suspend fun getLastId(): Int
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertReceipt(receipt: Receipt)

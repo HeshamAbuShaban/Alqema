@@ -22,8 +22,8 @@ interface ReceiptCategoryDao {
     @Query("SELECT * FROM receipt_categories WHERE `Receipt ID` LIKE '%' || :receiptId || '%'")
     fun observeReceiptCategoriesByReceiptId(receiptId: Int): LiveData<List<ReceiptCategory>>
 
-    @Query("SELECT * FROM receipt_categories WHERE `R-C ID` = :id")
-    fun getReceiptCategory(id: Int): LiveData<ReceiptCategory>
+    /*@Query("SELECT * FROM receipt_categories WHERE `R-C ID` = :id")
+    fun getReceiptCategory(id: Int): LiveData<ReceiptCategory>*/
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertReceiptCategory(receiptCategory: ReceiptCategory)
@@ -34,6 +34,6 @@ interface ReceiptCategoryDao {
     @Delete
     fun deleteReceiptCategory(receiptCategory: ReceiptCategory)
 
-    @Query("DELETE FROM receipt_categories WHERE `R-C ID` = :id")
-    fun deleteReceiptCategory(id: Int)
+    /*@Query("DELETE FROM receipt_categories WHERE `R-C ID` = :id")
+    fun deleteReceiptCategory(id: Int)*/
 }

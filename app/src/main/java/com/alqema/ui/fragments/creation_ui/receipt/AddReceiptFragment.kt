@@ -1,28 +1,31 @@
 package com.alqema.ui.fragments.creation_ui.receipt
 
 import android.os.Bundle
-import android.text.Editable
 import android.text.Html
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.alqema.R
 import com.alqema.adapters.listeners.OnItemActionClickListener
 import com.alqema.adapters.recycler_view.receipt.cate.CategoryAdapter
-import com.alqema.app_system.AppController
+import com.alqema.app_system.node.UseDatabase
 import com.alqema.database.local_db.models.Account
 import com.alqema.database.local_db.models.Category
 import com.alqema.database.local_db.models.Receipt
 import com.alqema.database.local_db.models.ReceiptCategory
 import com.alqema.database.local_db.models.constants.state.ItemState
-import com.alqema.database.repo.AlqemaRepository
 import com.alqema.databinding.FragmentAddReceiptBinding
 import com.alqema.ui.fragments.dialogs.data.PickAccountBottomSheetDialogFragment
 import com.alqema.ui.fragments.dialogs.data.PickCategoryBottomSheetDialogFragment
 import com.alqema.utils.GeneralUtils
 import com.alqema.utils.TimeUpdater
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AddReceiptFragment : Fragment(),
     PickCategoryBottomSheetDialogFragment.OnDataClickListener,
@@ -32,8 +35,6 @@ class AddReceiptFragment : Fragment(),
     // UI
     private lateinit var binding: FragmentAddReceiptBinding
 
-    // database
-    private val repository: AlqemaRepository = AlqemaRepository(AppController.getInstance())
 
     // only for account.. <tobe received from the Dialog>
     private var pickedAccount: Account? = null
@@ -108,11 +109,22 @@ class AddReceiptFragment : Fragment(),
     //=====================================================================================
 
     //.. Holders
-    private var receiptNumber: Int? = null
+//    private var receiptNumber: Int? = null
+
+    private fun getLastReceiptId(callback: (Int) -> Unit) {
+        lifecycleScope.launch {
+            val value = withContext(Dispatchers.IO) {
+                UseDatabase.getInstance().repository.getLastId()
+            }
+            callback(value)
+        }
+    }
+
+
     private var accountNumber: Int? = null
     private var receiptDetails: String? = null
     private var receiptDate: Long? = null
-    private var barcodeNumber: String? = null
+//    private var barcodeNumber: String? = null
 
     // Unique ID to be set as a ref between the 2 classes
     private var categoryListIds: Int? = null
@@ -125,24 +137,14 @@ class AddReceiptFragment : Fragment(),
         if (checkData()) create() else showError()
     }
 
-    private fun checkData(): Boolean =
-        pickedAccount != null &&
-                categoriesList.isNotEmpty() &&
-                receiptNumber != null &&
-                accountNumber != null &&
-                receiptDetails != null &&
-                receiptDate != null &&
-                barcodeNumber != null &&
-                categoryListIds != null
+    private fun checkData(): Boolean = pickedAccount != null && categoriesList.isNotEmpty()
 
     private fun readInputs() {
         with(binding) {
-            receiptNumber = edReceiptNumber.text.toInt()
             accountNumber = pickedAccount?.accountNumber
             receiptDetails = edReceiptDetails.text.toString()
             receiptDate = System.currentTimeMillis()
-            barcodeNumber = edReceiptBarcode.text.toString()
-            categoryListIds = receiptNumber
+            getLastReceiptId { categoryListIds = it + 1 }
         }
     }
 
@@ -162,36 +164,47 @@ class AddReceiptFragment : Fragment(),
     }
 
     private fun createRelationsInstances() {
-        this.categoriesList.forEach {
-            Log.i("ARF", "createRCInstances: ${it.categoryName}")
+        var counter = 0
+        getLastReceiptId { lastReceiptId ->
+            for (category in categoriesList) {
+                Log.i("ARF", "createRCInstances: ${category.categoryName}")
+                val receiptCategory = ReceiptCategory.Builder()
+                    .withReceiptNumber(lastReceiptId)
+                    .withCategoryNumber(category.categoryNumber)
+                    .build()
+                UseDatabase.getInstance().repository.insertReceiptCategory(receiptCategory)
+            }
 
-            val receiptCategory = ReceiptCategory.Builder()
-                .withRCId(receiptNumber!!)
-                .withReceiptNumber(receiptNumber!!)
-                .withCategoryNumber(it.categoryNumber)
-                .build()
-
-            repository.insertReceiptCategory(receiptCategory)
+            counter++
         }
+//        GeneralUtils.getInstance().showToast(requireContext(), "items count:$counter")
     }
 
     private fun create() {
-        val receipt = Receipt.Builder()
-            .withReceiptNumber(receiptNumber!!)
-            .withAccountNumber(accountNumber!!)
-            .withReceiptDetails(receiptDetails!!)
-            .withReceiptDate(receiptDate!!)
-            .withBarcodeNumber(barcodeNumber!!)
-            .withCategoryListIds(categoryListIds!!)
-            .withTotal(total)
-            .build()
+        getLastReceiptId { lastReceiptId ->
+            val receipt = Receipt.Builder()
+                .withAccountNumber(accountNumber!!)
+                .withReceiptDetails(receiptDetails!!)
+                .withReceiptDate(receiptDate!!)
+                .withCategoryListIds(lastReceiptId + 1)
+                .withTotal(total)
+                .build()
 
-        // this must go first
-        createRelationsInstances()
-        // this comes second
-        repository.insertReceipt(receipt)
-
-        GeneralUtils.getInstance().showSnackBar(binding.root, getString(R.string.created_message))
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    UseDatabase.getInstance().repository.insertReceipt(receipt)
+                    createRelationsInstances()
+                }
+                withContext(Dispatchers.Main) {
+                    GeneralUtils.getInstance()
+                        .showSnackBar(binding.root, getString(R.string.created_message))
+                    binding.confirmButton.isEnabled = false
+                    delay(1500)
+                    GeneralUtils.getInstance()
+                        .showSnackBar(binding.root, "You Can leave now!")
+                }
+            }
+        }
     }
 
     private fun showError() {
@@ -299,10 +312,5 @@ class AddReceiptFragment : Fragment(),
             setBackgroundResource(R.drawable.shape_text_view_account_info)
             text = htmlFormattedText
         }
-    }
-
-    private fun Editable?.toInt(): Int? {
-        if (this?.isNotEmpty() == true) return this.toString().toInt()
-        return null
     }
 }

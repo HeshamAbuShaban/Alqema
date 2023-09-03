@@ -60,4 +60,9 @@
     </style>
     <!--  #############################################################  -->
 
+    <style name="ToolBarTitleAppearance" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

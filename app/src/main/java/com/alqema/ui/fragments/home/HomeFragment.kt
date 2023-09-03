@@ -57,6 +57,7 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
             R.id.btnCreateAccounts -> navController.navigate(R.id.action_navigation_home_to_navigation_addAccount)
             R.id.btnCreateCategory -> navController.navigate(R.id.action_navigation_home_to_navigation_addCategory)
             R.id.btnCreateReceipts -> navController.navigate(R.id.action_navigation_home_to_navigation_addReceipt)
+            R.id.btnCreatePayments -> navController.navigate(R.id.action_navigation_home_to_navigation_addPayment)
         }
     }
 
@@ -65,6 +66,7 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
             R.id.btnDisplayAccounts -> navController.navigate(R.id.action_navigation_home_to_navigation_accountDisplay)
             R.id.btnDisplayCategory -> navController.navigate(R.id.action_navigation_home_to_navigation_categoryDisplay)
             R.id.btnDisplayReceipts -> navController.navigate(R.id.action_navigation_home_to_navigation_receiptDisplay)
+            R.id.btnDisplayPayments -> navController.navigate(R.id.action_navigation_home_to_navigation_paymentDisplay)
         }
     }
 

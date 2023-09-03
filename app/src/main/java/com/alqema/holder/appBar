@@ -1,0 +1,21 @@
+
+
+    /*private fun setupMyActionBarWithNavController() {
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.navigation_home,
+                R.id.navigation_addAccount,
+                R.id.navigation_addCategory,
+                R.id.navigation_addReceipt,
+                R.id.navigation_addPayment,
+
+                R.id.navigation_accountDisplay,
+                R.id.navigation_categoryDisplay,
+                R.id.navigation_receiptDisplay,
+                R.id.navigation_paymentDisplay
+            )
+        )
+//        val navHost = findViewById<>(R.id.nav_host_fragment_container)
+//        val navController = findNavController()
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+    }*/

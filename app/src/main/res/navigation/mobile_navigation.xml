@@ -44,6 +44,17 @@
             app:destination="@id/navigation_receiptDisplay"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <!--Payment Actions-->
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_addPayment"
+            app:destination="@id/navigation_addPayment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_paymentDisplay"
+            app:destination="@id/navigation_paymentDisplay"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
 
     </fragment>
 
@@ -99,6 +110,12 @@
 
     </fragment>
 
+    <!--Payment-->
+    <fragment
+        android:id="@+id/navigation_addPayment"
+        android:name="com.alqema.ui.fragments.creation_ui.payment.AddPaymentFragment"
+        android:label="fragment_add_payment"
+        tools:layout="@layout/fragment_add_payment" />
 
     <!--####################DisplayingFrags-->
     <!--Category-->
@@ -139,7 +156,7 @@
         android:id="@+id/navigation_receiptDisplay"
         android:name="com.alqema.ui.fragments.displaying_ui.receipt.ReceiptDisplayFragment"
         android:label="ReceiptDisplayFragment"
-        tools:layout="@layout/fragment_receipt_display" >
+        tools:layout="@layout/fragment_receipt_display">
         <action
             android:id="@+id/action_navigation_receiptDisplay_to_navigation_receiptItemsDisplay"
             app:destination="@id/navigation_receiptItemsDisplay">
@@ -158,6 +175,13 @@
             android:defaultValue="1"
             app:argType="integer" />
     </fragment>
+
+    <!--Payment-->
+    <fragment
+        android:id="@+id/navigation_paymentDisplay"
+        android:name="com.alqema.ui.fragments.displaying_ui.payment.PaymentDisplayFragment"
+        android:label="fragment_payment_display"
+        tools:layout="@layout/fragment_payment_display" />
 
     <!--Dialogs-->
     <dialog

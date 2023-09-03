@@ -4,34 +4,30 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity("receipt_categories")
+@Entity(tableName = "receipt_categories")
 data class ReceiptCategory(
     @PrimaryKey(true)
-    @ColumnInfo("ID")
     val id: Int? = null,
-
-    @ColumnInfo("R-C ID")
-    val rCId: Int,
     @ColumnInfo("Receipt ID")
     val receiptNumber: Int,
     @ColumnInfo("Category ID")
     val categoryNumber: Int,
 ) {
     class Builder {
-        private var id: Int? = 1
-        private var rCId: Int = 1
+        //        private var id: Int? = 1
+//        private var rCId: Int = 1
         private var receiptNumber: Int = 1
         private var categoryNumber: Int = 1
 
-        fun withId(id: Int): Builder {
+        /*fun withId(id: Int): Builder {
             this.id = id
             return this
-        }
+        }*/
 
-        fun withRCId(rCId: Int): Builder {
-            this.rCId = rCId
-            return this
-        }
+        /* fun withRCId(rCId: Int): Builder {
+             this.rCId = rCId
+             return this
+         }*/
 
         fun withReceiptNumber(receiptNumber: Int): Builder {
             this.receiptNumber = receiptNumber
@@ -44,10 +40,8 @@ data class ReceiptCategory(
         }
 
         fun build(): ReceiptCategory = ReceiptCategory(
-            null,
-            rCId,
-            receiptNumber,
-            categoryNumber
+            receiptNumber = receiptNumber,
+            categoryNumber = categoryNumber
         )
     }
 }

@@ -37,11 +37,11 @@ class ReceiptViewModel : ViewModel() {
 
     private fun readInputsText() {
         with(binding) {
-            receiptNumber = edReceiptNumber.text.toInt()
-            accountNumber = edReceiptNumber.text.toInt()
+//            receiptNumber = edReceiptNumber.text.toInt()
+            accountNumber = edReceiptAccountNumber.text.toString().toInt()
             receiptDetails = edReceiptDetails.text.toString()
             receiptDate = System.currentTimeMillis()
-            barcodeNumber = edReceiptBarcode.text.toString()
+//            barcodeNumber = edReceiptBarcode.text.toString()
 //            categoryListIds =
 //            total
 
