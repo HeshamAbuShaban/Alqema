@@ -184,24 +184,22 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
-                    <!--&lt;!&ndash;TextLayout4-Barcode&ndash;&gt;
+                    <!--balance-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:tag="Barcode"
-                        app:helperText="@string/barcode"
-                        app:placeholderText="@string/barcode">
-                        &lt;!&ndash;InputEditText3&ndash;&gt;
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edPaymentBarcode"
-                            style="@style/AppTextInputEditText"
+                        app:helperText="@string/balance">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvAccountBalance"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="text"
-                            tools:hint="Enter Here" />
+                            android:layout_height="@dimen/_35sdp"
+                            android:hint="@string/balance"
+                            android:textAlignment="center"
+                            android:textSize="@dimen/_23ssp"
+                            android:textStyle="bold" />
 
-                    </com.google.android.material.textfield.TextInputLayout>-->
-
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
@@ -226,29 +224,7 @@
                         android:textStyle="bold" />
 
                     <!--#################################################################-->
-                    <!--Add many PaymentCategory Object and show them in Recycler-->
 
-                    <!--&lt;!&ndash;Add PaymentCategory Obj Btn&ndash;&gt;
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnAddCategoryItem"
-                        style="@style/AppDialogButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/calm_gray"
-                        android:text="@string/pick_category"
-                        app:rippleColor="@color/white"
-                        app:strokeColor="@color/white" />
-
-                    &lt;!&ndash;Display RCategories Obj-s Recycler&ndash;&gt;
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recPaymentCategories"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                        app:spanCount="2"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_mini_category" />-->
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -270,43 +246,7 @@
                     <!--ToAddUpMoreSpaceInScreenContainer-->
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_70sdp" />
-
-                    <!--Count-->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:helperText="@string/count">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvPaymentCategoriesCount"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/count"
-                            android:textAlignment="center"
-                            android:textColor="@color/primary_color"
-                            android:textSize="@dimen/_19ssp"
-                            android:textStyle="bold" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <!--TOTAL-->
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:helperText="@string/total">
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvPaymentTotal"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_35sdp"
-                            android:hint="@string/total"
-                            android:textAlignment="center"
-                            android:textSize="@dimen/_23ssp"
-                            android:textStyle="bold" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
+                        android:layout_height="@dimen/_20sdp" />
 
                 </LinearLayout>
 

@@ -54,6 +54,10 @@ class PaymentViewModel : ViewModel() {
             UseDatabase.getInstance().repository.insertPayment(paymentObj)
             UseDatabase.getInstance().repository.updateAccountBalanceForPayment(accountID, payment)
         }
+        val tvABText = binding.tvAccountBalance
+        val balance = tvABText.text.toString().toDouble()
+        val newBalance = balance - paymentObj.payment
+        tvABText.text = newBalance.toString()
 
         GeneralUtils.getInstance()
             .showSnackBar(binding.root, context.getString(R.string.created_message))

@@ -209,4 +209,9 @@
         android:name="com.alqema.ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment"
         android:label="fragment_display_bottom_sheet_dialog"
         tools:layout="@layout/fragment_display_bottom_sheet_dialog" />
+    <dialog
+        android:id="@+id/expandedAccountFragment"
+        android:name="com.alqema.ui.fragments.dialogs.display.ExpandedAccountFragment"
+        android:label="fragment_expanded_account"
+        tools:layout="@layout/fragment_expanded_account" />
 </navigation>

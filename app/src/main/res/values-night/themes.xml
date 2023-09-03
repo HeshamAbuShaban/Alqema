@@ -22,6 +22,12 @@
 
     <!--  #############################################################  -->
 
+    <style name="AppHomeLayout" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:background">@color/dark_sea</item>
+    </style>
+
+    <!--  #############################################################  -->
+
     <style name="AppBottomSheetLayout" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:backgroundTint">@color/less_grey</item>
     </style>
@@ -80,5 +86,9 @@
         <item name="android:backgroundTint">@color/primary_color_rec</item>
     </style>
 
+    <!--  #############################################################  -->
+    <style name="AppHomeImageButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
 
 </resources>

@@ -43,7 +43,16 @@ class ReceiptItemsDisplayFragment : Fragment() {
                 is Result.Success<List<Category>> -> {
                     val categories = result.data
                     // Process categories here
-                    binding.itemsCount.text = categories.size.toString()
+                    UseDatabase.getInstance().repository.getCustomerBasedOnReceiptId(
+                        this,
+                        args.receiptId
+                    ) {
+                        with(binding) {
+                            customerName.text = it?.accountName ?: "Error404"
+                            itemsCount.text = categories.size.toString()
+                        }
+                    }
+
                     setupCategoryAdapter(categories)
                 }
 

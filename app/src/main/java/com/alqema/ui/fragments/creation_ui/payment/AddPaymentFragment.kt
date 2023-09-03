@@ -92,6 +92,7 @@ class AddPaymentFragment : Fragment(),
 
         val name = account.accountName
         val number = account.accountNumber
+        val balance = account.balance
 
         // Format the text using HTML <br>
         // Format the text using HTML with inline styling
@@ -105,6 +106,7 @@ class AddPaymentFragment : Fragment(),
             setBackgroundResource(R.drawable.shape_text_view_account_info)
             text = htmlFormattedText
         }
+        binding.tvAccountBalance.text = balance.toString()
     }
 
     // LifeCycle----

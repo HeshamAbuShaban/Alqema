@@ -14,7 +14,9 @@ import com.alqema.database.local_db.models.Category
 import com.alqema.database.local_db.models.Payment
 import com.alqema.database.local_db.models.Receipt
 import com.alqema.database.local_db.models.ReceiptCategory
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class AlqemaRepository(application: Application) {
@@ -59,6 +61,8 @@ class AlqemaRepository(application: Application) {
         accountDao.observeAccounts(name)
 
     fun getAccount(id: Int): LiveData<Account> = accountDao.getAccount(id)
+
+    private fun grabAccount(id: Int): Account = accountDao.grabAccount(id)
 
 
     // append++++++++++++++++++++++++++
@@ -196,6 +200,25 @@ class AlqemaRepository(application: Application) {
     // Method to update the account balance when a payment is made
     fun updateAccountBalanceForPayment(accountNumber: Int, amount: Double) {
         accountDao.updateAccountBalanceDecrement(accountNumber, amount)
+    }
+
+    // Name Of Customer That Owns the Receipt
+    fun getCustomerBasedOnReceiptId(
+        scope: CoroutineScope,
+        id: Int,
+        callback: (Account?) -> Unit,
+    ) {
+        scope.launch {
+            try {
+                val customerId = withContext(Dispatchers.IO) { receiptDao.getReceiptCustomerID(id) }
+                val account = withContext(Dispatchers.IO) { grabAccount(customerId) }
+                callback(account)
+            } catch (e: Exception) {
+                // Handle exceptions here, e.g., log the error or provide a default value.
+                e.printStackTrace()
+                callback(null)
+            }
+        }
     }
 
 }

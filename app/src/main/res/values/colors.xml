@@ -10,6 +10,7 @@
 
 
     <color name="grey">#3C3C3C</color>
+    <color name="gold">#FAB432</color>
     <color name="less_grey">#803C3C3C</color>
     <color name="primary_color">#FF482C</color>
     <color name="primary_color_rec">#E53935</color>

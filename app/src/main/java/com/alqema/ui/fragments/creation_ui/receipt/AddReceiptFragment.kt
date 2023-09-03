@@ -195,7 +195,7 @@ class AddReceiptFragment : Fragment(),
                     UseDatabase.getInstance().repository.insertReceipt(receipt)
                     createRelationsInstances()
                     UseDatabase.getInstance().repository
-                        .updateAccountBalanceForReceipt(pickedAccount!!.accountNumber,total)
+                        .updateAccountBalanceForReceipt(pickedAccount!!.accountNumber, total)
                 }
                 withContext(Dispatchers.Main) {
                     GeneralUtils.getInstance()
@@ -301,6 +301,7 @@ class AddReceiptFragment : Fragment(),
 
         val name = account.accountName
         val number = account.accountNumber
+        val balance = account.balance
 
         // Format the text using HTML <br>
         // Format the text using HTML with inline styling
@@ -314,5 +315,6 @@ class AddReceiptFragment : Fragment(),
             setBackgroundResource(R.drawable.shape_text_view_account_info)
             text = htmlFormattedText
         }
+        binding.tvAccountBalance.text = balance.toString()
     }
 }

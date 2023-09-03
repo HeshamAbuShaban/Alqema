@@ -41,6 +41,12 @@
 
     <!--  #############################################################  -->
 
+    <style name="AppHomeLayout" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@color/calm_gray</item>
+    </style>
+
+    <!--  #############################################################  -->
+
     <style name="AppBottomSheetLayout" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:backgroundTint">@color/less_white</item>
     </style>
@@ -95,9 +101,11 @@
 
     <!--  #############################################################  -->
 
-
     <style name="AppExpandItemButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
         <item name="android:backgroundTint">@color/less_black</item>
     </style>
-
+    <!--  #############################################################  -->
+    <style name="AppHomeImageButton" parent="ThemeOverlay.Material3.Button.ElevatedButton">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
 </resources>

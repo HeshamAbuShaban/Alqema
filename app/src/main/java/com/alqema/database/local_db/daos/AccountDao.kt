@@ -30,6 +30,9 @@ interface AccountDao {
     @Query("SELECT * FROM accounts WHERE `Account ID` = :id")
     fun getAccount(id: Int): LiveData<Account>
 
+    @Query("SELECT * FROM accounts WHERE `Account ID` = :id")
+    fun grabAccount(id: Int): Account
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAccount(account: Account)
 

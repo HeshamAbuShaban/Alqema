@@ -24,6 +24,9 @@ interface ReceiptDao {
     @Query("SELECT * FROM receipts WHERE `Receipt ID` = :id")
     fun getReceipt(id: Int): LiveData<Receipt>
 
+    @Query("SELECT `Customer ID` FROM receipts WHERE `Receipt ID` = :id")
+    suspend fun getReceiptCustomerID(id: Int): Int
+
     @Query("SELECT `Receipt ID` FROM receipts ORDER BY `Receipt ID` DESC LIMIT 1")
     suspend fun getLastId(): Int
 

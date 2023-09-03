@@ -89,7 +89,7 @@ class ReceiptDisplayFragment : Fragment(), OnItemClickListener<Receipt> {
             )
         //.. REMOVE DEFAULT VALUE OF THE ARG
         navCon.navigate(action)
-        GeneralUtils.getInstance().showSnackBar(binding.root, obj.receiptNumber.toString())
+        GeneralUtils.getInstance().showSnackBar(binding.root, obj.receiptDetails)
     }
 
 }
