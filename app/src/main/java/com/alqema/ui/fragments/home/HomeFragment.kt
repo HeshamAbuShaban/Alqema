@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.alqema.R
+import com.alqema.adapters.view_pager.PagerAdapter
 import com.alqema.databinding.FragmentHomeBinding
 import com.alqema.ui.fragments.dialogs.choose.CreationBottomSheetDialogFragment
 import com.alqema.ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment
+import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationClickListener,
     DisplayBottomSheetDialogFragment.OnDisplayClickListener {
@@ -29,13 +31,12 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        initTabViewPagerUI()
         setupListeners()
-
     }
 
     private fun setupListeners() {
-        with(binding) {
+        /*with(binding) {
             creationIBtn.setOnClickListener {
                 CreationBottomSheetDialogFragment().show(
                     childFragmentManager,
@@ -48,7 +49,38 @@ class HomeFragment : Fragment(), CreationBottomSheetDialogFragment.OnCreationCli
                     "Display_Event_Clicked"
                 )
             }
+        }*/
+    }
+
+
+    private fun initTabViewPagerUI() {
+        setupViewPager()
+        setupTabLayout()
+    }
+
+    private fun setupViewPager() {
+        val fragmentList = ArrayList<Fragment>()
+        fragmentList.add(CreationBottomSheetDialogFragment())
+        fragmentList.add(DisplayBottomSheetDialogFragment())
+
+        with(binding.viewPager2) {
+            adapter = PagerAdapter(fragmentList, this@HomeFragment)
+            /*currentItem = 0*/
         }
+
+    }
+
+    private fun setupTabLayout() {
+        TabLayoutMediator(
+            binding.tabLayout, binding.viewPager2
+        ) { tab, position ->
+
+            when (position) {
+                0 -> tab.text = getString(R.string.creation)
+                1 -> tab.text = getString(R.string.query_s)
+            }
+
+        }.attach()
     }
 
 

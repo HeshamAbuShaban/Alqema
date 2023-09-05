@@ -135,4 +135,16 @@
     <string name="payments">سندات الدفع</string>
     <string name="balance">الرصيد</string>
 
+    <!--HomeButtons-->
+    <!--Creation-->
+    <string name="create_account">إنشاء حساب</string>
+    <string name="create_category">إنشاء صنف</string>
+    <string name="create_receipt">إنشاء فاتورة بيع</string>
+    <string name="create_payment">إنشاء دفعة</string>
+    <!--Display-->
+    <string name="display_account">عرض حسابات</string>
+    <string name="display_category">عرض اصناف</string>
+    <string name="display_receipt">عرض فواتير بيع</string>
+    <string name="display_payment">عرض دفعات</string>
+
 </resources>

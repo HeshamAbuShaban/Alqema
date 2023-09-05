@@ -6,10 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.alqema.databinding.FragmentDisplayBottomSheetDialogBinding
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class DisplayBottomSheetDialogFragment : BottomSheetDialogFragment() {
+class DisplayBottomSheetDialogFragment : Fragment() {
 
 
     private var onDisplayClickListener: OnDisplayClickListener? = null
@@ -40,15 +40,15 @@ class DisplayBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }*/
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+/*    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentDisplayBottomSheetDialogBinding.inflate(layoutInflater)
-    }
+    }*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        binding = FragmentDisplayBottomSheetDialogBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -61,26 +61,26 @@ class DisplayBottomSheetDialogFragment : BottomSheetDialogFragment() {
         with(binding) {
             btnDisplayAccounts.setOnClickListener { viewAccount ->
                 onDisplayClickListener?.onDisplayClicked(viewAccount)
-                dismiss()
+                /*dismiss()*/
             }
 
             btnDisplayCategory.setOnClickListener { viewCategory ->
                 onDisplayClickListener?.onDisplayClicked(viewCategory)
-                dismiss()
+                /*dismiss()*/
             }
 
             /*            btnDisplayUnits.setOnClickListener { viewUnit ->
                             onDisplayClickListener?.onDisplayClicked(viewUnit)
-                            dismiss()
+                            /*dismiss()*/
                         }*/
             btnDisplayReceipts.setOnClickListener { viewReceipts ->
                 onDisplayClickListener?.onDisplayClicked(viewReceipts)
-                dismiss()
+                /*dismiss()*/
             }
 
             btnDisplayPayments.setOnClickListener { viewPayments ->
                 onDisplayClickListener?.onDisplayClicked(viewPayments)
-                dismiss()
+                /*dismiss()*/
             }
 
         }

@@ -1,0 +1,98 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/AppHomeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.home.HomeFragment">
+
+    <!--DisplayBtn-->
+    <ImageButton
+        android:id="@+id/displayingIBtn"
+        style="@style/AppHomeImageButton"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/ic_display"
+        android:contentDescription="@string/display_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/creationIBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="ImageContrastCheck" />
+
+    <!--Accosted Display Text-->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:tag="Accosted Display Text"
+        android:text="@string/query_s"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/displayingIBtn"
+        app:layout_constraintStart_toStartOf="@id/displayingIBtn"
+        app:layout_constraintTop_toBottomOf="@id/displayingIBtn" />
+
+    <!--CreationBtn-->
+    <ImageButton
+        android:id="@+id/creationIBtn"
+        style="@style/AppHomeImageButton"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:background="@drawable/ic_creation"
+        android:contentDescription="@string/creation_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/displayingIBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="ImageContrastCheck" />
+
+    <!--Accosted Creation Text-->
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:tag="Accosted Creation Text"
+        android:text="@string/creation"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/creationIBtn"
+        app:layout_constraintStart_toStartOf="@id/creationIBtn"
+        app:layout_constraintTop_toBottomOf="@id/creationIBtn" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left"
+        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrierBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

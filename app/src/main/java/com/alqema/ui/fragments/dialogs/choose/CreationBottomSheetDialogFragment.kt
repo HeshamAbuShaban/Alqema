@@ -6,10 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.alqema.databinding.FragmentCreationBottomSheetDialogBinding
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
+class CreationBottomSheetDialogFragment : Fragment() {
 
 
     private var onCreationClickListener: OnCreationClickListener? = null
@@ -40,15 +40,15 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }*/
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+/*    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = FragmentCreationBottomSheetDialogBinding.inflate(layoutInflater)
-    }
+    }*/
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        binding = FragmentCreationBottomSheetDialogBinding.inflate(layoutInflater)
         return binding.root
     }
 
@@ -61,27 +61,27 @@ class CreationBottomSheetDialogFragment : BottomSheetDialogFragment() {
         with(binding) {
             btnCreateAccounts.setOnClickListener { viewAccount ->
                 onCreationClickListener?.onCreateClicked(viewAccount)
-                dismiss()
+                /*dismiss()*/
             }
 
             btnCreateCategory.setOnClickListener { viewCategory ->
                 onCreationClickListener?.onCreateClicked(viewCategory)
-                dismiss()
+                /*dismiss()*/
             }
 
 /*            btnCreateUnits.setOnClickListener { viewUnit ->
                 onCreationClickListener?.onCreateClicked(viewUnit)
-                dismiss()
+                /*dismiss()*/
             }*/
 
             btnCreateReceipts.setOnClickListener { viewReceipts ->
                 onCreationClickListener?.onCreateClicked(viewReceipts)
-                dismiss()
+                /*dismiss()*/
             }
 
             btnCreatePayments.setOnClickListener { viewPayments ->
                 onCreationClickListener?.onCreateClicked(viewPayments)
-                dismiss()
+                /*dismiss()*/
             }
         }
     }

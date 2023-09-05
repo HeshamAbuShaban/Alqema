@@ -1,72 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/AppBottomSheetLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="@dimen/_24sdp"
-    app:cardElevation="@dimen/_10sdp"
-    app:cardMaxElevation="@dimen/_15sdp"
-    app:cardPreventCornerOverlap="true"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/_5sdp"
     tools:context=".ui.fragments.dialogs.choose.DisplayBottomSheetDialogFragment">
 
-    <!--ScreenContainer-->
-    <LinearLayout
+    <!--Account-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDisplayAccounts"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/_20sdp">
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/calm_gray"
+        app:cardElevation="0.5dp"
+        app:cardUseCompatPadding="true">
 
-        <com.google.android.material.textview.MaterialTextView
-            style="@style/AppTitleText"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/query_s"
-            android:textAlignment="center" />
+            android:tag="container_accounts">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDisplayAccounts"
-            style="@style/AppDialogButton"
+            <ImageView
+                android:id="@+id/ic_btn1"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/ic_accounts"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/accounts"
+                android:tag="ic_account"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/display_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintStart_toEndOf="@+id/ic_btn1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--Categories-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDisplayCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/calm_gray"
+        app:cardElevation="0.5dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/accounts"
-            app:icon="@drawable/ic_accounts" />
+            android:tag="container_Category">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDisplayCategory"
-            style="@style/AppDialogButton"
+            <ImageView
+                android:id="@+id/ic_btn2"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/ic_categories"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/accounts"
+                android:tag="ic_category"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/display_category"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintStart_toEndOf="@+id/ic_btn2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--Receipts-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDisplayReceipts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/calm_gray"
+        app:cardElevation="0.5dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/categories"
-            app:icon="@drawable/ic_categories" />
+            android:tag="container_receipt">
 
-        <!--
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnDisplayUnits"
-                    style="@style/AppDialogButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/add_units"
-                    app:icon="@drawable/ic_unit" />
-        -->
+            <ImageView
+                android:id="@+id/ic_btn3"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/ic_receipt"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/accounts"
+                android:tag="ic_receipt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDisplayReceipts"
-            style="@style/AppDialogButton"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/display_receipt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintStart_toEndOf="@+id/ic_btn3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--payments-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDisplayPayments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/calm_gray"
+        app:cardElevation="0.5dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/receipt_button_dialog_title"
-            app:icon="@drawable/ic_receipt" />
+            android:tag="container_receipt">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnDisplayPayments"
-            style="@style/AppDialogButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/payments"
-            app:icon="@drawable/ic_payment" />
+            <ImageView
+                android:id="@+id/ic_btn4"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/ic_payment"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/accounts"
+                android:tag="ic_payments"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/display_payment"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.15"
+                app:layout_constraintStart_toEndOf="@+id/ic_btn4"
+                app:layout_constraintTop_toTopOf="parent" />
 
-</com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>

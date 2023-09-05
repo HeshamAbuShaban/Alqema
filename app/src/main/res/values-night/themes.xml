@@ -9,7 +9,7 @@
         <item name="android:windowBackground">@color/night_window_background_color</item>
 
         <!-- Customize your dark theme here. -->
-        <item name="android:statusBarColor">@color/calm_gray</item>
+        <item name="android:statusBarColor">@color/less_black_time2</item>
         <item name="colorPrimary">@color/primary_color_rec</item>
         <item name="fontFamily">@font/cairo_medium</item>
     </style>
@@ -25,6 +25,13 @@
     <style name="AppHomeLayout" parent="ThemeOverlay.AppCompat.Dark">
         <item name="android:background">@color/dark_sea</item>
     </style>
+
+    <!--  #############################################################  -->
+
+    <style name="AppHomeViewPager" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:background">@color/less_black_time2</item>
+    </style>
+
 
     <!--  #############################################################  -->
 

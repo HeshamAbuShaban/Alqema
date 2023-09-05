@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/id"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/name"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/main_unit"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/selling_price"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textSize="@dimen/_14sdp" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
                 android:text="@string/purchase_price"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textSize="@dimen/_14sdp" />
 
         </LinearLayout>
@@ -83,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
@@ -93,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
@@ -103,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 
@@ -123,7 +123,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:textAlignment="center"
+                android:textAlignment="viewStart"
                 android:textSize="@dimen/_14sdp"
                 tools:text="Hello,World" />
 

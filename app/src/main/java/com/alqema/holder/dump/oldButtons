@@ -1,0 +1,52 @@
+    <!--    <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreateCategory"
+            style="@style/AppDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/categories"
+            app:icon="@drawable/ic_categories" />-->
+
+    <!--        <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreateUnits"
+                style="@style/AppDialogButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/add_units"
+                app:icon="@drawable/ic_unit" />-->
+
+<!--    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCreateReceipts"
+        style="@style/AppDialogButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/receipt_button_dialog_title"
+        app:icon="@drawable/ic_receipt" />-->
+
+        <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCreatePayments"
+                style="@style/AppDialogButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/payments"
+                app:icon="@drawable/ic_payment" />
+
+    <!--    <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreateAccounts"
+            style="@style/AppDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/accounts"
+            app:icon="@drawable/ic_accounts" />-->
+
+
+                <!--app:cardCornerRadius="@dimen/_24sdp"-->
+                <!--
+                android:backgroundTint="@android:color/transparent"
+                app:cardElevation="@dimen/_10sdp"
+                app:cardMaxElevation="@dimen/_15sdp"
+                app:cardPreventCornerOverlap="true"
+                app:cardCornerRadius="@dimen/_24sdp"
+                -->
+                <!--    style="@style/AppBottomSheetLayout"-->
+
+                <!--ScreenContainer-->

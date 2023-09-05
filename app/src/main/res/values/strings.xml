@@ -137,4 +137,18 @@
     <string name="payments">Payments</string>
     <string name="event_expand_item" translatable="false">Event Expand Item</string>
     <string name="balance">Balance</string>
+    <string name="home_selected_image" translatable="false">the image of the user actions</string>
+    <string name="choose_action" translatable="false">choose action</string>
+
+    <!--HomeButtons-->
+    <!--Creation-->
+    <string name="create_account">Create Account</string>
+    <string name="create_category">Create Category</string>
+    <string name="create_receipt">Create Receipt</string>
+    <string name="create_payment">Create Payment</string>
+    <!--Display-->
+    <string name="display_account">Display accounts</string>
+    <string name="display_category">Display categories</string>
+    <string name="display_receipt">Display receipts</string>
+    <string name="display_payment">Display payments</string>
 </resources>

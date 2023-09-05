@@ -7,93 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.home.HomeFragment">
 
-    <!--DisplayBtn-->
-    <ImageButton
-        android:id="@+id/displayingIBtn"
-        style="@style/AppHomeImageButton"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:background="@drawable/ic_display"
-        android:contentDescription="@string/display_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/creationIBtn"
-        app:layout_constraintHorizontal_bias="0.5"
+    <ImageView
+        android:id="@+id/home_selected_image"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_35sdp"
+        android:contentDescription="@string/home_selected_image"
+        android:src="@drawable/app_logo"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Accosted Display Text-->
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:tag="Accosted Display Text"
-        android:text="@string/query_s"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15ssp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/displayingIBtn"
-        app:layout_constraintStart_toStartOf="@id/displayingIBtn"
-        app:layout_constraintTop_toBottomOf="@id/displayingIBtn" />
-
-    <!--CreationBtn-->
-    <ImageButton
-        android:id="@+id/creationIBtn"
-        style="@style/AppHomeImageButton"
-        android:layout_width="@dimen/_80sdp"
-        android:layout_height="@dimen/_80sdp"
-        android:background="@drawable/ic_creation"
-        android:contentDescription="@string/creation_btn"
+    <LinearLayout
+        android:id="@+id/layoutContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@drawable/shape_home_view_pager"
+        android:backgroundTint="@color/less_grey"
+        android:elevation="@dimen/_45sdp"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/displayingIBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        tools:ignore="ImageContrastCheck" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_selected_image">
 
-    <!--Accosted Creation Text-->
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:tag="Accosted Creation Text"
-        android:text="@string/creation"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_15ssp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/creationIBtn"
-        app:layout_constraintStart_toStartOf="@id/creationIBtn"
-        app:layout_constraintTop_toBottomOf="@id/creationIBtn" />
+        <!--app:tabBackground=""-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_home_tab_layout"
+            app:tabIndicatorColor="@color/primary_color"
+            app:tabIndicatorFullWidth="true"
+            app:tabSelectedTextColor="@color/gold"
+            app:tabTextAppearance="@style/AppTitleText"
+            app:tabTextColor="@color/white"
+            tools:ignore="SpeakableTextPresentCheck" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrierTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="top"
-        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrierLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="left"
-        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrierRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="right"
-        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrierBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="creationIBtn,displayingIBtn" />
-
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadingEdge="horizontal" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
