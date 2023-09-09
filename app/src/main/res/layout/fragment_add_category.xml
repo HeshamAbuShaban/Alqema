@@ -69,7 +69,7 @@
             android:id="@+id/btnDeleteCategory"
             style="@style/AppDeleteButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
         <!--ScrollerContainer-->
         <ScrollView
@@ -159,6 +159,14 @@
                             tools:hint="Enter Here" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnScanQrCode"
+                        style="@style/AppDialogButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/scan_a_qrcode"
+                        android:textSize="@dimen/_15sdp" />
 
                     <!--TextLayout4-MainUnit-->
                     <com.google.android.material.textfield.TextInputLayout

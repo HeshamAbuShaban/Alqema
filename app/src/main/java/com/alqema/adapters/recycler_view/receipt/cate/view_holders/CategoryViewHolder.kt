@@ -11,6 +11,7 @@ class CategoryViewHolder(private val binding: ItemMiniCategoryBinding) :
         with(binding) {
             categoryId.text = category.categoryNumber.toString()
             categoryName.text = category.categoryName
+            categorySellingPrice.text = category.sellingPrice.toString()
         }
     }
 

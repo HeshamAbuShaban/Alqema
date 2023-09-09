@@ -11,7 +11,7 @@ class CategoryViewModel : ViewModel() {
 
     private var categoryNumber: Int? = null
     private var categoryName: String? = null
-    private var categoryBarcodeNumber: Int? = null
+    private var categoryBarcodeNumber: String? = null
     private var categoryMainUnit: String? = null
     private var categorySellingPrice: Double? = null
     private var categoryPurchasePrice: Double? = null
@@ -39,7 +39,7 @@ class CategoryViewModel : ViewModel() {
         with(binding) {
             categoryNumber = edCategoryId.text.toInt()
             categoryName = edCategoryName.text.toString()
-            categoryBarcodeNumber = edCategoryBarcode.text.toInt()
+            categoryBarcodeNumber = edCategoryBarcode.text.toString()
             categoryMainUnit = edCategoryMainUnit.text.toString()
             categorySellingPrice = edCategorySellingPrice.text.toDouble()
             categoryPurchasePrice = edCategoryPurchasePrice.text.toDouble()
@@ -114,7 +114,7 @@ class CategoryViewModel : ViewModel() {
             edCategoryId.isEnabled = false
             edCategoryId.setText(category.categoryNumber.toString())
             edCategoryName.setText(category.categoryName)
-            edCategoryBarcode.setText(category.barcodeNumber.toString())
+            edCategoryBarcode.setText(category.barcodeNumber)
             edCategoryMainUnit.setText(category.mainUnit)
             edCategorySellingPrice.setText(category.sellingPrice.toString())
             edCategoryPurchasePrice.setText(category.purchasePrice.toString())
@@ -140,3 +140,8 @@ private fun Editable?.toDouble(): Double? {
     if (this?.isNotEmpty() == true) return this.toString().toDouble()
     return null
 }
+
+/*private fun Editable?.toLong(): Long? {
+    if (this?.isNotEmpty() == true) return this.toString().toLong()
+    return null
+}*/

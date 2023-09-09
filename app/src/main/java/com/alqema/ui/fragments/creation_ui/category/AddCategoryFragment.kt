@@ -10,10 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.alqema.R
+import com.alqema.database.local_db.models.constants.state.EditingState
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentAddCategoryBinding
-import com.alqema.database.local_db.models.constants.state.EditingState
 import com.alqema.ui.fragments.dialogs.alert.DeleteItemDialogFragment
+import com.alqema.ui.fragments.dialogs.read_camera.ReadCameraQrCodeFragment
 import com.alqema.utils.GeneralUtils
 
 class AddCategoryFragment : Fragment() {
@@ -56,25 +57,25 @@ class AddCategoryFragment : Fragment() {
                         "AddCategoryFragment",
                         "onViewCreated() returned: ${category.categoryName}"
                     )
-                        viewModel.setUIData(binding, category) {
-                            binding.btnDeleteCategory.visibility = View.VISIBLE
-                            binding.title.text = getString(R.string.editing_category)
+                    viewModel.setUIData(binding, category) {
+                        binding.btnDeleteCategory.visibility = View.VISIBLE
+                        binding.title.text = getString(R.string.editing_category)
 
-                            binding.btnDeleteCategory.setOnClickListener {
-                                val dialog = DeleteItemDialogFragment().apply {
-                                    registerLogoutDialogListener {
-                                        viewModel.preformDelete(args.categoryItemId){
-                                            if (updateState){
-                                                GeneralUtils.getInstance()
-                                                    .showSnackBar(binding.root, "Data Got Deleted...")
-                                                findNavController().popBackStack()
-                                            }
+                        binding.btnDeleteCategory.setOnClickListener {
+                            val dialog = DeleteItemDialogFragment().apply {
+                                registerLogoutDialogListener {
+                                    viewModel.preformDelete(args.categoryItemId) {
+                                        if (updateState) {
+                                            GeneralUtils.getInstance()
+                                                .showSnackBar(binding.root, "Data Got Deleted...")
+                                            findNavController().popBackStack()
                                         }
                                     }
                                 }
-                                dialog.show(childFragmentManager, "Deleting_Item_Event")
                             }
+                            dialog.show(childFragmentManager, "Deleting_Item_Event")
                         }
+                    }
                 }
             }
         }
@@ -83,7 +84,22 @@ class AddCategoryFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        val dialog = ReadCameraQrCodeFragment()
+        dialog.listener = object : ReadCameraQrCodeFragment.QrCodeCallback {
+            override fun submit(result: String) {
+                with(binding.edCategoryBarcode) {
+                    isEnabled = false
+                    setText(result)
+                }
+            }
+        }
+
         with(binding) {
+
+            btnScanQrCode.setOnClickListener {
+                dialog.show(childFragmentManager, "Data")
+            }
+
             confirmButton.setOnClickListener {
                 viewModel.performCreation(binding, {
                     GeneralUtils.getInstance()

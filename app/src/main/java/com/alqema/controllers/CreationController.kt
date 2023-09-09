@@ -24,7 +24,7 @@ class CreationController private constructor() {
 
     //.. create category
     fun createCategory(
-        categoryNumber: Int, categoryName: String, barcodeNumber: Int,
+        categoryNumber: Int, categoryName: String, barcodeNumber: String,
         mainUnit: String, sellingPrice: Double, purchasePrice: Double,
         //.. appended this OldUnit .
         unitName: String, quantityOfUnit: Double, unitPrice: Double,

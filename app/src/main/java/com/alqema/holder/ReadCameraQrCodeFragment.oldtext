@@ -1,0 +1,156 @@
+package com.alqema.holder
+
+class ReadCameraQrCodeFragment : BottomSheetDialogFragment() {
+    private lateinit var binding: FragmentReadCameraQrCodeBinding
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<Array<String>>
+    var listener: QrCodeCallback? = null
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentReadCameraQrCodeBinding.inflate(layoutInflater)
+        setupRegister()
+        // Inflate the layout for this fragment
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
+    }
+
+    private fun init() {
+        setupCameraView()
+    }
+
+    private fun setupRegister() {
+        requestPermissionLauncher =
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+                // Check if all permissions are granted
+                val allGranted = permissions.all { it.value }
+                if (allGranted) {
+                    // All permissions granted, you can proceed with sending notifications
+                    Toast.makeText(
+                        requireContext(),
+                        "Great Now you are all set to use The QrReader",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    //.. try access camera when done
+                    setupCameraView()
+                } else {
+                    // Permission denied, handle accordingly
+                    // At least one permission denied, handle accordingly (e.g., show a message or disable certain features)
+                    Toast.makeText(
+                        requireContext(),
+                        "Permission denied. Cannot create reminder.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+    }
+
+    private fun setupCameraView() {
+        val preview = Preview.Builder()
+            .setTargetFrameRate(Range(30, 60)).build()
+
+        val selector = CameraSelector.Builder()
+            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+            .build()
+
+        preview.setSurfaceProvider(binding.cameraPreviewView.surfaceProvider)
+
+
+        @Suppress("DEPRECATION")
+        val imageAnalysis = ImageAnalysis.Builder()
+            .setTargetResolution(
+                Size(
+                    binding.cameraPreviewView.width,
+                    binding.cameraPreviewView.height
+                )
+            )
+            .setBackpressureStrategy(STRATEGY_KEEP_ONLY_LATEST)
+            .build()
+
+        imageAnalysis.setAnalyzer(
+            ContextCompat.getMainExecutor(requireContext()),
+            QrCodeAnalyzer { result ->
+                binding.tvResult.text = result
+
+                GeneralUtils.getInstance()
+                    .showToast(
+                        AppController.getInstance(),
+                        result
+                    )
+
+                binding.confirmButton.setOnClickListener {
+                    listener?.submit(result) ?: GeneralUtils.getInstance()
+                        .showToast(
+                            AppController.getInstance(),
+                            "Listener Null!"
+                        )
+                    dismiss()
+                }
+
+            }
+        )
+
+        // ..
+        val cameraProvider = ProcessCameraProvider.getInstance(requireContext())
+
+        val hasCameraPermission = arePermissionsGranted()
+
+        if (hasCameraPermission) {
+
+            try {
+                cameraProvider.get().bindToLifecycle(
+                    viewLifecycleOwner,
+                    selector,
+                    preview,
+                    imageAnalysis
+                )
+            } catch (e: com.google.zxing.NotFoundException) {
+                binding.tvResult.text = e.toString()
+                GeneralUtils.getInstance()
+                    .showToast(
+                        AppController.getInstance(),
+                        e.toString()
+                    )
+                e.printStackTrace()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+        } else {
+            requestPermissions()
+        }
+
+    }
+
+
+    // =====================================================================
+    private fun arePermissionsGranted(): Boolean {
+        return REQUIRED_PERMISSIONS.all {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                it
+            ) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    // this lunch the Permission runtime Dialog for the user asking for the @REQUIRED_PERMISSIONS array of string using the ActivityResultLauncher<Array<String>>
+    private fun requestPermissions() {
+        requestPermissionLauncher.launch(REQUIRED_PERMISSIONS)
+    }
+
+    companion object {
+        private val REQUIRED_PERMISSIONS = arrayOf(
+            Manifest.permission.CAMERA
+        )
+    }
+
+    interface QrCodeCallback {
+        fun submit(result: String)
+    }
+}
+

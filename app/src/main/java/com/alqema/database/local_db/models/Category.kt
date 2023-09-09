@@ -13,7 +13,7 @@ data class Category(
     @ColumnInfo("Category Name")
     override val categoryName: String,
     @ColumnInfo("Category Barcode")
-    val barcodeNumber: Int,
+    val barcodeNumber: String,
     @ColumnInfo("Category MainUnit")
     val mainUnit: String,
     @ColumnInfo("Category SellingPrice")
@@ -36,7 +36,7 @@ data class Category(
 
         private var categoryNumber: Int = 0
         private var categoryName: String = ""
-        private var barcodeNumber: Int = 0
+        private var barcodeNumber: String = "0"
         private var mainUnit: String = "a1"
         private var sellingPrice: Double = 1.1
         private var purchasePrice: Double = 1.1
@@ -51,7 +51,7 @@ data class Category(
             return this
         }
 
-        fun withBarcodeNumber(barcodeNumber: Int): Builder {
+        fun withBarcodeNumber(barcodeNumber: String): Builder {
             this.barcodeNumber = barcodeNumber
             return this
         }

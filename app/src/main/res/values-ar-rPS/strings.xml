@@ -146,5 +146,6 @@
     <string name="display_category">عرض اصناف</string>
     <string name="display_receipt">عرض فواتير بيع</string>
     <string name="display_payment">عرض دفعات</string>
+    <string name="scan_a_qrcode">التقاط الرمز الشريطي</string>
 
 </resources>

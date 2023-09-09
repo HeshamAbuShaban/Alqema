@@ -151,4 +151,5 @@
     <string name="display_category">Display categories</string>
     <string name="display_receipt">Display receipts</string>
     <string name="display_payment">Display payments</string>
+    <string name="scan_a_qrcode">Scan QRCode / BarCode</string>
 </resources>

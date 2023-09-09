@@ -24,7 +24,7 @@ public class AlqemaCategoryDBTest {
         var category = new Category.Builder()
                 .withCategoryNumber(1)
                 .withCategoryName("Bread")
-                .withBarcodeNumber(123)
+                .withBarcodeNumber("123")
                 .withMainUnit("mainUnit")
                 .withSellingPrice(1.0)
                 .withPurchasePrice(0.6)

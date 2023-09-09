@@ -1,0 +1,177 @@
+package com.alqema.holder
+
+class _ReadCameraQrCodeFragment : BottomSheetDialogFragment() {
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<Array<String>>
+    var listener: QrCodeCallback? = null
+
+    private lateinit var cameraProviderFuture: ListenableFuture<ProcessCameraProvider>
+    private lateinit var binding: FragmentReadCameraQrCodeBinding
+
+    /** Blocking camera operations are performed using this executor */
+    private lateinit var cameraExecutor: ExecutorService
+
+    private fun setupCamera() {
+        cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        // Initialize our background executor
+        cameraExecutor = Executors.newSingleThreadExecutor()
+
+        cameraProviderFuture.addListener({
+            val cameraProvider = cameraProviderFuture.get()
+            bindPreview(cameraProvider)
+        }, ContextCompat.getMainExecutor(requireContext()))
+    }
+
+    private fun setupRegister() {
+        requestPermissionLauncher =
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+                // Check if all permissions are granted
+                val allGranted = permissions.all { it.value }
+                if (allGranted) {
+                    // All permissions granted, you can proceed with sending notifications
+                    Toast.makeText(
+                        requireContext(),
+                        "Great Now you are all set to use The QrReader",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    //.. try access camera when done
+                    setupCamera()
+                } else {
+                    // Permission denied, handle accordingly
+                    // At least one permission denied, handle accordingly (e.g., show a message or disable certain features)
+                    Toast.makeText(
+                        requireContext(),
+                        "Permission denied. Cannot create reminder.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        binding = FragmentReadCameraQrCodeBinding.inflate(layoutInflater)
+        setupRegister()
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        if (arePermissionsGranted()) {
+
+            setupCamera()
+
+        } else {
+            requestPermissions()
+        }
+    }
+
+    private fun bindPreview(cameraProvider: ProcessCameraProvider?) {
+
+        cameraProvider?.unbindAll()
+
+        val preview: Preview = Preview.Builder()
+            .build()
+
+        val cameraSelector: CameraSelector = CameraSelector.Builder()
+            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+            .build()
+
+        @Suppress("DEPRECATION") val imageAnalysis = ImageAnalysis.Builder()
+            /*.setTargetResolution(
+                Size(
+                    binding.cameraPreviewView.width,
+                    binding.cameraPreviewView.height
+                )
+            )*/
+            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+            .build()
+
+        val orientationEventListener = object : OrientationEventListener(requireContext()) {
+            override fun onOrientationChanged(orientation: Int) {
+                // Monitors orientation values to determine the target rotation value
+                val rotation: Int = when (orientation) {
+                    in 45..134 -> Surface.ROTATION_270
+                    in 135..224 -> Surface.ROTATION_180
+                    in 225..314 -> Surface.ROTATION_90
+                    else -> Surface.ROTATION_0
+                }
+
+                imageAnalysis.targetRotation = rotation
+            }
+        }
+        orientationEventListener.enable()
+
+        //switch the analyzers here, i.e. MLKitBarcodeAnalyzer, ZXingBarcodeAnalyzer
+        /*class ScanningListener : ScanningResultListener {
+            override fun onScanned(result: String) {
+                lifecycleScope.launch {
+                    imageAnalysis.clearAnalyzer()
+                    cameraProvider?.unbindAll()
+
+                    binding.tvResult.text = result
+                    binding.confirmButton.setOnClickListener {
+                        listener?.submit(result)
+                    }
+
+                }
+            }
+        }*/
+
+        val analyzer: ImageAnalysis.Analyzer =
+            ZXingBarcodeAnalyzer(object : ScanningResultListener {
+                override fun onScanned(result: String) {
+                    lifecycleScope.launch {
+                        imageAnalysis.clearAnalyzer()
+                        cameraProvider?.unbindAll()
+
+                        /*
+                            binding.tvResult.text = result
+                            binding.confirmButton.setOnClickListener {
+                                listener?.submit(result)
+                            }*/
+                        listener?.submit(result.text)
+
+                    }
+                }
+            })
+
+        imageAnalysis.setAnalyzer(cameraExecutor, analyzer)
+
+//        preview.setSurfaceProvider(binding.cameraPreviewView.surfaceProvider)
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Shut down our background executor
+        cameraExecutor.shutdown()
+    }
+
+    // =====================================================================
+    private fun arePermissionsGranted(): Boolean {
+        return REQUIRED_PERMISSIONS.all {
+            ContextCompat.checkSelfPermission(
+                requireContext(),
+                it
+            ) == PackageManager.PERMISSION_GRANTED
+        }
+    }
+
+    // this lunch the Permission runtime Dialog for the user asking for the @REQUIRED_PERMISSIONS array of string using the ActivityResultLauncher<Array<String>>
+    private fun requestPermissions() {
+        requestPermissionLauncher.launch(REQUIRED_PERMISSIONS)
+    }
+
+    companion object {
+        private val REQUIRED_PERMISSIONS = arrayOf(
+            Manifest.permission.CAMERA
+        )
+    }
+
+    interface QrCodeCallback {
+        fun submit(result: String)
+    }
+}

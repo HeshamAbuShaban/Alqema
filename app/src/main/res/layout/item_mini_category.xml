@@ -53,6 +53,15 @@
                 android:textAlignment="center"
                 android:textSize="@dimen/_14ssp" />
 
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/AppItemMiniText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/selling_price"
+                android:textAlignment="center"
+                android:textSize="@dimen/_14ssp" />
+
         </LinearLayout>
         <!--Values-->
         <LinearLayout
@@ -74,6 +83,17 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/categoryName"
+                style="@style/AppItemMiniText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5ssp"
+                android:textAlignment="center"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold"
+                tools:text="Hello,World" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/categorySellingPrice"
                 style="@style/AppItemMiniText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
