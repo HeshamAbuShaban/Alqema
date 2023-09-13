@@ -12,6 +12,7 @@ class AccountViewHolder(private val binding: ItemAccountBinding) :
         with(binding) {
             accountId.text = account.accountNumber.toString()
             accountName.text = account.accountName
+            accountBalance.text = account.balance.toFloat().toString()
         }
     }
 

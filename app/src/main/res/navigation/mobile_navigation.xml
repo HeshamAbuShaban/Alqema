@@ -214,4 +214,14 @@
         android:name="com.alqema.ui.fragments.dialogs.display.ExpandedAccountFragment"
         android:label="fragment_expanded_account"
         tools:layout="@layout/fragment_expanded_account" />
+    <dialog
+        android:id="@+id/readCameraQrCodeFragment"
+        android:name="com.alqema.ui.fragments.dialogs.read_camera.ReadCameraQrCodeFragment"
+        android:label="fragment_read_camera_qr_code"
+        tools:layout="@layout/fragment_read_camera_qr_code" />
+    <dialog
+        android:id="@+id/expandedCategoryFragment"
+        android:name="com.alqema.ui.fragments.dialogs.display.ExpandedCategoryFragment"
+        android:label="fragment_expanded_category"
+        tools:layout="@layout/fragment_expanded_category" />
 </navigation>

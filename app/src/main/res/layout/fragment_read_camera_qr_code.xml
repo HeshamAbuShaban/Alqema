@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#303030"
+    android:background="@drawable/shape_home_view_pager"
     tools:context=".ui.fragments.dialogs.read_camera.ReadCameraQrCodeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <View
+        <com.google.android.material.bottomsheet.BottomSheetDragHandleView
             android:id="@+id/spacerTop"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <com.budiyev.android.codescanner.CodeScannerView
             android:id="@+id/scanner_view"
@@ -74,4 +74,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

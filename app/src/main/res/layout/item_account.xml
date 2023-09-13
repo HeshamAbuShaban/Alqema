@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:text="@string/id"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
                     android:textSize="20sp" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -58,7 +58,16 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:text="@string/name"
-                    android:textAlignment="center"
+                    android:textAlignment="textStart"
+                    android:textSize="20sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/AppTitleText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:text="@string/balance"
+                    android:textAlignment="textStart"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -81,6 +90,16 @@
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/accountName"
+                    style="@style/AppText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    tools:text="Hello,World" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/accountBalance"
                     style="@style/AppText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

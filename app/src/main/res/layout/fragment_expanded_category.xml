@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.fragments.dialogs.display.ExpandedAccountFragment">
-
+    tools:context=".ui.fragments.dialogs.display.ExpandedCategoryFragment">
 
     <com.google.android.material.bottomsheet.BottomSheetDragHandleView
         android:id="@+id/bottomSheetDragHandleView"
@@ -59,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/account_detail"
+                android:text="@string/barcode"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -69,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/mobile"
+                android:text="@string/main_unit"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -78,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/address"
+                android:text="@string/selling_price"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -87,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/belongs_to_account"
+                android:text="@string/purchase_price"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -96,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/account_nature"
+                android:text="@string/unit_name"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -105,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/account_type"
+                android:text="@string/quantity_of_unit"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -114,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/account_currency"
+                android:text="@string/unit_price"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -123,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="@string/balance"
+                android:text="@string/unit_barcode"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -136,7 +135,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountId"
+                android:id="@+id/categoryId"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +145,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountName"
+                android:id="@+id/categoryName"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,7 +155,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountDetails"
+                android:id="@+id/categoryBarcode"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -166,7 +165,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountMobile"
+                android:id="@+id/categoryMainUnit"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -176,7 +175,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountAddress"
+                android:id="@+id/categorySellingPrice"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,7 +185,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountBelongsTo"
+                android:id="@+id/categoryPurchasePrice"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +195,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountNature"
+                android:id="@+id/unitName"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -206,7 +205,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountType"
+                android:id="@+id/unitQuantity"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -216,7 +215,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountCurrency"
+                android:id="@+id/unitPrice"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -226,7 +225,7 @@
                 tools:text="Hello,World" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/accountBalance"
+                android:id="@+id/unitBarcode"
                 style="@style/AppText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

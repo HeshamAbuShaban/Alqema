@@ -11,13 +11,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.alqema.adapters.listeners.CategoryContract
 import com.alqema.adapters.listeners.OnItemClickListener
+import com.alqema.adapters.listeners.OnItemExpandClickListener
 import com.alqema.adapters.recycler_view.category.CategoryAdapter
+import com.alqema.database.local_db.models.Category
 import com.alqema.database.vm.DatabaseViewModel
 import com.alqema.databinding.FragmentCategoryDisplayBinding
-import com.alqema.database.local_db.models.Category
+import com.alqema.ui.fragments.dialogs.display.ExpandedCategoryFragment
 import com.alqema.utils.GeneralUtils
 
-class CategoryDisplayFragment : Fragment(), OnItemClickListener<CategoryContract> {
+class CategoryDisplayFragment : Fragment(),
+    OnItemClickListener<CategoryContract>,
+    OnItemExpandClickListener<Category> {
     private lateinit var binding: FragmentCategoryDisplayBinding
 
     private lateinit var viewModel: CategoryDisplayViewModel
@@ -71,17 +75,26 @@ class CategoryDisplayFragment : Fragment(), OnItemClickListener<CategoryContract
     private fun setupCategoryAdapter(categoryList: List<Category>) {
         with(binding.categoriesRecyclerView) {
             setHasFixedSize(true)
-            adapter = CategoryAdapter(categoryList).also {
-                it.registerOnItemClickListener(this@CategoryDisplayFragment)
+            adapter = CategoryAdapter(categoryList).apply {
+                registerOnItemClickListener(this@CategoryDisplayFragment)
+                registerOnExpandItemClickListener(this@CategoryDisplayFragment)
             }
         }
     }
 
     override fun onClick(obj: CategoryContract) {
         val navCon = findNavController()
-        val action = CategoryDisplayFragmentDirections.actionNavigationCategoryDisplayToNavigationAddCategory(obj.categoryNumber)
+        val action =
+            CategoryDisplayFragmentDirections.actionNavigationCategoryDisplayToNavigationAddCategory(
+                obj.categoryNumber
+            )
         navCon.navigate(action)
         GeneralUtils.getInstance().showSnackBar(binding.root, obj.categoryName)
+    }
+
+    override fun onExpandClick(obj: Category) {
+        val dialog = ExpandedCategoryFragment(obj)
+        dialog.show(childFragmentManager, "Expand Category Details Event")
     }
 
 }
